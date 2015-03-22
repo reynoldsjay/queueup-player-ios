@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7088C58A-CAA6-4BB0-87C4-C05B2E4276DF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>QueueUp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3B3C99883C0B767F71875E45AB2B4C880AD2AC7C</key>
+		<string>github.com:reynoldsjay/queueup-player-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>QueueUp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3B3C99883C0B767F71875E45AB2B4C880AD2AC7C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:reynoldsjay/queueup-player-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3B3C99883C0B767F71875E45AB2B4C880AD2AC7C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3B3C99883C0B767F71875E45AB2B4C880AD2AC7C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>QueueUp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

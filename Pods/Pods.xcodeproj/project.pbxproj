@@ -1,0 +1,865 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		186093B0BEAB1D8B72AD250E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42122EF2599EC5781C7F45C9 /* Foundation.framework */; };
+		1A02A674BAAC73D58EE46617 /* SIOSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = C323A0D4DAA68A8DBE55ACDC /* SIOSocket.h */; };
+		252C5F60D9BC61530C394B1E /* SIOSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = C323A0D4DAA68A8DBE55ACDC /* SIOSocket.h */; };
+		2B2DA60FCECF803A03577F7D /* SIOSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4510853A0B591F89EA7251A7 /* SIOSocket.m */; };
+		421E326FAC8E349729D9293D /* Pods-QueueUpTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0CA449C4CD8E1A20B8CD1B /* Pods-QueueUpTests-dummy.m */; };
+		5006EEDEC9F89C423567A0A8 /* SIOSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4510853A0B591F89EA7251A7 /* SIOSocket.m */; };
+		50D2246DD673BC3FBE2D9783 /* Pods-QueueUp-SIOSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E2133FED8D6E104AC495F04B /* Pods-QueueUp-SIOSocket-dummy.m */; };
+		665434720E34019F78227E80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42122EF2599EC5781C7F45C9 /* Foundation.framework */; };
+		7C93E4A66520D0E308BDA646 /* SIOSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = C323A0D4DAA68A8DBE55ACDC /* SIOSocket.h */; };
+		7CE484A1D69089BDDB7E63CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42122EF2599EC5781C7F45C9 /* Foundation.framework */; };
+		89BBAAF4A4CD0B0481A5AD62 /* socket.io.js.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A57180C5F60A6F428AADA5 /* socket.io.js.h */; };
+		94384883466DFD42B0DA3C01 /* Pods-SIOSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 980D35F89CBE94FF550BE54A /* Pods-SIOSocket-dummy.m */; };
+		B393A63EB1EFFDC1DB090421 /* Pods-QueueUpTests-SIOSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF460CD024AC22E7DC63583 /* Pods-QueueUpTests-SIOSocket-dummy.m */; };
+		B8C9DFDD5CB8A455504817CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42122EF2599EC5781C7F45C9 /* Foundation.framework */; };
+		C2B7F16388136EA15453F98E /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B40479FC062824CD10A3C3 /* Pods-dummy.m */; };
+		CBC90E96502E2DB29CB0FA2A /* socket.io.js.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A57180C5F60A6F428AADA5 /* socket.io.js.h */; };
+		DB649069E091D48010640E8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42122EF2599EC5781C7F45C9 /* Foundation.framework */; };
+		E4F46FB1049F8C22188F2E7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42122EF2599EC5781C7F45C9 /* Foundation.framework */; };
+		E87A489747F2EF16E87F65F2 /* socket.io.js.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A57180C5F60A6F428AADA5 /* socket.io.js.h */; };
+		EBBDC1D7D4ADAD410A52D224 /* SIOSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4510853A0B591F89EA7251A7 /* SIOSocket.m */; };
+		F67EC282B8086F22A4173341 /* Pods-QueueUp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 022BED54D784400C92FF9EFF /* Pods-QueueUp-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D61A888D0D2118E294101D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 713733635C5481F07F65DA3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 527C262A74FEC51D4E7F85E6;
+			remoteInfo = "Pods-QueueUp-SIOSocket";
+		};
+		70DDFB6FCC7A68B063344C29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 713733635C5481F07F65DA3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15D25D162FE6641B4AA251F1;
+			remoteInfo = "Pods-QueueUpTests-SIOSocket";
+		};
+		F78716F7E164B4F788B389BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 713733635C5481F07F65DA3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 436F5D1221D6C0F2D2945BA9;
+			remoteInfo = "Pods-SIOSocket";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		022BED54D784400C92FF9EFF /* Pods-QueueUp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-QueueUp-dummy.m"; sourceTree = "<group>"; };
+		122E056E246AB483B5E61700 /* Pods-QueueUpTests-SIOSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QueueUpTests-SIOSocket.xcconfig"; path = "../Pods-QueueUpTests-SIOSocket/Pods-QueueUpTests-SIOSocket.xcconfig"; sourceTree = "<group>"; };
+		21C3B2F7E43F7A1ABE93FE6F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		2923B41E1DD2CED9701A3846 /* Pods-QueueUp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-QueueUp-resources.sh"; sourceTree = "<group>"; };
+		355A10AF19E67D10EB6C6AF0 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		35D9E0E30C4C22193C016CBD /* Pods-QueueUpTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-QueueUpTests-resources.sh"; sourceTree = "<group>"; };
+		392E753E211069239EE2168B /* Pods-QueueUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QueueUp.release.xcconfig"; sourceTree = "<group>"; };
+		3DCFA5AF5900C77BEC6D94DF /* Pods-QueueUpTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-QueueUpTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		42122EF2599EC5781C7F45C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4510853A0B591F89EA7251A7 /* SIOSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SIOSocket.m; path = SocketIO/Source/SIOSocket.m; sourceTree = "<group>"; };
+		454662095DC97E0F3F927507 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		47B40479FC062824CD10A3C3 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		50A57180C5F60A6F428AADA5 /* socket.io.js.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = socket.io.js.h; path = SocketIO/Source/socket.io.js.h; sourceTree = "<group>"; };
+		52465745A04A2136F76A7878 /* Pods-QueueUpTests-SIOSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-QueueUpTests-SIOSocket-prefix.pch"; path = "../Pods-QueueUpTests-SIOSocket/Pods-QueueUpTests-SIOSocket-prefix.pch"; sourceTree = "<group>"; };
+		52FE1CE49589FD0A451366B5 /* Pods-QueueUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QueueUp.debug.xcconfig"; sourceTree = "<group>"; };
+		53544C836340DC5C9BE0D14A /* Pods-QueueUpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QueueUpTests.debug.xcconfig"; sourceTree = "<group>"; };
+		574BB5B5BF50CFA861AA665B /* Pods-QueueUp-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-QueueUp-environment.h"; sourceTree = "<group>"; };
+		5AB133336C8E2FEFA1AD154C /* Pods-QueueUp-SIOSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QueueUp-SIOSocket.xcconfig"; sourceTree = "<group>"; };
+		68C67AA07FF1F3AE5EC2E228 /* Pods-QueueUp-SIOSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-QueueUp-SIOSocket-prefix.pch"; sourceTree = "<group>"; };
+		69B3630E75F497316F2ED92C /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		6FF460CD024AC22E7DC63583 /* Pods-QueueUpTests-SIOSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-QueueUpTests-SIOSocket-dummy.m"; path = "../Pods-QueueUpTests-SIOSocket/Pods-QueueUpTests-SIOSocket-dummy.m"; sourceTree = "<group>"; };
+		72830A5C0642B8AA84B13106 /* Pods-QueueUpTests-SIOSocket-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QueueUpTests-SIOSocket-Private.xcconfig"; path = "../Pods-QueueUpTests-SIOSocket/Pods-QueueUpTests-SIOSocket-Private.xcconfig"; sourceTree = "<group>"; };
+		799199BB0B6F8D3FF89DA71E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		79DE7F7FAA983EF4C02980A8 /* Pods-QueueUp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-QueueUp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7D2DCBC5D7B33C59BBFF38FB /* libPods-QueueUpTests-SIOSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QueueUpTests-SIOSocket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84F68F553E6CBEFD55F897CD /* Pods-SIOSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SIOSocket.xcconfig"; path = "../Pods-SIOSocket/Pods-SIOSocket.xcconfig"; sourceTree = "<group>"; };
+		887981E00038E07DF4FBBC4E /* Pods-QueueUpTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-QueueUpTests-environment.h"; sourceTree = "<group>"; };
+		8B0AA5DFAB3D52EA59940375 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B0CA449C4CD8E1A20B8CD1B /* Pods-QueueUpTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-QueueUpTests-dummy.m"; sourceTree = "<group>"; };
+		980D35F89CBE94FF550BE54A /* Pods-SIOSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-SIOSocket-dummy.m"; path = "../Pods-SIOSocket/Pods-SIOSocket-dummy.m"; sourceTree = "<group>"; };
+		9BF6A8A05800D5581610634D /* libPods-SIOSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SIOSocket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7C808ECB8189FEF39564C3D /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BCDF3DF6889BA5D424EE0EFB /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		BFE22167553CF59C4E7B8911 /* Pods-QueueUp-SIOSocket-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QueueUp-SIOSocket-Private.xcconfig"; sourceTree = "<group>"; };
+		C323A0D4DAA68A8DBE55ACDC /* SIOSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SIOSocket.h; path = SocketIO/Source/SIOSocket.h; sourceTree = "<group>"; };
+		C3E55CD2DF54DB7DC0D5E8D1 /* Pods-QueueUpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QueueUpTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3FAE5B9A1706DB44911D92E /* Pods-QueueUpTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-QueueUpTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CB893C67962AABDC36FCD46A /* Pods-SIOSocket-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SIOSocket-Private.xcconfig"; path = "../Pods-SIOSocket/Pods-SIOSocket-Private.xcconfig"; sourceTree = "<group>"; };
+		CD68105B34E04A6376ED574B /* libPods-QueueUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QueueUp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2FC14286603C24BA82C5CD5 /* Pods-QueueUp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-QueueUp-acknowledgements.plist"; sourceTree = "<group>"; };
+		E2133FED8D6E104AC495F04B /* Pods-QueueUp-SIOSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-QueueUp-SIOSocket-dummy.m"; sourceTree = "<group>"; };
+		F256E3D8FB6827BAFEF9043A /* Pods-SIOSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-SIOSocket-prefix.pch"; path = "../Pods-SIOSocket/Pods-SIOSocket-prefix.pch"; sourceTree = "<group>"; };
+		F77F448706E2554C3D72F2A1 /* libPods-QueueUpTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QueueUpTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F984487FA79274639E77E2F3 /* libPods-QueueUp-SIOSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QueueUp-SIOSocket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22F3BACC841846A4E17BBE39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4F46FB1049F8C22188F2E7B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		647E4203D1AE92B0125717A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB649069E091D48010640E8D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C288C92336208FBD69353D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				186093B0BEAB1D8B72AD250E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87CE6E6C216E494378E7ACF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				665434720E34019F78227E80 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7728FBFD9A7DA486C0165D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8C9DFDD5CB8A455504817CB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F193E5969579F11382577BFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CE484A1D69089BDDB7E63CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09313FB5E65FF823456F43E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				799199BB0B6F8D3FF89DA71E /* Pods-acknowledgements.markdown */,
+				355A10AF19E67D10EB6C6AF0 /* Pods-acknowledgements.plist */,
+				47B40479FC062824CD10A3C3 /* Pods-dummy.m */,
+				69B3630E75F497316F2ED92C /* Pods-environment.h */,
+				BCDF3DF6889BA5D424EE0EFB /* Pods-resources.sh */,
+				21C3B2F7E43F7A1ABE93FE6F /* Pods.debug.xcconfig */,
+				454662095DC97E0F3F927507 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		1021A4C5374F33CC93B1612F /* Pods-QueueUp */ = {
+			isa = PBXGroup;
+			children = (
+				79DE7F7FAA983EF4C02980A8 /* Pods-QueueUp-acknowledgements.markdown */,
+				D2FC14286603C24BA82C5CD5 /* Pods-QueueUp-acknowledgements.plist */,
+				022BED54D784400C92FF9EFF /* Pods-QueueUp-dummy.m */,
+				574BB5B5BF50CFA861AA665B /* Pods-QueueUp-environment.h */,
+				2923B41E1DD2CED9701A3846 /* Pods-QueueUp-resources.sh */,
+				52FE1CE49589FD0A451366B5 /* Pods-QueueUp.debug.xcconfig */,
+				392E753E211069239EE2168B /* Pods-QueueUp.release.xcconfig */,
+			);
+			name = "Pods-QueueUp";
+			path = "Target Support Files/Pods-QueueUp";
+			sourceTree = "<group>";
+		};
+		2416602F36528EF9CD24A36F /* Pods-QueueUpTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3FAE5B9A1706DB44911D92E /* Pods-QueueUpTests-acknowledgements.markdown */,
+				3DCFA5AF5900C77BEC6D94DF /* Pods-QueueUpTests-acknowledgements.plist */,
+				8B0CA449C4CD8E1A20B8CD1B /* Pods-QueueUpTests-dummy.m */,
+				887981E00038E07DF4FBBC4E /* Pods-QueueUpTests-environment.h */,
+				35D9E0E30C4C22193C016CBD /* Pods-QueueUpTests-resources.sh */,
+				53544C836340DC5C9BE0D14A /* Pods-QueueUpTests.debug.xcconfig */,
+				C3E55CD2DF54DB7DC0D5E8D1 /* Pods-QueueUpTests.release.xcconfig */,
+			);
+			name = "Pods-QueueUpTests";
+			path = "Target Support Files/Pods-QueueUpTests";
+			sourceTree = "<group>";
+		};
+		37A2652C62DC37BE33101D29 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				09313FB5E65FF823456F43E3 /* Pods */,
+				1021A4C5374F33CC93B1612F /* Pods-QueueUp */,
+				2416602F36528EF9CD24A36F /* Pods-QueueUpTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		4857F70C0FBC4F8EEAC0AD1B = {
+			isa = PBXGroup;
+			children = (
+				B7C808ECB8189FEF39564C3D /* Podfile */,
+				6E2CCA9F75228F9AC5DB1DB9 /* Frameworks */,
+				E139B70A6A51F1CFABA626E2 /* Pods */,
+				CE303F9B181AD0F7E14F2667 /* Products */,
+				37A2652C62DC37BE33101D29 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		6A8015189797E62BBF75B259 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				42122EF2599EC5781C7F45C9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6E2CCA9F75228F9AC5DB1DB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A8015189797E62BBF75B259 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81783E120A6DBF7F6DCB40F9 /* SIOSocket */ = {
+			isa = PBXGroup;
+			children = (
+				C323A0D4DAA68A8DBE55ACDC /* SIOSocket.h */,
+				4510853A0B591F89EA7251A7 /* SIOSocket.m */,
+				50A57180C5F60A6F428AADA5 /* socket.io.js.h */,
+				96367B9AE0F880A98A8779F2 /* Support Files */,
+			);
+			path = SIOSocket;
+			sourceTree = "<group>";
+		};
+		96367B9AE0F880A98A8779F2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AB133336C8E2FEFA1AD154C /* Pods-QueueUp-SIOSocket.xcconfig */,
+				BFE22167553CF59C4E7B8911 /* Pods-QueueUp-SIOSocket-Private.xcconfig */,
+				E2133FED8D6E104AC495F04B /* Pods-QueueUp-SIOSocket-dummy.m */,
+				68C67AA07FF1F3AE5EC2E228 /* Pods-QueueUp-SIOSocket-prefix.pch */,
+				122E056E246AB483B5E61700 /* Pods-QueueUpTests-SIOSocket.xcconfig */,
+				72830A5C0642B8AA84B13106 /* Pods-QueueUpTests-SIOSocket-Private.xcconfig */,
+				6FF460CD024AC22E7DC63583 /* Pods-QueueUpTests-SIOSocket-dummy.m */,
+				52465745A04A2136F76A7878 /* Pods-QueueUpTests-SIOSocket-prefix.pch */,
+				84F68F553E6CBEFD55F897CD /* Pods-SIOSocket.xcconfig */,
+				CB893C67962AABDC36FCD46A /* Pods-SIOSocket-Private.xcconfig */,
+				980D35F89CBE94FF550BE54A /* Pods-SIOSocket-dummy.m */,
+				F256E3D8FB6827BAFEF9043A /* Pods-SIOSocket-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-QueueUp-SIOSocket";
+			sourceTree = "<group>";
+		};
+		CE303F9B181AD0F7E14F2667 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B0AA5DFAB3D52EA59940375 /* libPods.a */,
+				CD68105B34E04A6376ED574B /* libPods-QueueUp.a */,
+				F984487FA79274639E77E2F3 /* libPods-QueueUp-SIOSocket.a */,
+				F77F448706E2554C3D72F2A1 /* libPods-QueueUpTests.a */,
+				7D2DCBC5D7B33C59BBFF38FB /* libPods-QueueUpTests-SIOSocket.a */,
+				9BF6A8A05800D5581610634D /* libPods-SIOSocket.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E139B70A6A51F1CFABA626E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81783E120A6DBF7F6DCB40F9 /* SIOSocket */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		15A9FC272C48A0A13AA0D176 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				252C5F60D9BC61530C394B1E /* SIOSocket.h in Headers */,
+				89BBAAF4A4CD0B0481A5AD62 /* socket.io.js.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A9E397F5C26A8122B52FE22 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C93E4A66520D0E308BDA646 /* SIOSocket.h in Headers */,
+				E87A489747F2EF16E87F65F2 /* socket.io.js.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEC0D0A12B3432E65DFE9993 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A02A674BAAC73D58EE46617 /* SIOSocket.h in Headers */,
+				CBC90E96502E2DB29CB0FA2A /* socket.io.js.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		15D25D162FE6641B4AA251F1 /* Pods-QueueUpTests-SIOSocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E29CDE1C6253F91E38C3F97C /* Build configuration list for PBXNativeTarget "Pods-QueueUpTests-SIOSocket" */;
+			buildPhases = (
+				0E20306CBE2F1B179CD84B39 /* Sources */,
+				F193E5969579F11382577BFC /* Frameworks */,
+				15A9FC272C48A0A13AA0D176 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-QueueUpTests-SIOSocket";
+			productName = "Pods-QueueUpTests-SIOSocket";
+			productReference = 7D2DCBC5D7B33C59BBFF38FB /* libPods-QueueUpTests-SIOSocket.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		436F5D1221D6C0F2D2945BA9 /* Pods-SIOSocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 212E9AA5FC5634DB3C4575A2 /* Build configuration list for PBXNativeTarget "Pods-SIOSocket" */;
+			buildPhases = (
+				8C1E3FA77AB466E15EFE343F /* Sources */,
+				22F3BACC841846A4E17BBE39 /* Frameworks */,
+				BEC0D0A12B3432E65DFE9993 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SIOSocket";
+			productName = "Pods-SIOSocket";
+			productReference = 9BF6A8A05800D5581610634D /* libPods-SIOSocket.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		527C262A74FEC51D4E7F85E6 /* Pods-QueueUp-SIOSocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE6B0CB952A46FFD487C7150 /* Build configuration list for PBXNativeTarget "Pods-QueueUp-SIOSocket" */;
+			buildPhases = (
+				69B6C68ADBBF62D0F2EC7AFF /* Sources */,
+				87CE6E6C216E494378E7ACF6 /* Frameworks */,
+				9A9E397F5C26A8122B52FE22 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-QueueUp-SIOSocket";
+			productName = "Pods-QueueUp-SIOSocket";
+			productReference = F984487FA79274639E77E2F3 /* libPods-QueueUp-SIOSocket.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6BC25E40C2767C79C40F9FC6 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BD2E8CE5B34ABB7D9DA2F91 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				80AAE09D805C461C989D6803 /* Sources */,
+				E7728FBFD9A7DA486C0165D3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E0B350D766CF671B4BDDF57 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 8B0AA5DFAB3D52EA59940375 /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		88FDDA657A362004FF1C2E0D /* Pods-QueueUpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3D3E4FC5309E24B462E9E32 /* Build configuration list for PBXNativeTarget "Pods-QueueUpTests" */;
+			buildPhases = (
+				E99BD6441147EE8C84CFFFD4 /* Sources */,
+				7C288C92336208FBD69353D4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B0E221B1F87381FDA7B37D5 /* PBXTargetDependency */,
+			);
+			name = "Pods-QueueUpTests";
+			productName = "Pods-QueueUpTests";
+			productReference = F77F448706E2554C3D72F2A1 /* libPods-QueueUpTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E35DD736F5254178929D1035 /* Pods-QueueUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39E6A20CFEA6C15832D7B00E /* Build configuration list for PBXNativeTarget "Pods-QueueUp" */;
+			buildPhases = (
+				5EED937C1C35F1DAFC0D7FF3 /* Sources */,
+				647E4203D1AE92B0125717A5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				249017B4FDC2004A726FC6A9 /* PBXTargetDependency */,
+			);
+			name = "Pods-QueueUp";
+			productName = "Pods-QueueUp";
+			productReference = CD68105B34E04A6376ED574B /* libPods-QueueUp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		713733635C5481F07F65DA3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 6C5CC455066CC006A3FE5C51 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4857F70C0FBC4F8EEAC0AD1B;
+			productRefGroup = CE303F9B181AD0F7E14F2667 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6BC25E40C2767C79C40F9FC6 /* Pods */,
+				E35DD736F5254178929D1035 /* Pods-QueueUp */,
+				527C262A74FEC51D4E7F85E6 /* Pods-QueueUp-SIOSocket */,
+				88FDDA657A362004FF1C2E0D /* Pods-QueueUpTests */,
+				15D25D162FE6641B4AA251F1 /* Pods-QueueUpTests-SIOSocket */,
+				436F5D1221D6C0F2D2945BA9 /* Pods-SIOSocket */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E20306CBE2F1B179CD84B39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B393A63EB1EFFDC1DB090421 /* Pods-QueueUpTests-SIOSocket-dummy.m in Sources */,
+				EBBDC1D7D4ADAD410A52D224 /* SIOSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EED937C1C35F1DAFC0D7FF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F67EC282B8086F22A4173341 /* Pods-QueueUp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69B6C68ADBBF62D0F2EC7AFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D2246DD673BC3FBE2D9783 /* Pods-QueueUp-SIOSocket-dummy.m in Sources */,
+				5006EEDEC9F89C423567A0A8 /* SIOSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80AAE09D805C461C989D6803 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2B7F16388136EA15453F98E /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C1E3FA77AB466E15EFE343F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94384883466DFD42B0DA3C01 /* Pods-SIOSocket-dummy.m in Sources */,
+				2B2DA60FCECF803A03577F7D /* SIOSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E99BD6441147EE8C84CFFFD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				421E326FAC8E349729D9293D /* Pods-QueueUpTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		249017B4FDC2004A726FC6A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-QueueUp-SIOSocket";
+			target = 527C262A74FEC51D4E7F85E6 /* Pods-QueueUp-SIOSocket */;
+			targetProxy = 2D61A888D0D2118E294101D6 /* PBXContainerItemProxy */;
+		};
+		8E0B350D766CF671B4BDDF57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SIOSocket";
+			target = 436F5D1221D6C0F2D2945BA9 /* Pods-SIOSocket */;
+			targetProxy = F78716F7E164B4F788B389BC /* PBXContainerItemProxy */;
+		};
+		9B0E221B1F87381FDA7B37D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-QueueUpTests-SIOSocket";
+			target = 15D25D162FE6641B4AA251F1 /* Pods-QueueUpTests-SIOSocket */;
+			targetProxy = 70DDFB6FCC7A68B063344C29 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		089ABF579D80FE0F8A63E909 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3E55CD2DF54DB7DC0D5E8D1 /* Pods-QueueUpTests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		14CD339F417E0D237E2C2354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21C3B2F7E43F7A1ABE93FE6F /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		22498ECB3C334B8534CDB94C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFE22167553CF59C4E7B8911 /* Pods-QueueUp-SIOSocket-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-QueueUp-SIOSocket/Pods-QueueUp-SIOSocket-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		45A5743C6D0DA8C3D345F176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB893C67962AABDC36FCD46A /* Pods-SIOSocket-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SIOSocket/Pods-SIOSocket-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4EB287751946927505BAFF78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 392E753E211069239EE2168B /* Pods-QueueUp.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		54557608759BEED034DC32DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72830A5C0642B8AA84B13106 /* Pods-QueueUpTests-SIOSocket-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-QueueUpTests-SIOSocket/Pods-QueueUpTests-SIOSocket-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		58E36CC6406FEDF1E7FC50E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A2B64086A9EA54E9BA171B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72830A5C0642B8AA84B13106 /* Pods-QueueUpTests-SIOSocket-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-QueueUpTests-SIOSocket/Pods-QueueUpTests-SIOSocket-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B7FB10AC0C2EE9D7FD672360 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53544C836340DC5C9BE0D14A /* Pods-QueueUpTests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C1063EEC11ACFB37BF2DE367 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 454662095DC97E0F3F927507 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C9DB29A6A156F6B313348C06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB893C67962AABDC36FCD46A /* Pods-SIOSocket-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SIOSocket/Pods-SIOSocket-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F7EA13A85D4840DD21A93AA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFE22167553CF59C4E7B8911 /* Pods-QueueUp-SIOSocket-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-QueueUp-SIOSocket/Pods-QueueUp-SIOSocket-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F9532FE14AC69E278D760AC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		FB449C813D353C2B7EF39581 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52FE1CE49589FD0A451366B5 /* Pods-QueueUp.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		212E9AA5FC5634DB3C4575A2 /* Build configuration list for PBXNativeTarget "Pods-SIOSocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9DB29A6A156F6B313348C06 /* Debug */,
+				45A5743C6D0DA8C3D345F176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39E6A20CFEA6C15832D7B00E /* Build configuration list for PBXNativeTarget "Pods-QueueUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB449C813D353C2B7EF39581 /* Debug */,
+				4EB287751946927505BAFF78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C5CC455066CC006A3FE5C51 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9532FE14AC69E278D760AC7 /* Debug */,
+				58E36CC6406FEDF1E7FC50E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BD2E8CE5B34ABB7D9DA2F91 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14CD339F417E0D237E2C2354 /* Debug */,
+				C1063EEC11ACFB37BF2DE367 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3D3E4FC5309E24B462E9E32 /* Build configuration list for PBXNativeTarget "Pods-QueueUpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7FB10AC0C2EE9D7FD672360 /* Debug */,
+				089ABF579D80FE0F8A63E909 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE6B0CB952A46FFD487C7150 /* Build configuration list for PBXNativeTarget "Pods-QueueUp-SIOSocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7EA13A85D4840DD21A93AA2 /* Debug */,
+				22498ECB3C334B8534CDB94C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E29CDE1C6253F91E38C3F97C /* Build configuration list for PBXNativeTarget "Pods-QueueUpTests-SIOSocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A2B64086A9EA54E9BA171B7 /* Debug */,
+				54557608759BEED034DC32DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 713733635C5481F07F65DA3C /* Project object */;
+}
