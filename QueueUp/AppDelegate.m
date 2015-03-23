@@ -1,5 +1,6 @@
 #import <Spotify/Spotify.h>
 #import "AppDelegate.h"
+#import "Playlist.h"
 
 // Constants
 static NSString * const kClientId = @"8f3024630b4b41c1b4205ff79a13d7a7";
@@ -15,6 +16,9 @@ static NSString * const kTokenSwapURL = @"http://localhost:1234/swap";
 
 
 @implementation AppDelegate
+
+
+@synthesize currentPlaylist = _currentPlaylist;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     

@@ -7,24 +7,26 @@
 //
 
 #import "ViewController.h"
-#import <SIOSocket/SIOSocket.h>
 #import "Playlist.h"
+#import "PlayerViewController.h"
+#import "AppDelegate.h"
 
 
 @interface ViewController ()
 
-@property SIOSocket *socket;
-@property BOOL socketIsConnected;
 
 @end
 
 @implementation ViewController {
     NSMutableDictionary *playlists;
     NSMutableArray *playlistHolder;
+    AppDelegate *appDelegate;
 }
 
 - (void)viewDidLoad {
     playlistHolder = [[NSMutableArray alloc] init];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -49,23 +51,6 @@
         }
     }
     
-    
-    
-    
-    [SIOSocket socketWithHost: @"http://queueup.louiswilliams.org" response: ^(SIOSocket *socket) {
-        self.socket = socket;
-        
-        __weak typeof(self) weakSelf = self;
-        
-        // on connecting to socket
-        self.socket.onConnect = ^()
-        {
-            weakSelf.socketIsConnected = YES;
-        };
-        
-        
-    }];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -85,6 +70,16 @@
     
     cell.textLabel.text = ((Playlist*)[playlistHolder objectAtIndex:indexPath.row]).name;
     return cell;
+}
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    appDelegate.currentPlaylist = ((Playlist*)[playlistHolder objectAtIndex:indexPath.row]);
+    [self performSegueWithIdentifier:@"player" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {

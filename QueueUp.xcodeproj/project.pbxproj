@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		813146821ABF8E5C002CBD2E /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813146811ABF8E5C002CBD2E /* Spotify.framework */; };
 		813146841ABFD214002CBD2E /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146831ABFD214002CBD2E /* Playlist.m */; };
+		813146881AC0572B002CBD2E /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146871AC0572B002CBD2E /* PlayerViewController.m */; };
 		813DF7A31ABE1EC30057D655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A21ABE1EC30057D655 /* main.m */; };
 		813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A51ABE1EC30057D655 /* AppDelegate.m */; };
 		813DF7A91ABE1EC30057D655 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A81ABE1EC30057D655 /* ViewController.m */; };
@@ -37,6 +38,8 @@
 		813146811ABF8E5C002CBD2E /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		813146831ABFD214002CBD2E /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 		813146851ABFD4D8002CBD2E /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
+		813146861AC0572B002CBD2E /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		813146871AC0572B002CBD2E /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		813DF79D1ABE1EC30057D655 /* QueueUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueueUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		813DF7A11ABE1EC30057D655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813DF7A21ABE1EC30057D655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,12 +123,14 @@
 				813DF7A51ABE1EC30057D655 /* AppDelegate.m */,
 				813DF7A71ABE1EC30057D655 /* ViewController.h */,
 				813DF7A81ABE1EC30057D655 /* ViewController.m */,
+				813146851ABFD4D8002CBD2E /* Playlist.h */,
+				813146831ABFD214002CBD2E /* Playlist.m */,
+				813146861AC0572B002CBD2E /* PlayerViewController.h */,
+				813146871AC0572B002CBD2E /* PlayerViewController.m */,
 				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
 				813DF7AD1ABE1EC30057D655 /* Images.xcassets */,
 				813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */,
 				813DF7A01ABE1EC30057D655 /* Supporting Files */,
-				813146851ABFD4D8002CBD2E /* Playlist.h */,
-				813146831ABFD214002CBD2E /* Playlist.m */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */,
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
 				813146841ABFD214002CBD2E /* Playlist.m in Sources */,
+				813146881AC0572B002CBD2E /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

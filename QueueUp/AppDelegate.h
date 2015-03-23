@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Playlist.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property Playlist *currentPlaylist;
 
 
 @end
