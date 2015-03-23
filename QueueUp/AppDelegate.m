@@ -7,8 +7,10 @@ static NSString * const kCallbackURL = @"playlists-login://callback";
 static NSString * const kTokenSwapURL = @"http://localhost:1234/swap";
 
 @interface AppDelegate ()
+
 @property (nonatomic, strong) SPTSession *session;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
+
 @end
 
 
