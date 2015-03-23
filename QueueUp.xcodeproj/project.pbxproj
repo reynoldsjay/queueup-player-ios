@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		813146821ABF8E5C002CBD2E /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813146811ABF8E5C002CBD2E /* Spotify.framework */; };
 		813DF7A31ABE1EC30057D655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A21ABE1EC30057D655 /* main.m */; };
 		813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A51ABE1EC30057D655 /* AppDelegate.m */; };
 		813DF7A91ABE1EC30057D655 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A81ABE1EC30057D655 /* ViewController.m */; };
@@ -14,6 +15,7 @@
 		813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AD1ABE1EC30057D655 /* Images.xcassets */; };
 		813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */; };
 		813DF7BD1ABE1EC30057D655 /* QueueUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */; };
+		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
 		C447C89C09E2B19E4ADE193F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC3677A21B62D72379479 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,7 @@
 		002EC3677A21B62D72379479 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0547A9CC784B87D2C8D7C56D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		39C26FC7DC65F8A620FCEF5F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		813146811ABF8E5C002CBD2E /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		813DF79D1ABE1EC30057D655 /* QueueUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueueUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		813DF7A11ABE1EC30057D655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813DF7A21ABE1EC30057D655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		813DF7B61ABE1EC30057D655 /* QueueUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QueueUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		813DF7BB1ABE1EC30057D655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueueUpTests.m; sourceTree = "<group>"; };
+		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */,
+				813146821ABF8E5C002CBD2E /* Spotify.framework in Frameworks */,
 				C447C89C09E2B19E4ADE193F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +74,8 @@
 		3AC6F9847CB79E0AB20A5B7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				813146811ABF8E5C002CBD2E /* Spotify.framework */,
+				818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */,
 				002EC3677A21B62D72379479 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -403,6 +411,10 @@
 			baseConfigurationReference = 0547A9CC784B87D2C8D7C56D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = QueueUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -414,6 +426,10 @@
 			baseConfigurationReference = 39C26FC7DC65F8A620FCEF5F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = QueueUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

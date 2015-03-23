@@ -1,23 +1,100 @@
-//
-//  AppDelegate.m
-//  QueueUp
-//
-//  Created by Jay Reynolds on 3/21/15.
-//  Copyright (c) 2015 com.reynoldsJay. All rights reserved.
-//
-
+#import <Spotify/Spotify.h>
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+// Constants
+static NSString * const kClientId = @"8f3024630b4b41c1b4205ff79a13d7a7";
+static NSString * const kCallbackURL = @"playlists-login://callback";
+static NSString * const kTokenSwapURL = @"http://localhost:1234/swap";
 
+@interface AppDelegate ()
+@property (nonatomic, strong) SPTSession *session;
+@property (nonatomic, strong) SPTAudioStreamingController *player;
 @end
+
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self startAuthentication];
     return YES;
+    
+}
+
+
+
+// start auth
+- (void)startAuthentication {
+    // Create SPTAuth instance; create login URL and open it
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    NSURL *loginURL = [auth loginURLForClientId:kClientId
+                            declaredRedirectURL:[NSURL URLWithString:kCallbackURL]
+                                         scopes:@[SPTAuthStreamingScope]];
+    
+    // Opening a URL in Safari close to application launch may trigger
+    // an iOS bug, so we wait a bit before doing so.
+    [[UIApplication sharedApplication] performSelector:@selector(openURL:)
+                                            withObject:loginURL afterDelay:0.1];
+}
+
+
+
+// Handle auth callback
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation {
+    
+    // Ask SPTAuth if the URL given is a Spotify authentication callback
+    if ([[SPTAuth defaultInstance] canHandleURL:url withDeclaredRedirectURL:[NSURL URLWithString:kCallbackURL]]) {
+        
+        // Call the token swap service to get a logged in session
+        [[SPTAuth defaultInstance]
+         handleAuthCallbackWithTriggeredAuthURL:url
+         tokenSwapServiceEndpointAtURL:[NSURL URLWithString:kTokenSwapURL]
+         callback:^(NSError *error, SPTSession *session) {
+             
+             if (error != nil) {
+                 NSLog(@"*** Auth error: %@", error);
+                 return;
+             }
+             
+             // Call the -playUsingSession: method to play a track
+             [self playUsingSession:session];
+         }];
+        return YES;
+    }
+    
+    return NO;
+}
+
+-(void)playUsingSession:(SPTSession *)session {
+    
+    // Create a new player if needed
+    if (self.player == nil) {
+        self.player = [[SPTAudioStreamingController alloc] initWithClientId:kClientId];
+    }
+    
+    [self.player loginWithSession:session callback:^(NSError *error) {
+        
+        if (error != nil) {
+            NSLog(@"*** Enabling playback got error: %@", error);
+            return;
+        }
+        
+        [SPTRequest requestItemAtURI:[NSURL URLWithString:@"spotify:album:4L1HDyfdGIkACuygktO7T7"]
+                         withSession:nil
+                            callback:^(NSError *error, SPTAlbum *album) {
+                                
+                                if (error != nil) {
+                                    NSLog(@"*** Album lookup got error %@", error);
+                                    return;
+                                }
+                                [self.player playTrackProvider:album callback:nil];
+                                
+                            }];
+    }];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
