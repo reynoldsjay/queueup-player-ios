@@ -58,6 +58,40 @@
              NSLog(@"Authentication failed.");
         }];
         
+        [self.socket on: @"state_change" callback: ^(SIOParameterArray *args) {
+            
+            NSMutableDictionary *dictionaryStateData = [args firstObject];
+            
+            @try {
+                NSDictionary *track = dictionaryStateData[@"track"];
+                NSString *trackURI = track[@"uri"];
+                [appDelegate playSong:trackURI];
+            }
+            @catch (NSException *exception) {
+            }
+            @finally {
+            }
+            
+            @try {
+                bool playBool = [dictionaryStateData[@"play"] boolValue];
+                
+                if (playBool) {
+                    [appDelegate play];
+                } else if (!playBool) {
+                    [appDelegate pause];
+                }
+                
+            }
+            @catch (NSException *exception) {
+            }
+            @finally {
+            }
+            
+            
+            
+        }];
+        
+        
         
     }];
     

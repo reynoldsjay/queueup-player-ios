@@ -14,6 +14,10 @@
 @property (strong, nonatomic) UIWindow *window;
 @property Playlist *currentPlaylist;
 
+-(void)playSong:(NSString*)trackURI;
+-(void)play;
+-(void)pause;
+
 
 @end
 

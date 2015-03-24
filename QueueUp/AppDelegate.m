@@ -5,7 +5,7 @@
 // Constants
 static NSString * const kClientId = @"8f3024630b4b41c1b4205ff79a13d7a7";
 static NSString * const kCallbackURL = @"playlists-login://callback";
-static NSString * const kTokenSwapURL = @"http://localhost:1234/swap";
+static NSString * const kTokenSwapURL = @"https://fierce-taiga-2685.herokuapp.com/swap";
 
 @interface AppDelegate ()
 
@@ -21,6 +21,7 @@ static NSString * const kTokenSwapURL = @"http://localhost:1234/swap";
 @synthesize currentPlaylist = _currentPlaylist;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     
     [self startAuthentication];
     return YES;
@@ -66,7 +67,7 @@ static NSString * const kTokenSwapURL = @"http://localhost:1234/swap";
              }
              
              // Call the -playUsingSession: method to play a track
-             [self playUsingSession:session];
+             self.session = session;
          }];
         return YES;
     }
@@ -74,33 +75,54 @@ static NSString * const kTokenSwapURL = @"http://localhost:1234/swap";
     return NO;
 }
 
--(void)playUsingSession:(SPTSession *)session {
+-(void) playSong:(NSString*)trackURI {
     
     // Create a new player if needed
     if (self.player == nil) {
         self.player = [[SPTAudioStreamingController alloc] initWithClientId:kClientId];
     }
     
-    [self.player loginWithSession:session callback:^(NSError *error) {
+    [self.player loginWithSession:self.session callback:^(NSError *error) {
         
         if (error != nil) {
             NSLog(@"*** Enabling playback got error: %@", error);
             return;
         }
         
-        [SPTRequest requestItemAtURI:[NSURL URLWithString:@"spotify:album:4L1HDyfdGIkACuygktO7T7"]
+        [SPTRequest requestItemAtURI:[NSURL URLWithString:trackURI]
                          withSession:nil
-                            callback:^(NSError *error, SPTAlbum *album) {
+                            callback:^(NSError *error, SPTTrack *track) {
                                 
                                 if (error != nil) {
                                     NSLog(@"*** Album lookup got error %@", error);
                                     return;
                                 }
-                                [self.player playTrackProvider:album callback:nil];
+                                [self.player playTrackProvider:track callback:nil];
                                 
                             }];
     }];
     
+}
+
+- (void) play {
+    [self.player setIsPlaying:YES callback:^(NSError *error) {
+        
+        if (error != nil) {
+            NSLog(@"*** Play error: %@", error);
+            return;
+        }
+    }];
+}
+
+
+- (void) pause {
+    [self.player setIsPlaying:NO callback:^(NSError *error) {
+        
+        if (error != nil) {
+            NSLog(@"*** Pause error: %@", error);
+            return;
+        }
+    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

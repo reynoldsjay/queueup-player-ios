@@ -212,6 +212,7 @@
 				TargetAttributes = {
 					813DF79C1ABE1EC30057D655 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = W8H925WLKF;
 					};
 					813DF7B51ABE1EC30057D655 = {
 						CreatedOnToolsVersion = 6.2;
@@ -423,11 +424,13 @@
 			baseConfigurationReference = 0547A9CC784B87D2C8D7C56D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = QueueUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -438,11 +441,13 @@
 			baseConfigurationReference = 39C26FC7DC65F8A620FCEF5F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = QueueUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
