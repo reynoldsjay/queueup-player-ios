@@ -1,4 +1,3 @@
-#import <Spotify/Spotify.h>
 #import "AppDelegate.h"
 #import "Playlist.h"
 
@@ -9,8 +8,7 @@ static NSString * const kTokenSwapURL = @"https://fierce-taiga-2685.herokuapp.co
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) SPTSession *session;
-@property (nonatomic, strong) SPTAudioStreamingController *player;
+
 
 @end
 
@@ -75,55 +73,55 @@ static NSString * const kTokenSwapURL = @"https://fierce-taiga-2685.herokuapp.co
     return NO;
 }
 
--(void) playSong:(NSString*)trackURI {
-    
-    // Create a new player if needed
-    if (self.player == nil) {
-        self.player = [[SPTAudioStreamingController alloc] initWithClientId:kClientId];
-    }
-    
-    [self.player loginWithSession:self.session callback:^(NSError *error) {
-        
-        if (error != nil) {
-            NSLog(@"*** Enabling playback got error: %@", error);
-            return;
-        }
-        
-        [SPTRequest requestItemAtURI:[NSURL URLWithString:trackURI]
-                         withSession:nil
-                            callback:^(NSError *error, SPTTrack *track) {
-                                
-                                if (error != nil) {
-                                    NSLog(@"*** Album lookup got error %@", error);
-                                    return;
-                                }
-                                [self.player playTrackProvider:track callback:nil];
-                                
-                            }];
-    }];
-    
-}
-
-- (void) play {
-    [self.player setIsPlaying:YES callback:^(NSError *error) {
-        
-        if (error != nil) {
-            NSLog(@"*** Play error: %@", error);
-            return;
-        }
-    }];
-}
-
-
-- (void) pause {
-    [self.player setIsPlaying:NO callback:^(NSError *error) {
-        
-        if (error != nil) {
-            NSLog(@"*** Pause error: %@", error);
-            return;
-        }
-    }];
-}
+//-(void) playSong:(NSString*)trackURI {
+//    
+//    // Create a new player if needed
+//    if (self.player == nil) {
+//        self.player = [[SPTAudioStreamingController alloc] initWithClientId:kClientId];
+//    }
+//    
+//    [self.player loginWithSession:self.session callback:^(NSError *error) {
+//        
+//        if (error != nil) {
+//            NSLog(@"*** Enabling playback got error: %@", error);
+//            return;
+//        }
+//        
+//        [SPTRequest requestItemAtURI:[NSURL URLWithString:trackURI]
+//                         withSession:nil
+//                            callback:^(NSError *error, SPTTrack *track) {
+//                                
+//                                if (error != nil) {
+//                                    NSLog(@"*** Album lookup got error %@", error);
+//                                    return;
+//                                }
+//                                [self.player playTrackProvider:track callback:nil];
+//                                
+//                            }];
+//    }];
+//    
+//}
+//
+//- (void) play {
+//    [self.player setIsPlaying:YES callback:^(NSError *error) {
+//        
+//        if (error != nil) {
+//            NSLog(@"*** Play error: %@", error);
+//            return;
+//        }
+//    }];
+//}
+//
+//
+//- (void) pause {
+//    [self.player setIsPlaying:NO callback:^(NSError *error) {
+//        
+//        if (error != nil) {
+//            NSLog(@"*** Pause error: %@", error);
+//            return;
+//        }
+//    }];
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

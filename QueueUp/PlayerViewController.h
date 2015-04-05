@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Spotify/Spotify.h>
 
-@interface PlayerViewController : UIViewController
+@interface PlayerViewController : UIViewController <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate>
+
+-(void)playSong:(NSString*)trackURI;
 
 @end

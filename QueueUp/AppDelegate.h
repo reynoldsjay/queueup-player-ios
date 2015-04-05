@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "Playlist.h"
+#import <Spotify/Spotify.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property Playlist *currentPlaylist;
 
--(void)playSong:(NSString*)trackURI;
--(void)play;
--(void)pause;
+@property (nonatomic, strong) SPTSession *session;
+@property (nonatomic, strong) SPTAudioStreamingController *player;
+
+//-(void)playSong:(NSString*)trackURI;
+//-(void)play;
+//-(void)pause;
 
 
 @end
