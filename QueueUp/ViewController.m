@@ -3,7 +3,7 @@
 //  QueueUp
 //
 //  Created by Jay Reynolds on 3/21/15.
-//  Copyright (c) 2015 com.reynoldsJay. All rights reserved.
+//  Copyright (c) 2015 com.reynoldsJay.QueueUp All rights reserved.
 //
 
 #import "ViewController.h"
@@ -31,7 +31,8 @@
     
     NSError *error;
     NSData *playlistData = [[NSData alloc] initWithContentsOfURL:
-                            [NSURL URLWithString:@"http://queueup.louiswilliams.org/api/playlists"]];
+                            [NSURL URLWithString:@"http://localhost:3002/api/playlists"]];
+    //http://queueup.louiswilliams.org/api/playlists
     
     NSMutableDictionary *dictionaryData = [NSJSONSerialization JSONObjectWithData:playlistData
                                                                           options:NSJSONReadingMutableContainers error:&error];

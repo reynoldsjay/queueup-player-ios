@@ -51,7 +51,7 @@
     self.session = appDelegate.session;
     self.player = appDelegate.player;
     
-    [SIOSocket socketWithHost: @"http://queueup.louiswilliams.org" response: ^(SIOSocket *socket) {
+    [SIOSocket socketWithHost: @"http://localhost:3002" response: ^(SIOSocket *socket) {
         self.socket = socket;
         
         __weak typeof(self) weakSelf = self;
@@ -88,8 +88,10 @@
             
             
             @try {
-                _serverPlay = [dictionaryStateData[@"play"] boolValue];
-                [self.player setIsPlaying:_serverPlay callback:nil];
+                if (dictionaryStateData[@"play"] != nil) {
+                    _serverPlay = [dictionaryStateData[@"play"] boolValue];
+                    [self.player setIsPlaying:_serverPlay callback:nil];
+                }
             }
             @catch (NSException *exception) {
             }
@@ -99,16 +101,16 @@
             @try {
                 NSDictionary *track = dictionaryStateData[@"track"];
                 NSString *trackURI = track[@"uri"];
-                NSLog(@"Current: %@", currentURI);
-                NSLog(@"Received: %@", trackURI);
-                NSLog(@"%d", [currentURI isEqualToString:trackURI]);
-                if (![currentURI isEqualToString:trackURI] && _serverPlay) {
+                //NSLog(@"Current: %@", currentURI);
+                //NSLog(@"Received: %@", trackURI);
+                //NSLog(@"%d", [currentURI isEqualToString:trackURI]);
+                if (![currentURI isEqualToString:trackURI] && _serverPlay && trackURI != nil) {
                     [self playSong:trackURI];
                     NSLog(@"New song.");
                     currentURI = trackURI;
                 }
                 [self.spinner startAnimating];
-                [NSThread sleepForTimeInterval:2.0f];
+                [NSThread sleepForTimeInterval:1.0f];
                 [self updateUI];
             }
             @catch (NSException *exception) {
@@ -173,7 +175,16 @@
 }
 
 -(IBAction)playPause:(id)sender {
-    [self.player setIsPlaying:!self.player.isPlaying callback:nil];
+    //[self.player setIsPlaying:!self.player.isPlaying callback:nil];
+    NSLog(@"%d", self.player.isPlaying);
+    NSString *toSend;
+    if (self.player.isPlaying) {
+        toSend = @"false";
+    } else {
+        toSend = @"true";
+    }
+    NSLog(@"playing now %@", toSend);
+    [self.socket emit: @"client_play_pause" args:[[NSArray alloc] initWithObjects:[[NSString alloc] initWithFormat:@"{\"playing\" : %@}", toSend], nil]];
 }
 
 

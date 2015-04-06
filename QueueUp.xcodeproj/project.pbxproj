@@ -18,6 +18,7 @@
 		813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */; };
 		813DF7BD1ABE1EC30057D655 /* QueueUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */; };
 		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
+		81B58C491AD1D3E900AA1688 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B58C481AD1D3E900AA1688 /* logo.png */; };
 		C447C89C09E2B19E4ADE193F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC3677A21B62D72379479 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		813DF7BB1ABE1EC30057D655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueueUpTests.m; sourceTree = "<group>"; };
 		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		81B58C481AD1D3E900AA1688 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				81B58C481AD1D3E900AA1688 /* logo.png */,
 				813DF7A11ABE1EC30057D655 /* Info.plist */,
 				813DF7A21ABE1EC30057D655 /* main.m */,
 			);
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81B58C491AD1D3E900AA1688 /* logo.png in Resources */,
 				813DF7AC1ABE1EC30057D655 /* Main.storyboard in Resources */,
 				813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */,
 				813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */,
@@ -424,6 +428,7 @@
 			baseConfigurationReference = 0547A9CC784B87D2C8D7C56D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -441,6 +446,7 @@
 			baseConfigurationReference = 39C26FC7DC65F8A620FCEF5F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
