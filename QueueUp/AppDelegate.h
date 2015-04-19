@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Playlist.h"
+#import "Q-Swift.h"
 #import <Spotify/Spotify.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

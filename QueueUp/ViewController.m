@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Playlist.h"
+#import "Q-Swift.h"
 #import "PlayerViewController.h"
 #import "AppDelegate.h"
 
@@ -43,6 +43,7 @@
         NSLog(@"%@", [error localizedDescription]);
     } else {
         for (NSDictionary *playlistInfo in playlists) {
+
             Playlist *toAdd = [[Playlist alloc] init];
             toAdd.name = playlistInfo[@"name"];
             toAdd.playID = playlistInfo[@"_id"];
