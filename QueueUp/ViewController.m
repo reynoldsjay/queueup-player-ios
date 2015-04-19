@@ -31,8 +31,8 @@
     
     NSError *error;
     NSData *playlistData = [[NSData alloc] initWithContentsOfURL:
-                            [NSURL URLWithString:@"http://localhost:3002/api/playlists"]];
-    //http://queueup.louiswilliams.org/api/playlists
+                            [NSURL URLWithString:@"http://queueup.louiswilliams.org/api/playlists"]];
+    
     
     NSMutableDictionary *dictionaryData = [NSJSONSerialization JSONObjectWithData:playlistData
                                                                           options:NSJSONReadingMutableContainers error:&error];

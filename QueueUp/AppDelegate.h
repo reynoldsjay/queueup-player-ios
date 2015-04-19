@@ -16,7 +16,6 @@
 @property Playlist *currentPlaylist;
 
 @property (nonatomic, strong) SPTSession *session;
-@property (nonatomic, strong) SPTAudioStreamingController *player;
 
 //-(void)playSong:(NSString*)trackURI;
 //-(void)play;

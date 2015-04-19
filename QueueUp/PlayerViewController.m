@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 com.reynoldsJay. All rights reserved.
 //
 
+#import "Config.h"
 #import "PlayerViewController.h"
 #import <SIOSocket/SIOSocket.h>
 #import "AppDelegate.h"
@@ -49,9 +50,9 @@
     currentPlaylist = appDelegate.currentPlaylist;
     
     self.session = appDelegate.session;
-    self.player = appDelegate.player;
+    [self handleNewSession:self.session];
     
-    [SIOSocket socketWithHost: @"http://localhost:3002" response: ^(SIOSocket *socket) {
+    [SIOSocket socketWithHost: @"http://queueup.louiswilliams.org" response: ^(SIOSocket *socket) {
         self.socket = socket;
         
         __weak typeof(self) weakSelf = self;
@@ -101,9 +102,6 @@
             @try {
                 NSDictionary *track = dictionaryStateData[@"track"];
                 NSString *trackURI = track[@"uri"];
-                //NSLog(@"Current: %@", currentURI);
-                //NSLog(@"Received: %@", trackURI);
-                //NSLog(@"%d", [currentURI isEqualToString:trackURI]);
                 if (![currentURI isEqualToString:trackURI] && _serverPlay && trackURI != nil) {
                     [self playSong:trackURI];
                     NSLog(@"New song.");
@@ -155,7 +153,7 @@
                             }];
     }];
     
-    [self updateUI];
+    //[self updateUI];
 
 }
 
@@ -213,6 +211,7 @@
         return;
     }
     
+    
     [SPTAlbum albumWithURI:[NSURL URLWithString:[self.player.currentTrackMetadata valueForKey:SPTAudioStreamingMetadataAlbumURI]]
                    session:self.session
                   callback:^(NSError *error, SPTAlbum *album) {
@@ -246,6 +245,27 @@
                   }];
 }
 
+
+-(void)handleNewSession:(SPTSession *)session {
+    
+    self.session = session;
+    
+    if (self.player == nil) {
+        self.player = [[SPTAudioStreamingController alloc] initWithClientId:@kClientId];
+        self.player.playbackDelegate = self;
+    }
+    
+    [self.player loginWithSession:session callback:^(NSError *error) {
+        
+        if (error != nil) {
+            NSLog(@"*** Enabling playback got error: %@", error);
+            return;
+        }
+        
+        
+    }];
+}
+
 #pragma mark - Track Player Delegates
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveMessage:(NSString *)message {
@@ -258,6 +278,11 @@
 }
 
 - (void) audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeToTrack:(NSDictionary *)trackMetadata {
+    NSLog(@"changed track");
+    if (trackMetadata == nil) {
+        NSLog(@"Track ended.");
+        [self.socket emit: @"track_finished" args:nil];
+    }
     [self updateUI];
 }
 
