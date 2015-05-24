@@ -31,12 +31,17 @@
 			<string>com.playlists.spotify-auth</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>fb956442334390605</string>
 				<string>playlists-login</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>956442334390605</string>
+	<key>FacebookDisplayName</key>
+	<string>QueueUp</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

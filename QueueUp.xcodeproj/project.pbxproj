@@ -19,6 +19,10 @@
 		813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AD1ABE1EC30057D655 /* Images.xcassets */; };
 		813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */; };
 		813DF7BD1ABE1EC30057D655 /* QueueUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */; };
+		8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD661B1250CA00B1D846 /* LoginViewController.m */; };
+		8174AD6B1B1257FD00B1D846 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */; };
+		8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */; };
+		8174AD6D1B1257FD00B1D846 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */; };
 		817F3E2E1AE34F13008E48B8 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817F3E2D1AE34F13008E48B8 /* Spotify.framework */; };
 		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
 		81B58C491AD1D3E900AA1688 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B58C481AD1D3E900AA1688 /* logo.png */; };
@@ -61,6 +65,11 @@
 		813DF7B61ABE1EC30057D655 /* QueueUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QueueUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		813DF7BB1ABE1EC30057D655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueueUpTests.m; sourceTree = "<group>"; };
+		8174AD651B1250CA00B1D846 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		8174AD661B1250CA00B1D846 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		817F3E2D1AE34F13008E48B8 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		817F3E2F1AE350D8008E48B8 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +82,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */,
+				8174AD6B1B1257FD00B1D846 /* FBSDKCoreKit.framework in Frameworks */,
+				8174AD6D1B1257FD00B1D846 /* FBSDKShareKit.framework in Frameworks */,
+				8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */,
 				817F3E2E1AE34F13008E48B8 /* Spotify.framework in Frameworks */,
 				C447C89C09E2B19E4ADE193F /* libPods.a in Frameworks */,
 			);
@@ -91,6 +103,9 @@
 		3AC6F9847CB79E0AB20A5B7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */,
+				8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */,
+				8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */,
 				817F3E2D1AE34F13008E48B8 /* Spotify.framework */,
 				818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */,
 				002EC3677A21B62D72379479 /* libPods.a */,
@@ -153,6 +168,8 @@
 				813DF7AD1ABE1EC30057D655 /* Images.xcassets */,
 				813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */,
 				813DF7A01ABE1EC30057D655 /* Supporting Files */,
+				8174AD651B1250CA00B1D846 /* LoginViewController.h */,
+				8174AD661B1250CA00B1D846 /* LoginViewController.m */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -325,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */,
 				813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */,
 				813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */,
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
@@ -459,6 +477,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = QueueUp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
@@ -477,6 +496,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = QueueUp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;

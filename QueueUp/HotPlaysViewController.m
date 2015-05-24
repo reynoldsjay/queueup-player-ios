@@ -11,6 +11,8 @@
 #import "PlayerViewController.h"
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 
 @interface HotPlaysViewController ()
@@ -42,7 +44,7 @@
     
     NSError *error;
     NSData *playlistData = [[NSData alloc] initWithContentsOfURL:
-                            [NSURL URLWithString:@"http://localhost:3004/api/playlists"]];
+                            [NSURL URLWithString:@"http://qup.louiswilliams.org/api/playlists"]];
     
     
     NSMutableDictionary *dictionaryData = [NSJSONSerialization JSONObjectWithData:playlistData

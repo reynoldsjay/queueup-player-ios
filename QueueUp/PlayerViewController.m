@@ -62,7 +62,7 @@
     self.session = appDelegate.session;
     [self handleNewSession:self.session];
     
-    [SIOSocket socketWithHost: @"http://localhost:3004" response: ^(SIOSocket *socket) {
+    [SIOSocket socketWithHost: @"http://qup.louiswilliams.org" response: ^(SIOSocket *socket) {
         self.socket = socket;
         
         __weak typeof(self) weakSelf = self;

@@ -1,6 +1,9 @@
 #import "AppDelegate.h"
 #import "Playlist.h"
 #import "Config.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "LoginViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -12,6 +15,10 @@
 
 
 @synthesize currentPlaylist = _currentPlaylist;
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [FBSDKAppEvents activateApp];
+}
 
 -(void)enableAudioPlaybackWithSession:(SPTSession *)session {
     NSData *sessionData = [NSKeyedArchiver archivedDataWithRootObject:session];
@@ -92,7 +99,8 @@
         [self openLoginPage];
     }
     
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -127,10 +135,13 @@
                                                 tokenSwapServiceEndpointAtURL:[NSURL URLWithString:swapUrl]
                                                                      callback:authCallback];
         }
-        return YES;
+        return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];;
     }
     
-    return NO;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 @end
