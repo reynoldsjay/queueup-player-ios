@@ -10,6 +10,7 @@
 #import "PlayerViewController.h"
 #import <SIOSocket/SIOSocket.h>
 #import "AppDelegate.h"
+#import "SWRevealViewController.h"
 
 @interface PlayerViewController () <SPTAudioStreamingDelegate>
 
@@ -42,6 +43,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    
     self.titleLabel.text = @"Nothing Playing";
     self.albumLabel.text = @"";
     self.artistLabel.text = @"";
@@ -52,7 +62,7 @@
     self.session = appDelegate.session;
     [self handleNewSession:self.session];
     
-    [SIOSocket socketWithHost: @"http://queueup.louiswilliams.org" response: ^(SIOSocket *socket) {
+    [SIOSocket socketWithHost: @"http://localhost:3004" response: ^(SIOSocket *socket) {
         self.socket = socket;
         
         __weak typeof(self) weakSelf = self;

@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811D52C71B115D840029F4E3 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 811D52C61B115D840029F4E3 /* menu@2x.png */; };
+		811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D01B1162E10029F4E3 /* SWRevealViewController.m */; };
+		811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D31B11631D0029F4E3 /* SidebarViewController.m */; };
 		813146841ABFD214002CBD2E /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146831ABFD214002CBD2E /* Playlist.m */; };
 		813146881AC0572B002CBD2E /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146871AC0572B002CBD2E /* PlayerViewController.m */; };
 		813DF7A31ABE1EC30057D655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A21ABE1EC30057D655 /* main.m */; };
 		813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A51ABE1EC30057D655 /* AppDelegate.m */; };
-		813DF7A91ABE1EC30057D655 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A81ABE1EC30057D655 /* ViewController.m */; };
+		813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A81ABE1EC30057D655 /* HotPlaysViewController.m */; };
 		813DF7AC1ABE1EC30057D655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AA1ABE1EC30057D655 /* Main.storyboard */; };
 		813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AD1ABE1EC30057D655 /* Images.xcassets */; };
 		813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */; };
@@ -36,6 +39,11 @@
 		002EC3677A21B62D72379479 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0547A9CC784B87D2C8D7C56D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		39C26FC7DC65F8A620FCEF5F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		811D52C61B115D840029F4E3 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		811D52CF1B1162E10029F4E3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		811D52D01B1162E10029F4E3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		811D52D21B11631D0029F4E3 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		811D52D31B11631D0029F4E3 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		813146831ABFD214002CBD2E /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 		813146851ABFD4D8002CBD2E /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		813146861AC0572B002CBD2E /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
@@ -45,8 +53,8 @@
 		813DF7A21ABE1EC30057D655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		813DF7A41ABE1EC30057D655 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		813DF7A51ABE1EC30057D655 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		813DF7A71ABE1EC30057D655 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		813DF7A81ABE1EC30057D655 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		813DF7A71ABE1EC30057D655 /* HotPlaysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotPlaysViewController.h; sourceTree = "<group>"; };
+		813DF7A81ABE1EC30057D655 /* HotPlaysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotPlaysViewController.m; sourceTree = "<group>"; };
 		813DF7AB1ABE1EC30057D655 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		813DF7AD1ABE1EC30057D655 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		813DF7B01ABE1EC30057D655 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -99,9 +107,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		811D52CB1B1162A30029F4E3 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				811D52CF1B1162E10029F4E3 /* SWRevealViewController.h */,
+				811D52D01B1162E10029F4E3 /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		813DF7941ABE1EC30057D655 = {
 			isa = PBXGroup;
 			children = (
+				811D52CB1B1162A30029F4E3 /* SWRevealViewController */,
 				813DF79F1ABE1EC30057D655 /* QueueUp */,
 				813DF7B91ABE1EC30057D655 /* QueueUpTests */,
 				813DF79E1ABE1EC30057D655 /* Products */,
@@ -125,10 +143,10 @@
 				817F3E2F1AE350D8008E48B8 /* Config.h */,
 				813DF7A41ABE1EC30057D655 /* AppDelegate.h */,
 				813DF7A51ABE1EC30057D655 /* AppDelegate.m */,
-				813DF7A71ABE1EC30057D655 /* ViewController.h */,
-				813DF7A81ABE1EC30057D655 /* ViewController.m */,
-				813146851ABFD4D8002CBD2E /* Playlist.h */,
-				813146831ABFD214002CBD2E /* Playlist.m */,
+				813DF7A71ABE1EC30057D655 /* HotPlaysViewController.h */,
+				813DF7A81ABE1EC30057D655 /* HotPlaysViewController.m */,
+				811D52D21B11631D0029F4E3 /* SidebarViewController.h */,
+				811D52D31B11631D0029F4E3 /* SidebarViewController.m */,
 				813146861AC0572B002CBD2E /* PlayerViewController.h */,
 				813146871AC0572B002CBD2E /* PlayerViewController.m */,
 				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
@@ -142,6 +160,9 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				813146851ABFD4D8002CBD2E /* Playlist.h */,
+				813146831ABFD214002CBD2E /* Playlist.m */,
+				811D52C61B115D840029F4E3 /* menu@2x.png */,
 				81B58C481AD1D3E900AA1688 /* logo.png */,
 				813DF7A11ABE1EC30057D655 /* Info.plist */,
 				813DF7A21ABE1EC30057D655 /* main.m */,
@@ -251,6 +272,7 @@
 			files = (
 				81B58C491AD1D3E900AA1688 /* logo.png in Resources */,
 				813DF7AC1ABE1EC30057D655 /* Main.storyboard in Resources */,
+				811D52C71B115D840029F4E3 /* menu@2x.png in Resources */,
 				813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */,
 				813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */,
 			);
@@ -303,11 +325,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				813DF7A91ABE1EC30057D655 /* ViewController.m in Sources */,
+				813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */,
 				813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */,
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
+				811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */,
 				813146841ABFD214002CBD2E /* Playlist.m in Sources */,
 				813146881AC0572B002CBD2E /* PlayerViewController.m in Sources */,
+				811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

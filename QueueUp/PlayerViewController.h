@@ -12,5 +12,6 @@
 @interface PlayerViewController : UIViewController <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate>
 
 -(void)playSong:(NSString*)trackURI;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end

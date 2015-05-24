@@ -6,23 +6,34 @@
 //  Copyright (c) 2015 com.reynoldsJay.QueueUp All rights reserved.
 //
 
-#import "ViewController.h"
+#import "HotPlaysViewController.h"
 #import "Playlist.h"
 #import "PlayerViewController.h"
 #import "AppDelegate.h"
+#import "SWRevealViewController.h"
 
 
-@interface ViewController ()
+@interface HotPlaysViewController ()
 
 @end
 
-@implementation ViewController {
+@implementation HotPlaysViewController {
     NSMutableDictionary *playlists;
     NSMutableArray *playlistHolder;
     AppDelegate *appDelegate;
 }
 
 - (void)viewDidLoad {
+    
+    // side bar
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    
     playlistHolder = [[NSMutableArray alloc] init];
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -31,7 +42,7 @@
     
     NSError *error;
     NSData *playlistData = [[NSData alloc] initWithContentsOfURL:
-                            [NSURL URLWithString:@"http://queueup.louiswilliams.org/api/playlists"]];
+                            [NSURL URLWithString:@"http://localhost:3004/api/playlists"]];
     
     
     NSMutableDictionary *dictionaryData = [NSJSONSerialization JSONObjectWithData:playlistData
