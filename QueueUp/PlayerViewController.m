@@ -77,7 +77,9 @@
         [self.socket on: @"auth_request" callback: ^(SIOParameterArray *args)
         {
             NSLog(@"Request auth");
-            [self.socket emit: @"auth_send" args: [[NSArray alloc] initWithObjects:[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID], nil]];
+            NSData *jsonData = [[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID] dataUsingEncoding:NSUTF8StringEncoding];
+            id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+            [self.socket emit: @"auth_send" args: [[NSArray alloc] initWithObjects:json, nil]];
             
         }];
         
@@ -192,7 +194,9 @@
         toSend = @"true";
     }
     NSLog(@"playing now %@", toSend);
-    [self.socket emit: @"client_play_pause" args:[[NSArray alloc] initWithObjects:[[NSString alloc] initWithFormat:@"{\"playing\" : %@}", toSend], nil]];
+    NSData *jsonData = [[[NSString alloc] initWithFormat:@"{\"playing\" : %@}", toSend] dataUsingEncoding:NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    [self.socket emit: @"client_play_pause" args:[[NSArray alloc] initWithObjects:json, nil]];
 }
 
 
