@@ -14,6 +14,8 @@
 
 #define kTokenSwapServiceURL "https://fierce-taiga-2685.herokuapp.com/swap"
 
+#define hostDomain "http://localhost:3004"
+
 
 // If you don't provide a token swap service url the login will use implicit grant tokens, which
 // means that your user will need to sign in again every time the token expires.

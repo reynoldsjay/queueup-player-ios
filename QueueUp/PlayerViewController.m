@@ -79,7 +79,8 @@
         [self.socket on: @"auth_request" callback: ^(SIOParameterArray *args)
         {
             NSLog(@"Request auth");
-            id json = [ServerAPI parseJson:[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID]];
+            ServerAPI *api = [ServerAPI getInstance];
+            id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID]];
             [self.socket emit: @"auth_send" args: [[NSArray alloc] initWithObjects:json, nil]];
             
         }];

@@ -10,15 +10,12 @@
 
 @interface ServerAPI : NSObject <NSURLConnectionDataDelegate>
 
-@property NSURLConnection *connection;
-@property NSMutableData *receivedData;
+@property id idAndEmail;
 
++ (ServerAPI*) getInstance;
 
+- (NSString*)postData:(id)postJson toURL:(NSString*)url;
 
-//+ (ServerAPI*) getInstance;
-
-+ (void)postData:(id)postJson toURL:(NSString*)url;
-
-+ (NSData*)parseJson:(NSString*)jsonString;
+- (NSData*)parseJson:(NSString*)jsonString;
 
 @end

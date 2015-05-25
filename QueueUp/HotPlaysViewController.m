@@ -13,6 +13,8 @@
 #import "SWRevealViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "ServerAPI.h"
+#import "Config.h"
 
 
 @interface HotPlaysViewController ()
@@ -23,9 +25,12 @@
     NSMutableDictionary *playlists;
     NSMutableArray *playlistHolder;
     AppDelegate *appDelegate;
+    ServerAPI *api;
 }
 
 - (void)viewDidLoad {
+    
+    api = [ServerAPI getInstance];
     
     // side bar
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -43,13 +48,11 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     NSError *error;
-    NSData *playlistData = [[NSData alloc] initWithContentsOfURL:
-                            [NSURL URLWithString:@"http://qup.louiswilliams.org/api/playlists"]];
+    
+    NSString *playlistString = [api postData:api.idAndEmail toURL:(@hostDomain @"/api/playlists")];
     
     
-    NSMutableDictionary *dictionaryData = [NSJSONSerialization JSONObjectWithData:playlistData
-                                                                          options:NSJSONReadingMutableContainers error:&error];
-    
+    NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
     
     playlists = dictionaryData[@"playlists"];
     

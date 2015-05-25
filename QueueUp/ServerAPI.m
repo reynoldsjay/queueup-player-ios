@@ -11,17 +11,19 @@
 
 @implementation ServerAPI
 
-//static ServerAPI *singletonInstance;
-//
-//+ (ServerAPI*)getInstance {
-//    if (singletonInstance == nil) {
-//        singletonInstance = [[super alloc] init];
-//    }
-//    return singletonInstance;
-//}
+@synthesize idAndEmail = _idAndEmail;
+
+static ServerAPI *singletonInstance;
+
++ (ServerAPI*)getInstance {
+    if (singletonInstance == nil) {
+        singletonInstance = [[super alloc] init];
+    }
+    return singletonInstance;
+}
 
 
-+ (void)postData:(id)postJson toURL:(NSString*)url {
+- (NSString*)postData:(id)postJson toURL:(NSString*)url {
                          
     NSError *error;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:postJson options:0 error:&error];
@@ -40,10 +42,10 @@
     responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     NSLog(@"Response from server:%@",responseString);
-
+    return responseString;
 }
 
-+ (id)parseJson:(NSString*)jsonString {
+- (id)parseJson:(NSString*)jsonString {
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     return json;
