@@ -37,22 +37,25 @@
     AppDelegate *appDelegate;
     Playlist *currentPlaylist;
     NSString *currentURI;
-    ServerAPI *serverAPI;
+    ServerAPI *api;
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    //serverAPI = [ServerAPI getInstance];
+    // get api instance
+    api = [ServerAPI getInstance];
     SWRevealViewController *revealViewController = self.revealViewController;
+    
+    // side bar set up
     if ( revealViewController )
     {
         [self.sidebarButton setTarget: self.revealViewController];
         [self.sidebarButton setAction: @selector( revealToggle: )];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
+    
     
     self.titleLabel.text = @"Nothing Playing";
     self.albumLabel.text = @"";
@@ -64,7 +67,7 @@
     self.session = appDelegate.session;
     [self handleNewSession:self.session];
     
-    [SIOSocket socketWithHost: @"http://qup.louiswilliams.org" response: ^(SIOSocket *socket) {
+    [SIOSocket socketWithHost: @hostDomain response: ^(SIOSocket *socket) {
         self.socket = socket;
         
         __weak typeof(self) weakSelf = self;
@@ -79,7 +82,6 @@
         [self.socket on: @"auth_request" callback: ^(SIOParameterArray *args)
         {
             NSLog(@"Request auth");
-            ServerAPI *api = [ServerAPI getInstance];
             id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID]];
             [self.socket emit: @"auth_send" args: [[NSArray alloc] initWithObjects:json, nil]];
             
@@ -144,7 +146,7 @@
 
     // Create a new player if needed
     if (self.player == nil) {
-        self.player = [[SPTAudioStreamingController alloc] initWithClientId:@"8f3024630b4b41c1b4205ff79a13d7a7"];
+        self.player = [[SPTAudioStreamingController alloc] initWithClientId:@kClientId];
     }
 
     [self.player loginWithSession:self.session callback:^(NSError *error) {

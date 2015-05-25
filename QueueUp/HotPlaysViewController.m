@@ -21,6 +21,7 @@
 
 @end
 
+
 @implementation HotPlaysViewController {
     NSMutableDictionary *playlists;
     NSMutableArray *playlistHolder;
@@ -32,7 +33,7 @@
     
     api = [ServerAPI getInstance];
     
-    // side bar
+    // side bar set up
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {

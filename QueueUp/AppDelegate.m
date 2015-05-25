@@ -16,9 +16,12 @@
 
 @synthesize currentPlaylist = _currentPlaylist;
 
+
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [FBSDKAppEvents activateApp];
 }
+
+
 
 -(void)enableAudioPlaybackWithSession:(SPTSession *)session {
     NSData *sessionData = [NSKeyedArchiver archivedDataWithRootObject:session];
@@ -27,6 +30,8 @@
     [userDefaults synchronize];
     self.session = session;
 }
+
+
 
 - (void)openLoginPage {
     SPTAuth *auth = [SPTAuth defaultInstance];
@@ -55,6 +60,8 @@
     });
 }
 
+
+
 - (void)renewTokenAndEnablePlayback {
     id sessionData = [[NSUserDefaults standardUserDefaults] objectForKey:@kSessionUserDefaultsKey];
     SPTSession *session = sessionData ? [NSKeyedUnarchiver unarchiveObjectWithData:sessionData] : nil;
@@ -69,6 +76,8 @@
         [self enableAudioPlaybackWithSession:session];
     }];
 }
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -102,6 +111,8 @@
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }
+
+
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     

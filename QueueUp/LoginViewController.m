@@ -16,11 +16,12 @@
 
 
 - (void) viewDidLoad {
-
+    // fb login button
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     loginButton.center = self.view.center;
     [self.view addSubview:loginButton];
+    // notify view on callbak
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
 
 }
@@ -29,16 +30,17 @@
 - (void)appDidBecomeActive:(NSNotification *)notification {
     if ([FBSDKAccessToken currentAccessToken]) {
         
+        // send fb access token
         NSLog(@"User logged in.");
         NSString* accessString = [[NSString alloc] initWithFormat:@"{\"facebook_access_token\" : \"%@\"}", [FBSDKAccessToken currentAccessToken].tokenString];
-        // NSLog(@"%@", accessString);
         ServerAPI *api = [ServerAPI getInstance];
         id json = [api parseJson:accessString];
         NSString *client = [api postData:json toURL:(@hostDomain @"/api/auth/login")];
+        // store client id
         NSString *theID = ((NSDictionary*)[api parseJson:client])[@"client_id"];
         
 
-        // store email
+        // store email global
         [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error) {

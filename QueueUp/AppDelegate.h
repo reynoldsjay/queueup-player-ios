@@ -13,13 +13,10 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
 @property Playlist *currentPlaylist;
 
 @property (nonatomic, strong) SPTSession *session;
-
-//-(void)playSong:(NSString*)trackURI;
-//-(void)play;
-//-(void)pause;
 
 
 @end

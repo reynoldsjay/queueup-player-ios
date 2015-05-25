@@ -23,8 +23,8 @@ static ServerAPI *singletonInstance;
 }
 
 
+// returns string of json object response
 - (NSString*)postData:(id)postJson toURL:(NSString*)url {
-                         
     NSError *error;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:postJson options:0 error:&error];
     NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
