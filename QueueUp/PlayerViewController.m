@@ -11,6 +11,7 @@
 #import <SIOSocket/SIOSocket.h>
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
+#import "ServerAPI.h"
 
 @interface PlayerViewController () <SPTAudioStreamingDelegate>
 
@@ -36,6 +37,7 @@
     AppDelegate *appDelegate;
     Playlist *currentPlaylist;
     NSString *currentURI;
+    ServerAPI *serverAPI;
     
 }
 
@@ -43,7 +45,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    //serverAPI = [ServerAPI getInstance];
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {
@@ -77,8 +79,7 @@
         [self.socket on: @"auth_request" callback: ^(SIOParameterArray *args)
         {
             NSLog(@"Request auth");
-            NSData *jsonData = [[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID] dataUsingEncoding:NSUTF8StringEncoding];
-            id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+            id json = [ServerAPI parseJson:[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID]];
             [self.socket emit: @"auth_send" args: [[NSArray alloc] initWithObjects:json, nil]];
             
         }];

@@ -23,6 +23,7 @@
 		8174AD6B1B1257FD00B1D846 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */; };
 		8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */; };
 		8174AD6D1B1257FD00B1D846 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */; };
+		8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD6E1B128A5000B1D846 /* ServerAPI.m */; };
 		817F3E2E1AE34F13008E48B8 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817F3E2D1AE34F13008E48B8 /* Spotify.framework */; };
 		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
 		81B58C491AD1D3E900AA1688 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B58C481AD1D3E900AA1688 /* logo.png */; };
@@ -70,6 +71,8 @@
 		8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		8174AD6E1B128A5000B1D846 /* ServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerAPI.m; sourceTree = "<group>"; };
+		8174AD701B128A6400B1D846 /* ServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerAPI.h; sourceTree = "<group>"; };
 		817F3E2D1AE34F13008E48B8 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		817F3E2F1AE350D8008E48B8 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -164,12 +167,12 @@
 				811D52D31B11631D0029F4E3 /* SidebarViewController.m */,
 				813146861AC0572B002CBD2E /* PlayerViewController.h */,
 				813146871AC0572B002CBD2E /* PlayerViewController.m */,
-				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
-				813DF7AD1ABE1EC30057D655 /* Images.xcassets */,
-				813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */,
-				813DF7A01ABE1EC30057D655 /* Supporting Files */,
 				8174AD651B1250CA00B1D846 /* LoginViewController.h */,
 				8174AD661B1250CA00B1D846 /* LoginViewController.m */,
+				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
+				813DF7A01ABE1EC30057D655 /* Supporting Files */,
+				8174AD701B128A6400B1D846 /* ServerAPI.h */,
+				8174AD6E1B128A5000B1D846 /* ServerAPI.m */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -177,6 +180,8 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				813DF7AD1ABE1EC30057D655 /* Images.xcassets */,
+				813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */,
 				813146851ABFD4D8002CBD2E /* Playlist.h */,
 				813146831ABFD214002CBD2E /* Playlist.m */,
 				811D52C61B115D840029F4E3 /* menu@2x.png */,
@@ -346,6 +351,7 @@
 				813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */,
 				813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */,
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
+				8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */,
 				811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */,
 				813146841ABFD214002CBD2E /* Playlist.m in Sources */,
 				813146881AC0572B002CBD2E /* PlayerViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "ServerAPI.h"
 
 @implementation LoginViewController
 
@@ -27,9 +28,15 @@
 - (void)appDidBecomeActive:(NSNotification *)notification {
     if ([FBSDKAccessToken currentAccessToken]) {
         NSLog(@"User logged in.");
+        NSString* accessString = [[NSString alloc] initWithFormat:@"{\"facebook_access_token\" : \"%@\"}", [FBSDKAccessToken currentAccessToken].tokenString];
+        // NSLog(@"%@", accessString);
+
+        id json = [ServerAPI parseJson:accessString];
+        [ServerAPI postData:json toURL:@"http://localhost:3004/api/auth/login"];
         
+        //[self performSegueWithIdentifier:@"login" sender:self];
     }
-    [self performSegueWithIdentifier:@"login" sender:self];
+    
 }
 
 @end
