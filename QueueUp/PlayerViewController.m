@@ -25,7 +25,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView2;
+@property (weak, nonatomic) IBOutlet UIImageView *playpause;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
+@property IBOutlet UITableView *queue;
 
 @property (nonatomic, strong) SPTSession *session;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
@@ -38,12 +41,14 @@
     Playlist *currentPlaylist;
     NSString *currentURI;
     ServerAPI *api;
+    NSArray *tracks;
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.playpause.image = [UIImage imageNamed:@"play.png"];
     // get api instance
     api = [ServerAPI getInstance];
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -71,33 +76,51 @@
         self.socket = socket;
         
         __weak typeof(self) weakSelf = self;
+        __weak typeof(api) weakapi = api;
         
         // on connecting to socket
         self.socket.onConnect = ^()
         {
             weakSelf.socketIsConnected = YES;
             NSLog(@"Connected.");
+            [weakSelf.socket emit: @"auth" args: [[NSArray alloc] initWithObjects:weakapi.idAndEmail, nil]];
         };
         
-        [self.socket on: @"auth_request" callback: ^(SIOParameterArray *args)
-        {
-            NSLog(@"Request auth");
-            id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID]];
-            [self.socket emit: @"auth_send" args: [[NSArray alloc] initWithObjects:json, nil]];
-            
-        }];
+        [self.socket on: @"auth_response" callback: ^(SIOParameterArray *args)
+                 {
+                     NSLog(@"RESPONSE");
+                     if ([args firstObject] == nil) {
+                         NSLog(@"Server responded to auth request.");
+                         id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"playlist_id\" : \"%@\"}", currentPlaylist.playID]];
+                         [self.socket emit: @"client_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
+                     } else {
+                         NSLog(@"%@", [args firstObject]);
+                     }
+                     
+                     
+                 }];
         
-        [self.socket on: @"auth_success" callback: ^(SIOParameterArray *args) {
-            NSLog(@"Authenticated!");
-            NSMutableDictionary *dictionaryStateData = [args firstObject];
-            _serverPlay = [dictionaryStateData[@"play"] boolValue];
-            [self.player setIsPlaying:_serverPlay callback:nil];
-            
-        }];
+        // OLD PLAYLIST SUB API
         
-        [self.socket on: @"auth_fail" callback: ^(SIOParameterArray *args) {
-             NSLog(@"Authentication failed.");
-        }];
+//        [self.socket on: @"auth_request" callback: ^(SIOParameterArray *args)
+//        {
+//            NSLog(@"Request auth");
+//            id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID]];
+//            [self.socket emit: @"auth_send" args: [[NSArray alloc] initWithObjects:json, nil]];
+//            
+//        }];
+//        
+//        [self.socket on: @"auth_success" callback: ^(SIOParameterArray *args) {
+//            NSLog(@"Authenticated!");
+//            NSMutableDictionary *dictionaryStateData = [args firstObject];
+//            _serverPlay = [dictionaryStateData[@"play"] boolValue];
+//            [self.player setIsPlaying:_serverPlay callback:nil];
+//            
+//        }];
+//        
+//        [self.socket on: @"auth_fail" callback: ^(SIOParameterArray *args) {
+//             NSLog(@"Authentication failed.");
+//        }];
         
         [self.socket on: @"state_change" callback: ^(SIOParameterArray *args) {
             
@@ -194,8 +217,10 @@
     NSString *toSend;
     if (self.player.isPlaying) {
         toSend = @"false";
+        self.playpause.image = [UIImage imageNamed:@"play.png"];
     } else {
         toSend = @"true";
+        self.playpause.image = [UIImage imageNamed:@"pause.png"];
     }
     NSLog(@"playing now %@", toSend);
     NSData *jsonData = [[[NSString alloc] initWithFormat:@"{\"playing\" : %@}", toSend] dataUsingEncoding:NSUTF8StringEncoding];
@@ -305,6 +330,53 @@
 }
 
 
+
+
+// table view methods
+
+
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return [wlitems count];
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    static NSString *simpleTableIdentifier = @"cell";
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+//    }
+//    
+//    [[wlitems objectAtIndex:indexPath.row] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        cell.textLabel.text = object[@"name"];
+//    }];
+//    
+//    return cell;
+//}
+//
+//
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    [[wlitems objectAtIndex:indexPath.row] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        
+//        NSString *text = [NSString stringWithFormat:@"Price: %@",
+//                          ((PFUser*)object)[@"price"]];
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:object[@"name"]
+//                                                        message:text
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//    }];
+//    
+//    
+//}
 
 /*
 #pragma mark - Navigation

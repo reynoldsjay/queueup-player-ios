@@ -13,5 +13,6 @@
 
 @synthesize playID = _playID;
 @synthesize name = _name;
+@synthesize imgURL = _imgURL;
 
 @end

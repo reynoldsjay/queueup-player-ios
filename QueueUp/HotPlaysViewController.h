@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HotPlaysViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface HotPlaysViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 

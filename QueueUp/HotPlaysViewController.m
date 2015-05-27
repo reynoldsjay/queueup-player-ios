@@ -19,6 +19,10 @@
 
 @interface HotPlaysViewController ()
 
+
+@property IBOutlet UICollectionView *collectionView;
+
+
 @end
 
 
@@ -64,6 +68,9 @@
             Playlist *toAdd = [[Playlist alloc] init];
             toAdd.name = playlistInfo[@"name"];
             toAdd.playID = playlistInfo[@"_id"];
+            NSDictionary *firstTrack = playlistInfo[@"current"];
+            NSArray *images = firstTrack[@"album"][@"images"];
+            toAdd.imgURL = [images firstObject][@"url"];
             [playlistHolder addObject:toAdd];
             //NSLog(@"%@", toAdd.name);
         }
@@ -71,30 +78,33 @@
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [playlists count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"cell";
+    static NSString *identifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:((Playlist*)[playlistHolder objectAtIndex:indexPath.row]).imgURL]];
     
-    cell.textLabel.text = ((Playlist*)[playlistHolder objectAtIndex:indexPath.row]).name;
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
+    // set label
+    UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
+    
+    // set transparent cover
+    UIImageView *shade = (UIImageView *)[cell viewWithTag:10];
+    shade.image = [UIImage imageNamed:@"albumShade.png"];
+    
+    
+    cellLabel.text = ((Playlist*)[playlistHolder objectAtIndex:indexPath.row]).name;
     return cell;
 }
 
 
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     appDelegate.currentPlaylist = ((Playlist*)[playlistHolder objectAtIndex:indexPath.row]);
     [self performSegueWithIdentifier:@"player" sender:self];

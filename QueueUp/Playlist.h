@@ -13,5 +13,6 @@
 
 @property NSString *playID;
 @property NSString *name;
+@property NSString *imgURL;
 
 @end
