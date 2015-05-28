@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *playpause;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
-@property IBOutlet UITableView *queue;
+@property IBOutlet UITableView *queueView;
 
 @property (nonatomic, strong) SPTSession *session;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
@@ -41,7 +41,7 @@
     Playlist *currentPlaylist;
     NSString *currentURI;
     ServerAPI *api;
-    NSArray *tracks;
+    NSArray *queue;
     
 }
 
@@ -51,6 +51,10 @@
     self.playpause.image = [UIImage imageNamed:@"play.png"];
     // get api instance
     api = [ServerAPI getInstance];
+    
+
+    
+    
     SWRevealViewController *revealViewController = self.revealViewController;
     
     // side bar set up
@@ -71,6 +75,16 @@
     
     self.session = appDelegate.session;
     [self handleNewSession:self.session];
+    
+    
+    NSString *toPost = [[NSString alloc] initWithFormat:@"http://localhost:3004/api/playlists/%@", currentPlaylist.playID];
+    // store list of tracks
+    NSString *tracksResponse = [api postData:api.idAndEmail toURL:toPost];
+    //NSLog(@"tracksresp: %@", tracksResponse);
+    NSDictionary *playObj = ((NSDictionary *)[api parseJson:tracksResponse])[@"playlist"];
+    //[@"tracks"][@"track"];
+    queue = playObj[@"tracks"];
+    
     
     [SIOSocket socketWithHost: @hostDomain response: ^(SIOSocket *socket) {
         self.socket = socket;
@@ -93,6 +107,9 @@
                          NSLog(@"Server responded to auth request.");
                          id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"playlist_id\" : \"%@\"}", currentPlaylist.playID]];
                          [self.socket emit: @"client_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
+                         // 5562d836c9ba3378205098e2
+                         
+                         
                      } else {
                          NSLog(@"%@", [args firstObject]);
                      }
@@ -160,8 +177,9 @@
         
         
     }];
+    [self.queueView reloadData];
     
-    
+
 }
 
 
@@ -334,33 +352,56 @@
 
 // table view methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return [wlitems count];
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *simpleTableIdentifier = @"cell";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-//    }
-//    
-//    [[wlitems objectAtIndex:indexPath.row] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        cell.textLabel.text = object[@"name"];
-//    }];
-//    
-//    return cell;
-//}
-//
-//
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [queue count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    NSDictionary *qItem = (NSDictionary *)[queue objectAtIndex:indexPath.row];
+    NSDictionary *qTrack = qItem[@"track"];
+    
+    
+    UILabel *cellLabel = (UILabel *)[cell viewWithTag:10];
+    cellLabel.text = qTrack[@"name"];
+    //NSLog(@"%@", qTrack[@"name"]);
+    
+    
+    
+
+    
+    UIImageView *albumcover = (UIImageView *)[cell viewWithTag:20];
+    NSArray *coverImURLs = qTrack[@"album"][@"images"];
+    NSString *coverURL = [coverImURLs firstObject][@"url"];
+    //NSLog(@"%@", coverURL);
+    
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:coverURL]];
+    albumcover.image = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]].image;
+    
+    
+    
+    return cell;
+}
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
 //    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 //    [[wlitems objectAtIndex:indexPath.row] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
 //        
@@ -376,7 +417,7 @@
 //    }];
 //    
 //    
-//}
+}
 
 /*
 #pragma mark - Navigation

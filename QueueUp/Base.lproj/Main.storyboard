@@ -126,6 +126,33 @@
                                 <rect key="frame" x="0.0" y="256" width="320" height="312"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="LMY-iA-3tD">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LMY-iA-3tD" id="Vpa-82-yL0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Wq-fP-cJK">
+                                                    <rect key="frame" x="67" y="11" width="120" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="o5n-qP-iBa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="09m-oY-BKJ" id="xbz-lT-i2m"/>
+                                    <outlet property="delegate" destination="09m-oY-BKJ" id="GFt-Fk-5gV"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,6 +166,7 @@
                         <outlet property="coverView" destination="OLG-Z3-Pao" id="gNa-bF-DCw"/>
                         <outlet property="coverView2" destination="OLG-Z3-Pao" id="ySN-2x-MCA"/>
                         <outlet property="playpause" destination="Qqj-HD-qxf" id="hul-Bz-Gg0"/>
+                        <outlet property="queueView" destination="9zQ-TO-opm" id="YSN-Y0-gt7"/>
                         <outlet property="sidebarButton" destination="b43-Qy-ktx" id="gQq-FB-P7X"/>
                         <outlet property="spinner" destination="SdK-O3-ftO" id="43B-LG-MeD"/>
                         <outlet property="titleLabel" destination="Eyt-nY-iBy" id="ob8-wy-j2h"/>
