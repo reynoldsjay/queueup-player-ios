@@ -7,12 +7,8 @@
 //
 
 #import "HotPlaysViewController.h"
-#import "Playlist.h"
-#import "PlayerViewController.h"
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "ServerAPI.h"
 #import "Config.h"
 
@@ -27,14 +23,15 @@
 
 
 @implementation HotPlaysViewController {
-    NSMutableDictionary *playlists;
-    NSMutableArray *playlistHolder;
-    AppDelegate *appDelegate;
+    NSMutableArray *playlists;
     ServerAPI *api;
 }
 
 - (void)viewDidLoad {
     
+    [super viewDidLoad];
+    
+    // get api object
     api = [ServerAPI getInstance];
     
     // side bar set up
@@ -46,67 +43,53 @@
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
     
-    playlistHolder = [[NSMutableArray alloc] init];
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    NSError *error;
-    
+    // get all playlists
     NSString *playlistString = [api postData:api.idAndEmail toURL:(@hostDomain @"/api/playlists")];
-    
-    
     NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
-    
     playlists = dictionaryData[@"playlists"];
     
-    if( error ) {
-        NSLog(@"%@", [error localizedDescription]);
-    } else {
-        for (NSDictionary *playlistInfo in playlists) {
-            Playlist *toAdd = [[Playlist alloc] init];
-            toAdd.name = playlistInfo[@"name"];
-            toAdd.playID = playlistInfo[@"_id"];
-            NSDictionary *firstTrack = playlistInfo[@"current"];
-            NSArray *images = firstTrack[@"album"][@"images"];
-            toAdd.imgURL = [images firstObject][@"url"];
-            [playlistHolder addObject:toAdd];
-            //NSLog(@"%@", toAdd.name);
-        }
-    }
     
 }
+
+
+// table methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [playlists count];
 }
 
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"Cell";
-    
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:((Playlist*)[playlistHolder objectAtIndex:indexPath.row]).imgURL]];
     
+    // set background of cells as album covers
+    NSDictionary * aPlaylist = [playlists objectAtIndex:indexPath.row];
+    NSDictionary *firstTrack = aPlaylist[@"current"];
+    NSArray *images = firstTrack[@"album"][@"images"];
+    NSString *thisImgURL = [images firstObject][@"url"];
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:thisImgURL]];
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
-    // set label
-    UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
+    
     
     // set transparent cover
     UIImageView *shade = (UIImageView *)[cell viewWithTag:10];
     shade.image = [UIImage imageNamed:@"albumShade.png"];
     
+    // set label with name of playlist
+    UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
+    cellLabel.text = [playlists objectAtIndex:indexPath.row][@"name"];
     
-    cellLabel.text = ((Playlist*)[playlistHolder objectAtIndex:indexPath.row]).name;
+    
     return cell;
 }
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    appDelegate.currentPlaylist = ((Playlist*)[playlistHolder objectAtIndex:indexPath.row]);
+    // set current playlist as selected
+    api.currentPlaylist = [playlists objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"player" sender:self];
 }
 

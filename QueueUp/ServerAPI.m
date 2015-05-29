@@ -12,6 +12,7 @@
 @implementation ServerAPI
 
 @synthesize idAndEmail = _idAndEmail;
+@synthesize currentPlaylist = _currentPlaylist;
 
 static ServerAPI *singletonInstance;
 

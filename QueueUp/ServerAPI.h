@@ -11,6 +11,7 @@
 @interface ServerAPI : NSObject <NSURLConnectionDataDelegate>
 
 @property id idAndEmail;
+@property id currentPlaylist;
 
 + (ServerAPI*) getInstance;
 
