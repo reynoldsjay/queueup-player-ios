@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Playlist.h"
 #import <Spotify/Spotify.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property Playlist *currentPlaylist;
 
 @property (nonatomic, strong) SPTSession *session;
 

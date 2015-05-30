@@ -112,6 +112,7 @@
                                 </state>
                                 <connections>
                                     <action selector="playPause:" destination="09m-oY-BKJ" eventType="touchUpInside" id="aGe-b7-1EJ"/>
+                                    <action selector="playPauseButton:" destination="09m-oY-BKJ" eventType="touchUpInside" id="cRJ-xg-0mD"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Qqj-HD-qxf">

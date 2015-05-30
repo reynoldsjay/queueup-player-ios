@@ -17,18 +17,22 @@
 
 @property SIOSocket *socket;
 @property BOOL socketIsConnected;
-@property BOOL serverPlay;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView2;
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *playpause;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property IBOutlet UITableView *queueView;
+
 
 @property (nonatomic, strong) SPTSession *session;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
@@ -38,7 +42,6 @@
 @implementation PlayerViewController {
 
     AppDelegate *appDelegate;
-    Playlist *currentPlaylist;
     NSString *currentURI;
     ServerAPI *api;
     NSArray *queue;
@@ -46,18 +49,16 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.playpause.image = [UIImage imageNamed:@"play.png"];
+    
     // get api instance
     api = [ServerAPI getInstance];
     
-
-    
-    
-    SWRevealViewController *revealViewController = self.revealViewController;
-    
     // side bar set up
+    SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {
         [self.sidebarButton setTarget: self.revealViewController];
@@ -71,94 +72,55 @@
     self.artistLabel.text = @"";
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    currentPlaylist = appDelegate.currentPlaylist;
+    //currentPlaylist = appDelegate.currentPlaylist;
     
     self.session = appDelegate.session;
     [self handleNewSession:self.session];
     
     
-    NSString *toPost = [[NSString alloc] initWithFormat:@"http://localhost:3004/api/playlists/%@", currentPlaylist.playID];
-    // store list of tracks
-    NSString *tracksResponse = [api postData:api.idAndEmail toURL:toPost];
-    //NSLog(@"tracksresp: %@", tracksResponse);
-    NSDictionary *playObj = ((NSDictionary *)[api parseJson:tracksResponse])[@"playlist"];
-    //[@"tracks"][@"track"];
-    queue = playObj[@"tracks"];
-    
-    
-    [SIOSocket socketWithHost: @hostDomain response: ^(SIOSocket *socket) {
-        self.socket = socket;
+    if (api.currentPlaylist != nil) {
         
-        __weak typeof(self) weakSelf = self;
-        __weak typeof(api) weakapi = api;
-        
-        // on connecting to socket
-        self.socket.onConnect = ^()
-        {
-            weakSelf.socketIsConnected = YES;
-            NSLog(@"Connected.");
-            [weakSelf.socket emit: @"auth" args: [[NSArray alloc] initWithObjects:weakapi.idAndEmail, nil]];
-        };
-        
-        [self.socket on: @"auth_response" callback: ^(SIOParameterArray *args)
-                 {
-                     NSLog(@"RESPONSE");
-                     if ([args firstObject] == nil) {
-                         NSLog(@"Server responded to auth request.");
-                         id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"playlist_id\" : \"%@\"}", currentPlaylist.playID]];
-                         [self.socket emit: @"client_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
-                         // 5562d836c9ba3378205098e2
+        [SIOSocket socketWithHost: @hostDomain response: ^(SIOSocket *socket) {
+            
+            self.socket = socket;
+            
+            __weak typeof(self) weakSelf = self;
+            __weak typeof(api) weakapi = api;
+            
+            // on connecting to socket
+            self.socket.onConnect = ^()
+            {
+                weakSelf.socketIsConnected = YES;
+                NSLog(@"Connected.");
+                [weakSelf.socket emit: @"auth" args: [[NSArray alloc] initWithObjects:weakapi.idAndEmail, nil]];
+            };
+            
+            [self.socket on: @"auth_response" callback: ^(SIOParameterArray *args)
+                     {
+                         NSLog(@"RESPONSE");
+                         if ([args firstObject] == nil) {
+                             NSLog(@"Server responded to auth request.");
+                             id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"playlist_id\" : \"%@\"}", (api.currentPlaylist)[@"_id"]]];
+                             [self.socket emit: @"client_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
+                         } else {
+                             NSLog(@"%@", [args firstObject]);
+                         }
                          
                          
-                     } else {
-                         NSLog(@"%@", [args firstObject]);
-                     }
-                     
-                     
-                 }];
-        
-        // OLD PLAYLIST SUB API
-        
-//        [self.socket on: @"auth_request" callback: ^(SIOParameterArray *args)
-//        {
-//            NSLog(@"Request auth");
-//            id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"id\" : \"%@\"}", currentPlaylist.playID]];
-//            [self.socket emit: @"auth_send" args: [[NSArray alloc] initWithObjects:json, nil]];
-//            
-//        }];
-//        
-//        [self.socket on: @"auth_success" callback: ^(SIOParameterArray *args) {
-//            NSLog(@"Authenticated!");
-//            NSMutableDictionary *dictionaryStateData = [args firstObject];
-//            _serverPlay = [dictionaryStateData[@"play"] boolValue];
-//            [self.player setIsPlaying:_serverPlay callback:nil];
-//            
-//        }];
-//        
-//        [self.socket on: @"auth_fail" callback: ^(SIOParameterArray *args) {
-//             NSLog(@"Authentication failed.");
-//        }];
-        
-        [self.socket on: @"state_change" callback: ^(SIOParameterArray *args) {
-            
-            NSMutableDictionary *dictionaryStateData = [args firstObject];
+                     }];
             
             
-            @try {
-                if (dictionaryStateData[@"play"] != nil) {
-                    _serverPlay = [dictionaryStateData[@"play"] boolValue];
-                    [self.player setIsPlaying:_serverPlay callback:nil];
-                }
-            }
-            @catch (NSException *exception) {
-            }
-            @finally {
-            }
-            
-            @try {
+            // CHANGE TO NEW API
+            [self.socket on: @"state_change" callback: ^(SIOParameterArray *args) {
+                
+                NSMutableDictionary *dictionaryStateData = [args firstObject];
+                NSLog(@"%@", dictionaryStateData);
+                
+                
+                // update current track
                 NSDictionary *track = dictionaryStateData[@"track"];
                 NSString *trackURI = track[@"uri"];
-                if (![currentURI isEqualToString:trackURI] && _serverPlay && trackURI != nil) {
+                if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
                     [self playSong:trackURI];
                     NSLog(@"New song.");
                     currentURI = trackURI;
@@ -166,20 +128,33 @@
                 [self.spinner startAnimating];
                 [NSThread sleepForTimeInterval:1.0f];
                 [self updateUI];
-            }
-            @catch (NSException *exception) {
-            }
-            @finally {
-            }
+
+                
+                // update play state
+                if (dictionaryStateData[@"play"] != nil) {
+                    BOOL playState = [dictionaryStateData[@"play"] boolValue];
+                    [self.player setIsPlaying:playState callback:nil];
+                    if (playState) {
+                        self.playpause.image = [UIImage imageNamed:@"pause.png"];
+                    } else {
+                        self.playpause.image = [UIImage imageNamed:@"play.png"];
+                    }
+                }
+                
+                
+                // update queue
+                NSDictionary *recQ = dictionaryStateData[@"queue"];
+                if (recQ != nil) {
+                    queue = (NSArray *) recQ;
+                    [self.queueView reloadData];
+                }
+                
+            }];
             
             
         }];
-        
-        
-    }];
-    [self.queueView reloadData];
     
-
+    }
 }
 
 
@@ -196,7 +171,6 @@
             NSLog(@"*** Enabling playback got error: %@", error);
             return;
         }
-
         [SPTRequest requestItemAtURI:[NSURL URLWithString:trackURI]
                          withSession:nil
                             callback:^(NSError *error, SPTTrack *track) {
@@ -229,16 +203,14 @@
     [self.player skipPrevious:nil];
 }
 
--(IBAction)playPause:(id)sender {
+-(IBAction)playPauseButton:(id)sender {
     //[self.player setIsPlaying:!self.player.isPlaying callback:nil];
     NSLog(@"%d", self.player.isPlaying);
     NSString *toSend;
     if (self.player.isPlaying) {
         toSend = @"false";
-        self.playpause.image = [UIImage imageNamed:@"play.png"];
     } else {
         toSend = @"true";
-        self.playpause.image = [UIImage imageNamed:@"pause.png"];
     }
     NSLog(@"playing now %@", toSend);
     NSData *jsonData = [[[NSString alloc] initWithFormat:@"{\"playing\" : %@}", toSend] dataUsingEncoding:NSUTF8StringEncoding];

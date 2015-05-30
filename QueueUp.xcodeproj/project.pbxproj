@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D01B1162E10029F4E3 /* SWRevealViewController.m */; };
 		811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D31B11631D0029F4E3 /* SidebarViewController.m */; };
-		813146841ABFD214002CBD2E /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146831ABFD214002CBD2E /* Playlist.m */; };
 		813146881AC0572B002CBD2E /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146871AC0572B002CBD2E /* PlayerViewController.m */; };
 		813DF7A31ABE1EC30057D655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A21ABE1EC30057D655 /* main.m */; };
 		813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A51ABE1EC30057D655 /* AppDelegate.m */; };
@@ -53,8 +52,6 @@
 		811D52D01B1162E10029F4E3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		811D52D21B11631D0029F4E3 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
 		811D52D31B11631D0029F4E3 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
-		813146831ABFD214002CBD2E /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
-		813146851ABFD4D8002CBD2E /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		813146861AC0572B002CBD2E /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		813146871AC0572B002CBD2E /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		813DF79D1ABE1EC30057D655 /* QueueUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueueUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,8 +196,6 @@
 				813DF7AD1ABE1EC30057D655 /* Images.xcassets */,
 				81732F5E1B143E6700C29B5F /* Images */,
 				813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */,
-				813146851ABFD4D8002CBD2E /* Playlist.h */,
-				813146831ABFD214002CBD2E /* Playlist.m */,
 				813DF7A11ABE1EC30057D655 /* Info.plist */,
 				813DF7A21ABE1EC30057D655 /* main.m */,
 			);
@@ -373,7 +368,6 @@
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
 				8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */,
 				811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */,
-				813146841ABFD214002CBD2E /* Playlist.m in Sources */,
 				813146881AC0572B002CBD2E /* PlayerViewController.m in Sources */,
 				811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */,
 			);

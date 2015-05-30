@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import "Playlist.h"
 #import "Config.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "LoginViewController.h"
@@ -12,9 +11,6 @@
 #define kSessionUserDefaultsKey "SpotifySession"
 
 @implementation AppDelegate
-
-
-@synthesize currentPlaylist = _currentPlaylist;
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
