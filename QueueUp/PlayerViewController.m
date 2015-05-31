@@ -114,7 +114,7 @@
             [self.socket on: @"state_change" callback: ^(SIOParameterArray *args) {
                 
                 NSMutableDictionary *dictionaryStateData = [args firstObject];
-                NSLog(@"%@", dictionaryStateData);
+                //NSLog(@"%@", dictionaryStateData);
                 
                 
                 // update current track
@@ -218,7 +218,6 @@
     [self.socket emit: @"client_play_pause" args:[[NSArray alloc] initWithObjects:json, nil]];
 }
 
-
 -(IBAction)fastForward:(id)sender {
     [self.player skipNext:nil];
 }
@@ -316,7 +315,6 @@
         NSLog(@"Track ended.");
         [self.socket emit: @"track_finished" args:nil];
     }
-    [self updateUI];
 }
 
 
@@ -345,30 +343,99 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
+    // table cell track name
     NSDictionary *qItem = (NSDictionary *)[queue objectAtIndex:indexPath.row];
     NSDictionary *qTrack = qItem[@"track"];
-    
-    
     UILabel *cellLabel = (UILabel *)[cell viewWithTag:10];
     cellLabel.text = qTrack[@"name"];
-    //NSLog(@"%@", qTrack[@"name"]);
     
     
-    
-
-    
+    // table cell album over
     UIImageView *albumcover = (UIImageView *)[cell viewWithTag:20];
     NSArray *coverImURLs = qTrack[@"album"][@"images"];
     NSString *coverURL = [coverImURLs firstObject][@"url"];
-    //NSLog(@"%@", coverURL);
-    
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:coverURL]];
     albumcover.image = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]].image;
+    
+    // table cell vote
+    UIImageView *upvote = (UIImageView *)[cell viewWithTag:40];
+    upvote.image = [UIImage imageNamed:@"upvote.png"];
+//    NSLog(@"%d", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
+    upvote.tintColor = [UIColor redColor];
+    
+    
+    // create upvote button
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self action:@selector(voteButtonPress:)
+     forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"" forState:UIControlStateNormal];
+    button.frame = CGRectMake(280.0f, 5.0f, 35.0f, 35.0f);
+    //[button.layer setBorderColor:[[UIColor redColor] CGColor]];
+    //[[button layer] setBorderWidth:2.0f];
+    [cell addSubview:button];
+    
     
     
     
     return cell;
 }
+
+
+
+// upvote button handler
+
+-(void)voteButtonPress :(id)sender
+{
+    //Get the superview from this button which will be our cell
+    UITableViewCell *owningCell = (UITableViewCell*)[sender superview];
+    
+    //From the cell get its index path.
+    //
+    //In this example I am only using the indexpath to show a unique message based
+    //on the index of the cell.
+    //If you were using an array of data to build the table you might use
+    //the index here to do something with that array.
+    NSIndexPath *pathToCell = [_queueView indexPathForCell:owningCell];
+    
+    UIImageView *upvote = (UIImageView *)[owningCell viewWithTag:40];
+    NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
+    
+    
+    NSString *strVote;
+    NSDictionary *qItem = (NSDictionary *) [queue objectAtIndex:pathToCell.row];
+    NSString *trackid = qItem[@"track"][@"id"];
+                  
+    if ([upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]) {
+        upvote.image = [UIImage imageNamed:@"greenvote.png"];
+        strVote = @"true";
+        
+    } else {
+        upvote.image = [UIImage imageNamed:@"upvote.png"];
+        strVote = @"false";
+    }
+    
+    NSString *clientID = ((NSDictionary*)api.idAndEmail)[@"client_id"];
+    NSString *email = ((NSDictionary*)api.idAndEmail)[@"email"];
+    
+    
+    
+    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"client_id\" : \"%@\", \"email\" : \"%@\", \"track_id\" : \"%@\", \"vote\" : \"%@\"}", clientID, email, trackid, strVote];
+    
+    id jsonVote = [api parseJson:toSend];
+    
+    NSString *postVoteURL = [NSString stringWithFormat:@"%@/api/playlists/%@/vote", @hostDomain, (api.currentPlaylist)[@"_id"]];
+    
+    NSLog(@"post: %@ to %@,, %@", toSend, postVoteURL, api.idAndEmail);
+    
+    //[api postData:jsonVote toURL:postVoteURL];
+    
+    NSLog(@"Pressed: %ld", (long)pathToCell.row);
+    
+}
+
+
+
+
 
 
 

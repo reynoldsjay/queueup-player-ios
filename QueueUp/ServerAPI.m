@@ -26,6 +26,8 @@ static ServerAPI *singletonInstance;
 
 // returns string of json object response
 - (NSString*)postData:(id)postJson toURL:(NSString*)url {
+    
+    NSLog(@"TRYING");
     NSError *error;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:postJson options:0 error:&error];
     NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
@@ -50,6 +52,11 @@ static ServerAPI *singletonInstance;
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     return json;
+}
+
+
+- (NSString *) jsonToString:(id)jsonObj {
+    return [[NSString alloc] initWithData:jsonObj encoding:NSUTF8StringEncoding];
 }
 
 @end

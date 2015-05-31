@@ -19,4 +19,6 @@
 
 - (NSData*)parseJson:(NSString*)jsonString;
 
+- (NSString*)jsonToString:(id)jsonObj;
+
 @end

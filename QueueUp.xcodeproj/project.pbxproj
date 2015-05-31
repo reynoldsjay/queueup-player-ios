@@ -24,6 +24,8 @@
 		81732F691B1444AF00C29B5F /* albumShade.xcf in Resources */ = {isa = PBXBuildFile; fileRef = 81732F631B1444AF00C29B5F /* albumShade.xcf */; };
 		81732F6A1B1444AF00C29B5F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 81732F641B1444AF00C29B5F /* logo.png */; };
 		81732F6B1B1444AF00C29B5F /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81732F651B1444AF00C29B5F /* menu@2x.png */; };
+		81738D701B1A58B30012A5B8 /* upvote.png in Resources */ = {isa = PBXBuildFile; fileRef = 81738D6F1B1A58B30012A5B8 /* upvote.png */; };
+		81738D721B1A5BB40012A5B8 /* greenvote.png in Resources */ = {isa = PBXBuildFile; fileRef = 81738D711B1A5BB40012A5B8 /* greenvote.png */; };
 		8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD661B1250CA00B1D846 /* LoginViewController.m */; };
 		8174AD6B1B1257FD00B1D846 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */; };
 		8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */; };
@@ -74,6 +76,8 @@
 		81732F631B1444AF00C29B5F /* albumShade.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; name = albumShade.xcf; path = QueueUp/Images/albumShade.xcf; sourceTree = "<group>"; };
 		81732F641B1444AF00C29B5F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = QueueUp/Images/logo.png; sourceTree = "<group>"; };
 		81732F651B1444AF00C29B5F /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu@2x.png"; path = "QueueUp/Images/menu@2x.png"; sourceTree = "<group>"; };
+		81738D6F1B1A58B30012A5B8 /* upvote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upvote.png; path = Images/upvote.png; sourceTree = "<group>"; };
+		81738D711B1A5BB40012A5B8 /* greenvote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenvote.png; path = Images/greenvote.png; sourceTree = "<group>"; };
 		8174AD651B1250CA00B1D846 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8174AD661B1250CA00B1D846 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -180,9 +184,11 @@
 				811D52D31B11631D0029F4E3 /* SidebarViewController.m */,
 				813146861AC0572B002CBD2E /* PlayerViewController.h */,
 				813146871AC0572B002CBD2E /* PlayerViewController.m */,
+				81738D711B1A5BB40012A5B8 /* greenvote.png */,
 				8174AD651B1250CA00B1D846 /* LoginViewController.h */,
 				8174AD661B1250CA00B1D846 /* LoginViewController.m */,
 				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
+				81738D6F1B1A58B30012A5B8 /* upvote.png */,
 				813DF7A01ABE1EC30057D655 /* Supporting Files */,
 				8174AD701B128A6400B1D846 /* ServerAPI.h */,
 				8174AD6E1B128A5000B1D846 /* ServerAPI.m */,
@@ -305,10 +311,12 @@
 				81732F661B1444AF00C29B5F /* play.png in Resources */,
 				81732F671B1444AF00C29B5F /* pause.png in Resources */,
 				81732F681B1444AF00C29B5F /* albumShade.png in Resources */,
+				81738D721B1A5BB40012A5B8 /* greenvote.png in Resources */,
 				81732F691B1444AF00C29B5F /* albumShade.xcf in Resources */,
 				81732F6A1B1444AF00C29B5F /* logo.png in Resources */,
 				81732F6B1B1444AF00C29B5F /* menu@2x.png in Resources */,
 				81732F5F1B143E6700C29B5F /* Images in Resources */,
+				81738D701B1A58B30012A5B8 /* upvote.png in Resources */,
 				813DF7AC1ABE1EC30057D655 /* Main.storyboard in Resources */,
 				813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */,
 				813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */,
