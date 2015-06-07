@@ -44,7 +44,7 @@
     }
     
     // get all playlists
-    NSString *playlistString = [api postData:api.idAndEmail toURL:(@hostDomain @"/api/playlists")];
+    NSString *playlistString = [api postData:api.idAndToken toURL:(@hostDomain @"/api/playlists")];
     NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
     playlists = dictionaryData[@"playlists"];
     

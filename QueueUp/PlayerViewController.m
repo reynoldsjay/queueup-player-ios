@@ -92,7 +92,7 @@
             {
                 weakSelf.socketIsConnected = YES;
                 NSLog(@"Connected.");
-                [weakSelf.socket emit: @"auth" args: [[NSArray alloc] initWithObjects:weakapi.idAndEmail, nil]];
+                [weakSelf.socket emit: @"auth" args: [[NSArray alloc] initWithObjects:weakapi.idAndToken, nil]];
             };
             
             [self.socket on: @"auth_response" callback: ^(SIOParameterArray *args)
@@ -414,18 +414,18 @@
         strVote = @"false";
     }
     
-    NSString *clientID = ((NSDictionary*)api.idAndEmail)[@"client_id"];
-    NSString *email = ((NSDictionary*)api.idAndEmail)[@"email"];
+    NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+    NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
     
     
     
-    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"client_id\" : \"%@\", \"email\" : \"%@\", \"track_id\" : \"%@\", \"vote\" : \"%@\"}", clientID, email, trackid, strVote];
+    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"client_id\" : \"%@\", \"email\" : \"%@\", \"track_id\" : \"%@\", \"vote\" : \"%@\"}", clientID, token, trackid, strVote];
     
     id jsonVote = [api parseJson:toSend];
     
     NSString *postVoteURL = [NSString stringWithFormat:@"%@/api/playlists/%@/vote", @hostDomain, (api.currentPlaylist)[@"_id"]];
     
-    NSLog(@"post: %@ to %@,, %@", toSend, postVoteURL, api.idAndEmail);
+    NSLog(@"post: %@ to %@,, %@", toSend, postVoteURL, api.idAndToken);
     
     //[api postData:jsonVote toURL:postVoteURL];
     

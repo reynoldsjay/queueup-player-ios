@@ -37,19 +37,13 @@
         id json = [api parseJson:accessString];
         NSString *client = [api postData:json toURL:(@hostDomain @"/api/auth/login")];
         // store client id
-        NSString *theID = ((NSDictionary*)[api parseJson:client])[@"client_id"];
+        NSString *theID = ((NSDictionary*)[api parseJson:client])[@"user_id"];
         
 
-        // store email global
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-             if (!error) {
-                 NSString *email = result[@"email"];
-                 NSString *combine = [[NSString alloc] initWithFormat:@"{\"client_id\":\"%@\", \"email\":\"%@\"}", theID, email];
-                 api.idAndEmail = [api parseJson:combine];
-                 [self performSegueWithIdentifier:@"login" sender:self];
-             }
-         }];
+         NSString *token = ((NSDictionary*)[api parseJson:client])[@"client_token"];
+         NSString *combine = [[NSString alloc] initWithFormat:@"{\"user_id\":\"%@\", \"client_token\":\"%@\"}", theID, token];
+         api.idAndToken = [api parseJson:combine];
+         [self performSegueWithIdentifier:@"login" sender:self];
         
         
         //
