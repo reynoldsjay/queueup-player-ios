@@ -23,7 +23,7 @@
 
 // Qup Server
 
-#define hostDomain "http://localhost:3004"
+#define hostDomain "http://dev.qup.louiswilliams.org"
 
 
 #endif

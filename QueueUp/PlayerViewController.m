@@ -75,7 +75,9 @@
     //currentPlaylist = appDelegate.currentPlaylist;
     
     self.session = appDelegate.session;
-    [self handleNewSession:self.session];
+    
+    // UNCOMMENT TO GET PLAYER
+    //[self handleNewSession:self.session];
     
     
     if (api.currentPlaylist != nil) {
@@ -419,13 +421,13 @@
     
     
     
-    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"client_id\" : \"%@\", \"email\" : \"%@\", \"track_id\" : \"%@\", \"vote\" : \"%@\"}", clientID, token, trackid, strVote];
+    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"user_id\" : \"%@\", \"client_token\" : \"%@\", \"track_id\" : \"%@\", \"vote\" : \"%@\"}", clientID, token, trackid, strVote];
     
     id jsonVote = [api parseJson:toSend];
     
     NSString *postVoteURL = [NSString stringWithFormat:@"%@/api/playlists/%@/vote", @hostDomain, (api.currentPlaylist)[@"_id"]];
     
-    NSLog(@"post: %@ to %@,, %@", toSend, postVoteURL, api.idAndToken);
+    NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
     
     //[api postData:jsonVote toURL:postVoteURL];
     

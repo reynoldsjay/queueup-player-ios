@@ -83,6 +83,14 @@
     cellLabel.text = [playlists objectAtIndex:indexPath.row][@"name"];
     
     
+    // get each playlist's admin
+    UILabel *userLabel = (UILabel *)[cell viewWithTag:110];
+    NSString *userURL = [NSString stringWithFormat:@"%@/api/users/%@", @hostDomain, aPlaylist[@"admin"]];
+    id usrDict = [api postData:api.idAndToken toURL:userURL];
+    NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
+    userLabel.text = [NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]];
+    
+    
     return cell;
 }
 
