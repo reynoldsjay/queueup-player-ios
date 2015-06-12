@@ -57,7 +57,6 @@
         NSString *creatorName = [NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]];
         [creators addObject:creatorName];
     }
-    NSLog(@"%@", creators);
     
 }
 

@@ -19,8 +19,6 @@
 		813DF7BD1ABE1EC30057D655 /* QueueUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */; };
 		816422C51B2924E800A8BFB8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */; };
 		81732F5F1B143E6700C29B5F /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 81732F5E1B143E6700C29B5F /* Images */; };
-		81738D701B1A58B30012A5B8 /* upvote.png in Resources */ = {isa = PBXBuildFile; fileRef = 81738D6F1B1A58B30012A5B8 /* upvote.png */; };
-		81738D721B1A5BB40012A5B8 /* greenvote.png in Resources */ = {isa = PBXBuildFile; fileRef = 81738D711B1A5BB40012A5B8 /* greenvote.png */; };
 		8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD661B1250CA00B1D846 /* LoginViewController.m */; };
 		8174AD6B1B1257FD00B1D846 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */; };
 		8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */; };
@@ -67,8 +65,6 @@
 		813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueueUpTests.m; sourceTree = "<group>"; };
 		816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		81732F5E1B143E6700C29B5F /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
-		81738D6F1B1A58B30012A5B8 /* upvote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upvote.png; path = Images/upvote.png; sourceTree = "<group>"; };
-		81738D711B1A5BB40012A5B8 /* greenvote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenvote.png; path = Images/greenvote.png; sourceTree = "<group>"; };
 		8174AD651B1250CA00B1D846 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8174AD661B1250CA00B1D846 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -173,11 +169,9 @@
 				811D52D31B11631D0029F4E3 /* SidebarViewController.m */,
 				813146861AC0572B002CBD2E /* PlayerViewController.h */,
 				813146871AC0572B002CBD2E /* PlayerViewController.m */,
-				81738D711B1A5BB40012A5B8 /* greenvote.png */,
 				8174AD651B1250CA00B1D846 /* LoginViewController.h */,
 				8174AD661B1250CA00B1D846 /* LoginViewController.m */,
 				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
-				81738D6F1B1A58B30012A5B8 /* upvote.png */,
 				813DF7A01ABE1EC30057D655 /* Supporting Files */,
 				8174AD701B128A6400B1D846 /* ServerAPI.h */,
 				8174AD6E1B128A5000B1D846 /* ServerAPI.m */,
@@ -299,9 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				816422C51B2924E800A8BFB8 /* fontawesome-webfont.ttf in Resources */,
-				81738D721B1A5BB40012A5B8 /* greenvote.png in Resources */,
 				81732F5F1B143E6700C29B5F /* Images in Resources */,
-				81738D701B1A58B30012A5B8 /* upvote.png in Resources */,
 				813DF7AC1ABE1EC30057D655 /* Main.storyboard in Resources */,
 				813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */,
 				813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */,
