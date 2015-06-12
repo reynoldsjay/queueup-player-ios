@@ -29,7 +29,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ksN-Au-Zcy">
+                                                <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ksN-Au-Zcy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QlF-gQ-dJO">
                                                     <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -125,14 +129,6 @@
                                     <action selector="playPauseButton:" destination="09m-oY-BKJ" eventType="touchUpInside" id="cRJ-xg-0mD"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Qqj-HD-qxf">
-                                <rect key="frame" x="136" y="212" width="40" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
-                                    <bool key="isElement" value="YES"/>
-                                </accessibility>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9zQ-TO-opm">
                                 <rect key="frame" x="0.0" y="256" width="320" height="312"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -172,6 +168,13 @@
                                     <outlet property="delegate" destination="09m-oY-BKJ" id="GFt-Fk-5gV"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K1N-jK-pjg">
+                                <rect key="frame" x="217" y="211" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -183,7 +186,7 @@
                         <outlet property="artistLabel" destination="rCJ-s2-sq7" id="XWw-S4-2j6"/>
                         <outlet property="coverView" destination="OLG-Z3-Pao" id="gNa-bF-DCw"/>
                         <outlet property="coverView2" destination="OLG-Z3-Pao" id="ySN-2x-MCA"/>
-                        <outlet property="playpause" destination="Qqj-HD-qxf" id="hul-Bz-Gg0"/>
+                        <outlet property="playpause" destination="K1N-jK-pjg" id="vAn-oc-Pnu"/>
                         <outlet property="queueView" destination="9zQ-TO-opm" id="YSN-Y0-gt7"/>
                         <outlet property="sidebarButton" destination="b43-Qy-ktx" id="gQq-FB-P7X"/>
                         <outlet property="spinner" destination="SdK-O3-ftO" id="43B-LG-MeD"/>

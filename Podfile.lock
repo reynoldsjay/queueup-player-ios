@@ -1,10 +1,18 @@
 PODS:
+  - FontAwesome-iOS (0.0.4)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
   - SIOSocket (0.2.0)
 
 DEPENDENCIES:
+  - FontAwesome-iOS
+  - SDWebImage
   - SIOSocket (~> 0.2.0)
 
 SPEC CHECKSUMS:
-  SIOSocket: 40ebc9f014b9fec4ec595212faaf6f19cf29d1f2
+  FontAwesome-iOS: 0fd503f7ae46780e17c2dd98e70fed30b5f90322
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SIOSocket: 2facc0bd02ae72d98c223634a46dd8ebdf9be321
 
 COCOAPODS: 0.36.0

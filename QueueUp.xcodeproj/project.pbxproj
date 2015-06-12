@@ -17,13 +17,8 @@
 		813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AD1ABE1EC30057D655 /* Images.xcassets */; };
 		813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */; };
 		813DF7BD1ABE1EC30057D655 /* QueueUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */; };
+		816422C51B2924E800A8BFB8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */; };
 		81732F5F1B143E6700C29B5F /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 81732F5E1B143E6700C29B5F /* Images */; };
-		81732F661B1444AF00C29B5F /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 81732F601B1444AF00C29B5F /* play.png */; };
-		81732F671B1444AF00C29B5F /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 81732F611B1444AF00C29B5F /* pause.png */; };
-		81732F681B1444AF00C29B5F /* albumShade.png in Resources */ = {isa = PBXBuildFile; fileRef = 81732F621B1444AF00C29B5F /* albumShade.png */; };
-		81732F691B1444AF00C29B5F /* albumShade.xcf in Resources */ = {isa = PBXBuildFile; fileRef = 81732F631B1444AF00C29B5F /* albumShade.xcf */; };
-		81732F6A1B1444AF00C29B5F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 81732F641B1444AF00C29B5F /* logo.png */; };
-		81732F6B1B1444AF00C29B5F /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81732F651B1444AF00C29B5F /* menu@2x.png */; };
 		81738D701B1A58B30012A5B8 /* upvote.png in Resources */ = {isa = PBXBuildFile; fileRef = 81738D6F1B1A58B30012A5B8 /* upvote.png */; };
 		81738D721B1A5BB40012A5B8 /* greenvote.png in Resources */ = {isa = PBXBuildFile; fileRef = 81738D711B1A5BB40012A5B8 /* greenvote.png */; };
 		8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD661B1250CA00B1D846 /* LoginViewController.m */; };
@@ -33,6 +28,7 @@
 		8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD6E1B128A5000B1D846 /* ServerAPI.m */; };
 		817F3E2E1AE34F13008E48B8 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817F3E2D1AE34F13008E48B8 /* Spotify.framework */; };
 		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
+		81DB7ACA1B292E1A00CFC1FD /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */; };
 		C447C89C09E2B19E4ADE193F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC3677A21B62D72379479 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -69,13 +65,8 @@
 		813DF7B61ABE1EC30057D655 /* QueueUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QueueUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		813DF7BB1ABE1EC30057D655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueueUpTests.m; sourceTree = "<group>"; };
+		816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		81732F5E1B143E6700C29B5F /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
-		81732F601B1444AF00C29B5F /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = QueueUp/Images/play.png; sourceTree = "<group>"; };
-		81732F611B1444AF00C29B5F /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = QueueUp/Images/pause.png; sourceTree = "<group>"; };
-		81732F621B1444AF00C29B5F /* albumShade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = albumShade.png; path = QueueUp/Images/albumShade.png; sourceTree = "<group>"; };
-		81732F631B1444AF00C29B5F /* albumShade.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; name = albumShade.xcf; path = QueueUp/Images/albumShade.xcf; sourceTree = "<group>"; };
-		81732F641B1444AF00C29B5F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = QueueUp/Images/logo.png; sourceTree = "<group>"; };
-		81732F651B1444AF00C29B5F /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu@2x.png"; path = "QueueUp/Images/menu@2x.png"; sourceTree = "<group>"; };
 		81738D6F1B1A58B30012A5B8 /* upvote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upvote.png; path = Images/upvote.png; sourceTree = "<group>"; };
 		81738D711B1A5BB40012A5B8 /* greenvote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenvote.png; path = Images/greenvote.png; sourceTree = "<group>"; };
 		8174AD651B1250CA00B1D846 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -88,6 +79,8 @@
 		817F3E2D1AE34F13008E48B8 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		817F3E2F1AE350D8008E48B8 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,12 +141,8 @@
 		813DF7941ABE1EC30057D655 = {
 			isa = PBXGroup;
 			children = (
-				81732F601B1444AF00C29B5F /* play.png */,
-				81732F611B1444AF00C29B5F /* pause.png */,
-				81732F621B1444AF00C29B5F /* albumShade.png */,
-				81732F631B1444AF00C29B5F /* albumShade.xcf */,
-				81732F641B1444AF00C29B5F /* logo.png */,
-				81732F651B1444AF00C29B5F /* menu@2x.png */,
+				81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */,
+				81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */,
 				811D52CB1B1162A30029F4E3 /* SWRevealViewController */,
 				813DF79F1ABE1EC30057D655 /* QueueUp */,
 				813DF7B91ABE1EC30057D655 /* QueueUpTests */,
@@ -199,6 +188,7 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */,
 				813DF7AD1ABE1EC30057D655 /* Images.xcassets */,
 				81732F5E1B143E6700C29B5F /* Images */,
 				813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */,
@@ -308,13 +298,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81732F661B1444AF00C29B5F /* play.png in Resources */,
-				81732F671B1444AF00C29B5F /* pause.png in Resources */,
-				81732F681B1444AF00C29B5F /* albumShade.png in Resources */,
+				816422C51B2924E800A8BFB8 /* fontawesome-webfont.ttf in Resources */,
 				81738D721B1A5BB40012A5B8 /* greenvote.png in Resources */,
-				81732F691B1444AF00C29B5F /* albumShade.xcf in Resources */,
-				81732F6A1B1444AF00C29B5F /* logo.png in Resources */,
-				81732F6B1B1444AF00C29B5F /* menu@2x.png in Resources */,
 				81732F5F1B143E6700C29B5F /* Images in Resources */,
 				81738D701B1A58B30012A5B8 /* upvote.png in Resources */,
 				813DF7AC1ABE1EC30057D655 /* Main.storyboard in Resources */,
@@ -360,7 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -372,6 +357,7 @@
 			files = (
 				8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */,
 				813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */,
+				81DB7ACA1B292E1A00CFC1FD /* NSString+FontAwesome.m in Sources */,
 				813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */,
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
 				8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */,

@@ -11,6 +11,7 @@
 #import "SWRevealViewController.h"
 #import "ServerAPI.h"
 #import "Config.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface HotPlaysViewController ()
@@ -24,6 +25,7 @@
 
 @implementation HotPlaysViewController {
     NSMutableArray *playlists;
+    NSMutableArray *creators;
     ServerAPI *api;
 }
 
@@ -47,7 +49,15 @@
     NSString *playlistString = [api postData:api.idAndToken toURL:(@hostDomain @"/api/playlists")];
     NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
     playlists = dictionaryData[@"playlists"];
-    
+    creators = [[NSMutableArray alloc] init];
+    for (NSMutableDictionary *aPlaylist in playlists) {
+        NSString *userURL = [NSString stringWithFormat:@"%@/api/users/%@", @hostDomain, aPlaylist[@"admin"]];
+        id usrDict = [api postData:api.idAndToken toURL:userURL];
+        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
+        NSString *creatorName = [NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]];
+        [creators addObject:creatorName];
+    }
+    NSLog(@"%@", creators);
     
 }
 
@@ -70,13 +80,16 @@
     NSDictionary *firstTrack = aPlaylist[@"current"];
     NSArray *images = firstTrack[@"album"][@"images"];
     NSString *thisImgURL = [images firstObject][@"url"];
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:thisImgURL]];
-    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
     
+    UIImageView *bgalbum = (UIImageView *)[cell viewWithTag:5];
+    [bgalbum sd_setImageWithURL:[NSURL URLWithString:thisImgURL]
+             placeholderImage:[UIImage imageNamed:@""]];
     
     // set transparent cover
     UIImageView *shade = (UIImageView *)[cell viewWithTag:10];
     shade.image = [UIImage imageNamed:@"albumShade.png"];
+    
+    
     
     // set label with name of playlist
     UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
@@ -85,10 +98,7 @@
     
     // get each playlist's admin
     UILabel *userLabel = (UILabel *)[cell viewWithTag:110];
-    NSString *userURL = [NSString stringWithFormat:@"%@/api/users/%@", @hostDomain, aPlaylist[@"admin"]];
-    id usrDict = [api postData:api.idAndToken toURL:userURL];
-    NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
-    userLabel.text = [NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]];
+    userLabel.text = [creators objectAtIndex:indexPath.row];
     
     
     return cell;

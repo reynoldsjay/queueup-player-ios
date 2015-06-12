@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9E815A13AC626DE21B058796"
+               BlueprintIdentifier = "5881DD2EB3B06AA88DEDD87E"
                BuildableName = "libPods-QueueUp-SIOSocket.a"
                BlueprintName = "Pods-QueueUp-SIOSocket"
                ReferencedContainer = "container:Pods.xcodeproj">

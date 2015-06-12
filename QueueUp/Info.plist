@@ -38,6 +38,10 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>fontawesome-webfont.ttf</string>
+	</array>
 	<key>FacebookAppID</key>
 	<string>956442334390605</string>
 	<key>FacebookDisplayName</key>

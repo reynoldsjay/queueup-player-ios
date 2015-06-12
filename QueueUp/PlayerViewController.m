@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
 #import "ServerAPI.h"
+#import "NSString+FontAwesome.h"
 
 @interface PlayerViewController () <SPTAudioStreamingDelegate>
 
@@ -29,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coverView2;
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *playpause;
+@property (weak, nonatomic) IBOutlet UILabel *playpause;
 
 @property IBOutlet UITableView *queueView;
 
@@ -52,7 +53,8 @@
     
     [super viewDidLoad];
     
-    self.playpause.image = [UIImage imageNamed:@"play.png"];
+    self.playpause.font = [UIFont fontWithName:@"FontAwesome" size:20];
+    self.playpause.text =  [NSString awesomeIcon:FaTwitter];
     
     // get api instance
     api = [ServerAPI getInstance];
@@ -137,9 +139,9 @@
                     BOOL playState = [dictionaryStateData[@"play"] boolValue];
                     [self.player setIsPlaying:playState callback:nil];
                     if (playState) {
-                        self.playpause.image = [UIImage imageNamed:@"pause.png"];
+                        //self.playpause.image = [UIImage imageNamed:@"pause.png"];
                     } else {
-                        self.playpause.image = [UIImage imageNamed:@"play.png"];
+                        //self.playpause.image = [UIImage imageNamed:@"play.png"];
                     }
                 }
                 

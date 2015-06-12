@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-FontAwesome-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-QueueUp-FontAwesome-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-QueueUp-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-QueueUp-SIOSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,12 +29,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-QueueUpTests-FontAwesome-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-QueueUpTests-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-QueueUpTests-SIOSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-QueueUpTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04F2E667050D70A99CB46847</key>
+		<key>0134832990E271F99E815543</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0E93D100540295896222F0D0</key>
+		<key>1C66555F03A638F2099C99D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8986C96BB88303F70B17CDD0</key>
+		<key>2B56C7B4235778E72BC37091</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E815A13AC626DE21B058796</key>
+		<key>4D923F69E9D8C15D3C2CCF3E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA17FF04F84962CC0E95352C</key>
+		<key>5881DD2EB3B06AA88DEDD87E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA7822107CF34EF61C329377</key>
+		<key>6296116BE8F2BF0BC98E6571</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89D1D776C797B938D5E8B691</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8D1AB57179769C225F9645AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8E961376344A736F955295C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9177E43B4A80DD3D885BA7C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C77587ACD9788F31044A9534</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF1B8494B469F76F84668B66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
