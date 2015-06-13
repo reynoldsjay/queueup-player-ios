@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D01B1162E10029F4E3 /* SWRevealViewController.m */; };
 		811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D31B11631D0029F4E3 /* SidebarViewController.m */; };
-		813146881AC0572B002CBD2E /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146871AC0572B002CBD2E /* PlayerViewController.m */; };
+		813146881AC0572B002CBD2E /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146871AC0572B002CBD2E /* ClientViewController.m */; };
 		813DF7A31ABE1EC30057D655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A21ABE1EC30057D655 /* main.m */; };
 		813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A51ABE1EC30057D655 /* AppDelegate.m */; };
 		813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A81ABE1EC30057D655 /* HotPlaysViewController.m */; };
@@ -48,8 +48,8 @@
 		811D52D01B1162E10029F4E3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		811D52D21B11631D0029F4E3 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
 		811D52D31B11631D0029F4E3 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
-		813146861AC0572B002CBD2E /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
-		813146871AC0572B002CBD2E /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		813146861AC0572B002CBD2E /* ClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientViewController.h; sourceTree = "<group>"; };
+		813146871AC0572B002CBD2E /* ClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientViewController.m; sourceTree = "<group>"; };
 		813DF79D1ABE1EC30057D655 /* QueueUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueueUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		813DF7A11ABE1EC30057D655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813DF7A21ABE1EC30057D655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -167,8 +167,8 @@
 				813DF7A81ABE1EC30057D655 /* HotPlaysViewController.m */,
 				811D52D21B11631D0029F4E3 /* SidebarViewController.h */,
 				811D52D31B11631D0029F4E3 /* SidebarViewController.m */,
-				813146861AC0572B002CBD2E /* PlayerViewController.h */,
-				813146871AC0572B002CBD2E /* PlayerViewController.m */,
+				813146861AC0572B002CBD2E /* ClientViewController.h */,
+				813146871AC0572B002CBD2E /* ClientViewController.m */,
 				8174AD651B1250CA00B1D846 /* LoginViewController.h */,
 				8174AD661B1250CA00B1D846 /* LoginViewController.m */,
 				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
@@ -354,7 +354,7 @@
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
 				8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */,
 				811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */,
-				813146881AC0572B002CBD2E /* PlayerViewController.m in Sources */,
+				813146881AC0572B002CBD2E /* ClientViewController.m in Sources */,
 				811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Spotify/Spotify.h>
 
-@interface PlayerViewController : UIViewController <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface ClientViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
--(void)playSong:(NSString*)trackURI;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end

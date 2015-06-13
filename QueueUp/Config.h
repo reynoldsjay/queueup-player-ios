@@ -21,6 +21,8 @@
 // time their token expires.
 
 
+#define kSessionUserDefaultsKey "SpotifySession"
+
 // Qup Server
 
 #define hostDomain "http://dev.qup.louiswilliams.org"

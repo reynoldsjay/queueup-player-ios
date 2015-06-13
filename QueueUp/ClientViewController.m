@@ -7,7 +7,7 @@
 //
 
 #import "Config.h"
-#import "PlayerViewController.h"
+#import "ClientViewController.h"
 #import <SIOSocket/SIOSocket.h>
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
@@ -15,7 +15,7 @@
 #import "NSString+FontAwesome.h"
 #import "UIImageView+WebCache.h"
 
-@interface PlayerViewController () <SPTAudioStreamingDelegate>
+@interface ClientViewController ()
 
 @property SIOSocket *socket;
 @property BOOL socketIsConnected;
@@ -26,22 +26,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
-@property (weak, nonatomic) IBOutlet UIImageView *coverView2;
 
-
-@property (weak, nonatomic) IBOutlet UILabel *playpause;
 
 @property IBOutlet UITableView *queueView;
 
-
-@property (nonatomic, strong) SPTSession *session;
-@property (nonatomic, strong) SPTAudioStreamingController *player;
-
 @end
 
-@implementation PlayerViewController {
+@implementation ClientViewController {
 
     AppDelegate *appDelegate;
     NSString *currentURI;
@@ -53,9 +45,6 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    self.playpause.font = [UIFont fontWithName:@"FontAwesome" size:20];
-    self.playpause.text =  [NSString awesomeIcon:FaTwitter];
     
     // get api instance
     api = [ServerAPI getInstance];
@@ -74,23 +63,15 @@
     self.albumLabel.text = @"";
     self.artistLabel.text = @"";
     
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //currentPlaylist = appDelegate.currentPlaylist;
-    
-    self.session = appDelegate.session;
-    
-    // UNCOMMENT TO GET PLAYER
-    //[self handleNewSession:self.session];
-    
     
     if (api.currentPlaylist != nil) {
         
         [SIOSocket socketWithHost: @hostDomain response: ^(SIOSocket *socket) {
             
             self.socket = socket;
-            
             __weak typeof(self) weakSelf = self;
             __weak typeof(api) weakapi = api;
+            
             
             // on connecting to socket
             self.socket.onConnect = ^()
@@ -115,7 +96,7 @@
                      }];
             
             
-            // CHANGE TO NEW API
+
             [self.socket on: @"state_change" callback: ^(SIOParameterArray *args) {
                 
                 NSMutableDictionary *dictionaryStateData = [args firstObject];
@@ -126,25 +107,33 @@
                 NSDictionary *track = dictionaryStateData[@"track"];
                 NSString *trackURI = track[@"uri"];
                 if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
-                    [self playSong:trackURI];
+                    //[self playSong:trackURI];
                     NSLog(@"New song.");
                     currentURI = trackURI;
+                    
+                    
+                    self.titleLabel.text = track[@"name"];
+                    self.artistLabel.text = [(NSArray*) track[@"artists"] firstObject][@"name"];
+                    self.albumLabel.text = track[@"album"][@"name"];
+                    NSString *coverURL = [(NSArray *)track[@"album"][@"images"] firstObject][@"url"];
+                    [self.coverView sd_setImageWithURL:[NSURL URLWithString:coverURL]
+                                  placeholderImage:[UIImage imageNamed:@"albumShade.png"]];
+                    
                 }
-                [self.spinner startAnimating];
-                [NSThread sleepForTimeInterval:1.0f];
-                [self updateUI];
+
+
 
                 
-                // update play state
-                if (dictionaryStateData[@"play"] != nil) {
-                    BOOL playState = [dictionaryStateData[@"play"] boolValue];
-                    [self.player setIsPlaying:playState callback:nil];
-                    if (playState) {
-                        //self.playpause.image = [UIImage imageNamed:@"pause.png"];
-                    } else {
-                        //self.playpause.image = [UIImage imageNamed:@"play.png"];
-                    }
-                }
+                // update play state, does the client view show this?
+//                if (dictionaryStateData[@"play"] != nil) {
+//                    BOOL playState = [dictionaryStateData[@"play"] boolValue];
+//                    [self.player setIsPlaying:playState callback:nil];
+//                    if (playState) {
+//                        //self.playpause.image = [UIImage imageNamed:@"pause.png"];
+//                    } else {
+//                        //self.playpause.image = [UIImage imageNamed:@"play.png"];
+//                    }
+//                }
                 
                 
                 // update queue
@@ -163,36 +152,6 @@
 }
 
 
--(void) playSong:(NSString*)trackURI {
-
-    // Create a new player if needed
-    if (self.player == nil) {
-        self.player = [[SPTAudioStreamingController alloc] initWithClientId:@kClientId];
-    }
-
-    [self.player loginWithSession:self.session callback:^(NSError *error) {
-
-        if (error != nil) {
-            NSLog(@"*** Enabling playback got error: %@", error);
-            return;
-        }
-        [SPTRequest requestItemAtURI:[NSURL URLWithString:trackURI]
-                         withSession:nil
-                            callback:^(NSError *error, SPTTrack *track) {
-
-                                if (error != nil) {
-                                    NSLog(@"*** Album lookup got error %@", error);
-                                    return;
-                                }
-                                [self.player playTrackProvider:track callback:nil];
-
-                            }];
-    }];
-    
-    //[self updateUI];
-
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -201,126 +160,6 @@
 
 
 
-
-#pragma mark - Actions
-
--(IBAction)rewind:(id)sender {
-    [self.player skipPrevious:nil];
-}
-
--(IBAction)playPauseButton:(id)sender {
-    //[self.player setIsPlaying:!self.player.isPlaying callback:nil];
-    NSLog(@"%d", self.player.isPlaying);
-    NSString *toSend;
-    if (self.player.isPlaying) {
-        toSend = @"false";
-    } else {
-        toSend = @"true";
-    }
-    NSLog(@"playing now %@", toSend);
-    NSData *jsonData = [[[NSString alloc] initWithFormat:@"{\"playing\" : %@}", toSend] dataUsingEncoding:NSUTF8StringEncoding];
-    id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-    [self.socket emit: @"client_play_pause" args:[[NSArray alloc] initWithObjects:json, nil]];
-}
-
--(IBAction)fastForward:(id)sender {
-    [self.player skipNext:nil];
-}
-
-#pragma mark - Logic
-
--(void)updateUI {
-    if (self.player.currentTrackMetadata == nil) {
-        self.titleLabel.text = @"Nothing Playing";
-        self.albumLabel.text = @"";
-        self.artistLabel.text = @"";
-    } else {
-        self.titleLabel.text = [self.player.currentTrackMetadata valueForKey:SPTAudioStreamingMetadataTrackName];
-        self.albumLabel.text = [self.player.currentTrackMetadata valueForKey:SPTAudioStreamingMetadataAlbumName];
-        self.artistLabel.text = [self.player.currentTrackMetadata valueForKey:SPTAudioStreamingMetadataArtistName];
-    }
-    [self updateCoverArt];
-}
-
--(void)updateCoverArt {
-    if (self.player.currentTrackMetadata == nil) {
-        self.coverView.image = nil;
-        return;
-    }
-    
-    
-    [SPTAlbum albumWithURI:[NSURL URLWithString:[self.player.currentTrackMetadata valueForKey:SPTAudioStreamingMetadataAlbumURI]]
-                   session:self.session
-                  callback:^(NSError *error, SPTAlbum *album) {
-                      
-                      NSURL *imageURL = album.largestCover.imageURL;
-                      if (imageURL == nil) {
-                          NSLog(@"Album %@ doesn't have any images!", album);
-                          self.coverView.image = nil;
-                          return;
-                      }
-                      
-                      // Pop over to a background queue to load the image over the network.
-                      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                          NSError *error = nil;
-                          UIImage *image = nil;
-                          NSData *imageData = [NSData dataWithContentsOfURL:imageURL options:0 error:&error];
-                          
-                          if (imageData != nil) {
-                              image = [UIImage imageWithData:imageData];
-                          }
-                          
-                          // …and back to the main queue to display the image.
-                          dispatch_async(dispatch_get_main_queue(), ^{
-                              [self.spinner stopAnimating];
-                              self.coverView.image = image;
-                              if (image == nil) {
-                                  NSLog(@"Couldn't load cover image with error: %@", error);
-                              }
-                          });
-                      });
-                  }];
-}
-
-
--(void)handleNewSession:(SPTSession *)session {
-    
-    self.session = session;
-    
-    if (self.player == nil) {
-        self.player = [[SPTAudioStreamingController alloc] initWithClientId:@kClientId];
-        self.player.playbackDelegate = self;
-    }
-    
-    [self.player loginWithSession:session callback:^(NSError *error) {
-        
-        if (error != nil) {
-            NSLog(@"*** Enabling playback got error: %@", error);
-            return;
-        }
-        
-        
-    }];
-}
-
-#pragma mark - Track Player Delegates
-
-- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveMessage:(NSString *)message {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message from Spotify"
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-    [alertView show];
-}
-
-- (void) audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeToTrack:(NSDictionary *)trackMetadata {
-    NSLog(@"changed track");
-    if (trackMetadata == nil) {
-        NSLog(@"Track ended.");
-        [self.socket emit: @"track_finished" args:nil];
-    }
-}
 
 
 
@@ -353,8 +192,8 @@
     NSDictionary *qTrack = qItem[@"track"];
     UILabel *cellLabel = (UILabel *)[cell viewWithTag:10];
     cellLabel.text = qTrack[@"name"];
-    UILabel *artistLabel = (UILabel *)[cell viewWithTag:11];
-    artistLabel.text = [(NSArray *)qTrack[@"artists"] firstObject][@"name"];
+    UILabel *qArtistLabel = (UILabel *)[cell viewWithTag:11];
+    qArtistLabel.text = [(NSArray *)qTrack[@"artists"] firstObject][@"name"];
     
     
     // table cell album over

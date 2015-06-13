@@ -83,7 +83,7 @@
         <!--PlayerView-->
         <scene sceneID="cQ5-j4-rTD">
             <objects>
-                <viewController title="PlayerView" id="09m-oY-BKJ" customClass="PlayerViewController" sceneMemberID="viewController">
+                <viewController title="PlayerView" id="09m-oY-BKJ" customClass="ClientViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uzq-Pf-fpT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,10 +113,6 @@
                                 <rect key="frame" x="21" y="0.0" width="144" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="SdK-O3-ftO">
-                                <rect key="frame" x="75" y="51" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="9zQ-TO-opm">
                                 <rect key="frame" x="0.0" y="149" width="320" height="355"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -171,10 +167,8 @@
                         <outlet property="albumLabel" destination="a4m-K9-mxr" id="ILm-JH-PwD"/>
                         <outlet property="artistLabel" destination="rCJ-s2-sq7" id="XWw-S4-2j6"/>
                         <outlet property="coverView" destination="OLG-Z3-Pao" id="gNa-bF-DCw"/>
-                        <outlet property="coverView2" destination="OLG-Z3-Pao" id="ySN-2x-MCA"/>
                         <outlet property="queueView" destination="9zQ-TO-opm" id="YSN-Y0-gt7"/>
                         <outlet property="sidebarButton" destination="b43-Qy-ktx" id="gQq-FB-P7X"/>
-                        <outlet property="spinner" destination="SdK-O3-ftO" id="43B-LG-MeD"/>
                         <outlet property="titleLabel" destination="Eyt-nY-iBy" id="ob8-wy-j2h"/>
                     </connections>
                 </viewController>
@@ -198,7 +192,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nowplaying" rowHeight="129" id="HZM-ms-aaQ">
                                 <rect key="frame" x="0.0" y="22" width="320" height="129"/>
@@ -238,7 +232,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="VmB-il-Yxm" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="DqA-XH-HTg"/>
                                 </connections>
