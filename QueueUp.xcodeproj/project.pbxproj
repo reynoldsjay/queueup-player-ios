@@ -24,8 +24,9 @@
 		8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */; };
 		8174AD6D1B1257FD00B1D846 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */; };
 		8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD6E1B128A5000B1D846 /* ServerAPI.m */; };
-		817F3E2E1AE34F13008E48B8 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817F3E2D1AE34F13008E48B8 /* Spotify.framework */; };
 		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
+		819FF3A21B2DF61200DBF90D /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819FF3A11B2DF61200DBF90D /* Spotify.framework */; };
+		819FF3A51B2DF77600DBF90D /* SPTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */; };
 		81DB7ACA1B292E1A00CFC1FD /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */; };
 		C447C89C09E2B19E4ADE193F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC3677A21B62D72379479 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -72,9 +73,11 @@
 		8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		8174AD6E1B128A5000B1D846 /* ServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerAPI.m; sourceTree = "<group>"; };
 		8174AD701B128A6400B1D846 /* ServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerAPI.h; sourceTree = "<group>"; };
-		817F3E2D1AE34F13008E48B8 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		817F3E2F1AE350D8008E48B8 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		819FF3A11B2DF61200DBF90D /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		819FF3A31B2DF77600DBF90D /* SPTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTLoginViewController.h; sourceTree = "<group>"; };
+		819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTLoginViewController.m; sourceTree = "<group>"; };
 		81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
 		81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,10 +88,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */,
+				819FF3A21B2DF61200DBF90D /* Spotify.framework in Frameworks */,
 				8174AD6B1B1257FD00B1D846 /* FBSDKCoreKit.framework in Frameworks */,
 				8174AD6D1B1257FD00B1D846 /* FBSDKShareKit.framework in Frameworks */,
 				8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */,
-				817F3E2E1AE34F13008E48B8 /* Spotify.framework in Frameworks */,
 				C447C89C09E2B19E4ADE193F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,10 +109,10 @@
 		3AC6F9847CB79E0AB20A5B7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				819FF3A11B2DF61200DBF90D /* Spotify.framework */,
 				8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */,
 				8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */,
 				8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */,
-				817F3E2D1AE34F13008E48B8 /* Spotify.framework */,
 				818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */,
 				002EC3677A21B62D72379479 /* libPods.a */,
 			);
@@ -175,6 +178,8 @@
 				813DF7A01ABE1EC30057D655 /* Supporting Files */,
 				8174AD701B128A6400B1D846 /* ServerAPI.h */,
 				8174AD6E1B128A5000B1D846 /* ServerAPI.m */,
+				819FF3A31B2DF77600DBF90D /* SPTLoginViewController.h */,
+				819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */,
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
 				8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */,
+				819FF3A51B2DF77600DBF90D /* SPTLoginViewController.m in Sources */,
 				811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */,
 				813146881AC0572B002CBD2E /* ClientViewController.m in Sources */,
 				811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */,
