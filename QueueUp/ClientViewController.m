@@ -15,6 +15,7 @@
 #import "NSString+FontAwesome.h"
 #import "UIImageView+WebCache.h"
 
+
 @interface ClientViewController ()
 
 @property SIOSocket *socket;
@@ -24,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
-
 
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 
@@ -40,14 +40,32 @@
     ServerAPI *api;
     NSArray *queue;
     
+    
 }
+
+@synthesize playing;
+
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
+//    Player *sptPlayer = [[Player alloc] init];
+//    
+//    SPTAuth *auth = [SPTAuth defaultInstance];
+//    
+//    // Check if we have a token at all
+//    if (auth.session != nil && [auth.session isValid]) {
+//        [sptPlayer handleNewSession];
+//    }
+    
+
+    
+    
+    
     // get api instance
     api = [ServerAPI getInstance];
+    
     
     // side bar set up
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -157,9 +175,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 
 

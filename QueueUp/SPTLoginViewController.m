@@ -19,10 +19,15 @@
 
 @implementation SPTLoginViewController
 
+
 - (void)viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     self.statusLabel.text = @"";
     self.firstLoad = YES;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 -(void)sessionUpdatedNotification:(NSNotification *)notification {
@@ -34,7 +39,6 @@
         }
     }
 }
-
 
 -(void)showPlayer {
     self.firstLoad = NO;
@@ -88,7 +92,6 @@
     }];
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     SPTAuth *auth = [SPTAuth defaultInstance];
     
@@ -124,21 +127,5 @@
     [self.authViewController clearCookies:nil];
     self.statusLabel.text = @"Cookies cleared.";
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

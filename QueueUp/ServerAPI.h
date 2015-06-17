@@ -12,6 +12,7 @@
 
 @property id idAndToken;
 @property id currentPlaylist;
+@property BOOL hosting;
 
 + (ServerAPI*) getInstance;
 

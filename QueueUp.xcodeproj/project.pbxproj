@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811549761B31190800806049 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811549751B31190800806049 /* PlayerViewController.m */; };
+		811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */; };
+		811549811B312D9F00806049 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AD1ABE1EC30057D655 /* Images.xcassets */; };
+		8115498C1B312E1A00806049 /* albumShade.png in Resources */ = {isa = PBXBuildFile; fileRef = 811549871B312E1900806049 /* albumShade.png */; };
+		8115498D1B312E1A00806049 /* albumShade.xcf in Resources */ = {isa = PBXBuildFile; fileRef = 811549881B312E1900806049 /* albumShade.xcf */; };
+		8115498E1B312E1A00806049 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 811549891B312E1900806049 /* logo.png */; };
+		8115498F1B312E1A00806049 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8115498A1B312E1900806049 /* menu.png */; };
+		811549901B312E1A00806049 /* upvote.xcf in Resources */ = {isa = PBXBuildFile; fileRef = 8115498B1B312E1900806049 /* upvote.xcf */; };
 		811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D01B1162E10029F4E3 /* SWRevealViewController.m */; };
 		811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D31B11631D0029F4E3 /* SidebarViewController.m */; };
 		813146881AC0572B002CBD2E /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146871AC0572B002CBD2E /* ClientViewController.m */; };
@@ -14,11 +22,8 @@
 		813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A51ABE1EC30057D655 /* AppDelegate.m */; };
 		813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A81ABE1EC30057D655 /* HotPlaysViewController.m */; };
 		813DF7AC1ABE1EC30057D655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AA1ABE1EC30057D655 /* Main.storyboard */; };
-		813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AD1ABE1EC30057D655 /* Images.xcassets */; };
 		813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */; };
 		813DF7BD1ABE1EC30057D655 /* QueueUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */; };
-		816422C51B2924E800A8BFB8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */; };
-		81732F5F1B143E6700C29B5F /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 81732F5E1B143E6700C29B5F /* Images */; };
 		8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD661B1250CA00B1D846 /* LoginViewController.m */; };
 		8174AD6B1B1257FD00B1D846 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */; };
 		8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */; };
@@ -45,6 +50,14 @@
 		002EC3677A21B62D72379479 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0547A9CC784B87D2C8D7C56D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		39C26FC7DC65F8A620FCEF5F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		811549741B31190800806049 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		811549751B31190800806049 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		811549871B312E1900806049 /* albumShade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = albumShade.png; path = Images/albumShade.png; sourceTree = "<group>"; };
+		811549881B312E1900806049 /* albumShade.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; name = albumShade.xcf; path = Images/albumShade.xcf; sourceTree = "<group>"; };
+		811549891B312E1900806049 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Images/logo.png; sourceTree = "<group>"; };
+		8115498A1B312E1900806049 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Images/menu.png; sourceTree = "<group>"; };
+		8115498B1B312E1900806049 /* upvote.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; name = upvote.xcf; path = Images/upvote.xcf; sourceTree = "<group>"; };
+		811549911B312F8500806049 /* PlayerUIProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerUIProtocol.h; sourceTree = "<group>"; };
 		811D52CF1B1162E10029F4E3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		811D52D01B1162E10029F4E3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		811D52D21B11631D0029F4E3 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
@@ -65,7 +78,6 @@
 		813DF7BB1ABE1EC30057D655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueueUpTests.m; sourceTree = "<group>"; };
 		816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
-		81732F5E1B143E6700C29B5F /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		8174AD651B1250CA00B1D846 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8174AD661B1250CA00B1D846 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -140,14 +152,15 @@
 		813DF7941ABE1EC30057D655 = {
 			isa = PBXGroup;
 			children = (
-				81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */,
-				81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */,
-				811D52CB1B1162A30029F4E3 /* SWRevealViewController */,
 				813DF79F1ABE1EC30057D655 /* QueueUp */,
+				813DF7A01ABE1EC30057D655 /* Supporting Files */,
 				813DF7B91ABE1EC30057D655 /* QueueUpTests */,
 				813DF79E1ABE1EC30057D655 /* Products */,
 				7F6F15B4ECA184F1BEE0466D /* Pods */,
 				3AC6F9847CB79E0AB20A5B7C /* Frameworks */,
+				81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */,
+				81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */,
+				811D52CB1B1162A30029F4E3 /* SWRevealViewController */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,6 +176,7 @@
 		813DF79F1ABE1EC30057D655 /* QueueUp */ = {
 			isa = PBXGroup;
 			children = (
+				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
 				817F3E2F1AE350D8008E48B8 /* Config.h */,
 				813DF7A41ABE1EC30057D655 /* AppDelegate.h */,
 				813DF7A51ABE1EC30057D655 /* AppDelegate.m */,
@@ -174,12 +188,13 @@
 				813146871AC0572B002CBD2E /* ClientViewController.m */,
 				8174AD651B1250CA00B1D846 /* LoginViewController.h */,
 				8174AD661B1250CA00B1D846 /* LoginViewController.m */,
-				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
-				813DF7A01ABE1EC30057D655 /* Supporting Files */,
 				8174AD701B128A6400B1D846 /* ServerAPI.h */,
 				8174AD6E1B128A5000B1D846 /* ServerAPI.m */,
 				819FF3A31B2DF77600DBF90D /* SPTLoginViewController.h */,
 				819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */,
+				811549741B31190800806049 /* PlayerViewController.h */,
+				811549751B31190800806049 /* PlayerViewController.m */,
+				811549911B312F8500806049 /* PlayerUIProtocol.h */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -189,12 +204,17 @@
 			children = (
 				816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */,
 				813DF7AD1ABE1EC30057D655 /* Images.xcassets */,
-				81732F5E1B143E6700C29B5F /* Images */,
+				811549871B312E1900806049 /* albumShade.png */,
+				811549881B312E1900806049 /* albumShade.xcf */,
+				811549891B312E1900806049 /* logo.png */,
+				8115498A1B312E1900806049 /* menu.png */,
+				8115498B1B312E1900806049 /* upvote.xcf */,
 				813DF7AF1ABE1EC30057D655 /* LaunchScreen.xib */,
 				813DF7A11ABE1EC30057D655 /* Info.plist */,
 				813DF7A21ABE1EC30057D655 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = QueueUp;
 			sourceTree = "<group>";
 		};
 		813DF7B91ABE1EC30057D655 /* QueueUpTests */ = {
@@ -297,11 +317,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				816422C51B2924E800A8BFB8 /* fontawesome-webfont.ttf in Resources */,
-				81732F5F1B143E6700C29B5F /* Images in Resources */,
+				811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */,
+				8115498D1B312E1A00806049 /* albumShade.xcf in Resources */,
+				8115498F1B312E1A00806049 /* menu.png in Resources */,
+				8115498C1B312E1A00806049 /* albumShade.png in Resources */,
+				811549811B312D9F00806049 /* Images.xcassets in Resources */,
+				8115498E1B312E1A00806049 /* logo.png in Resources */,
 				813DF7AC1ABE1EC30057D655 /* Main.storyboard in Resources */,
+				811549901B312E1A00806049 /* upvote.xcf in Resources */,
 				813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */,
-				813DF7AE1ABE1EC30057D655 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +385,7 @@
 				819FF3A51B2DF77600DBF90D /* SPTLoginViewController.m in Sources */,
 				811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */,
 				813146881AC0572B002CBD2E /* ClientViewController.m in Sources */,
+				811549761B31190800806049 /* PlayerViewController.m in Sources */,
 				811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
