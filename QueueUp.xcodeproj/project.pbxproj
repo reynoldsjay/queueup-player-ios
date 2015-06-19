@@ -15,6 +15,7 @@
 		8115498E1B312E1A00806049 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 811549891B312E1900806049 /* logo.png */; };
 		8115498F1B312E1A00806049 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8115498A1B312E1900806049 /* menu.png */; };
 		811549901B312E1A00806049 /* upvote.xcf in Resources */ = {isa = PBXBuildFile; fileRef = 8115498B1B312E1900806049 /* upvote.xcf */; };
+		811549941B324E0500806049 /* SpotifyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 811549931B324E0500806049 /* SpotifyPlayer.m */; };
 		811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D01B1162E10029F4E3 /* SWRevealViewController.m */; };
 		811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D31B11631D0029F4E3 /* SidebarViewController.m */; };
 		813146881AC0572B002CBD2E /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146871AC0572B002CBD2E /* ClientViewController.m */; };
@@ -58,6 +59,8 @@
 		8115498A1B312E1900806049 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Images/menu.png; sourceTree = "<group>"; };
 		8115498B1B312E1900806049 /* upvote.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; name = upvote.xcf; path = Images/upvote.xcf; sourceTree = "<group>"; };
 		811549911B312F8500806049 /* PlayerUIProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerUIProtocol.h; sourceTree = "<group>"; };
+		811549921B324E0500806049 /* SpotifyPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyPlayer.h; sourceTree = "<group>"; };
+		811549931B324E0500806049 /* SpotifyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyPlayer.m; sourceTree = "<group>"; };
 		811D52CF1B1162E10029F4E3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		811D52D01B1162E10029F4E3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		811D52D21B11631D0029F4E3 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				811549741B31190800806049 /* PlayerViewController.h */,
 				811549751B31190800806049 /* PlayerViewController.m */,
 				811549911B312F8500806049 /* PlayerUIProtocol.h */,
+				811549921B324E0500806049 /* SpotifyPlayer.h */,
+				811549931B324E0500806049 /* SpotifyPlayer.m */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				81DB7ACA1B292E1A00CFC1FD /* NSString+FontAwesome.m in Sources */,
 				813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */,
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
+				811549941B324E0500806049 /* SpotifyPlayer.m in Sources */,
 				8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */,
 				819FF3A51B2DF77600DBF90D /* SPTLoginViewController.m in Sources */,
 				811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */,

@@ -178,6 +178,13 @@
 
 
 
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [self.socket emit: @"client_unsubscribe" args:[[NSArray alloc] initWithObjects: nil]];
+
+}
+
+
 
 // table view methods
 
