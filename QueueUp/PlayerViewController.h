@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayerUIProtocol.h"
 
-@interface PlayerViewController : UIViewController
+@interface PlayerViewController : UIViewController <PlayerUIProtocol, UITableViewDelegate, UITableViewDataSource>
+
 
 @end

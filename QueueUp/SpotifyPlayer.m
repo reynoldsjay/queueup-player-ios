@@ -11,6 +11,7 @@
 #import "ServerAPI.h"
 #import <SIOSocket/SIOSocket.h>
 #import "Config.h"
+#import "PlayerUIProtocol.h"
 
 @interface SpotifyPlayer () <SPTAudioStreamingDelegate>
 
@@ -24,11 +25,14 @@
 @implementation SpotifyPlayer {
 
     ServerAPI *api;
+    UIViewController<PlayerUIProtocol> *watcher;
 
 }
 
 @synthesize queue;
 @synthesize currentURI;
+@synthesize curTrack;
+@synthesize playing;
 
 static SpotifyPlayer *singletonInstance;
 
@@ -67,7 +71,10 @@ static SpotifyPlayer *singletonInstance;
 }
 
 
--(void)handleNewSession {
+-(void)handleNewSession:(id)sender {
+    
+    watcher = sender;
+    
     SPTAuth *auth = [SPTAuth defaultInstance];
     
     if (self.player == nil) {
@@ -177,25 +184,22 @@ static SpotifyPlayer *singletonInstance;
                 NSDictionary *track = dictionaryStateData[@"track"];
                 NSString *trackURI = track[@"uri"];
                 if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
-                    [self playSong:@"spotify:track:65uFj8aCJE11lNVioZLIIv"];
+                    [self playSong:trackURI];
                     NSLog(@"New song (player).");
                     currentURI = trackURI;
+                    curTrack = track;
                     
                 }
                 
                 
                 
                 
-                // update play state, does the client view show this?
-                //                if (dictionaryStateData[@"play"] != nil) {
-                //                    BOOL playState = [dictionaryStateData[@"play"] boolValue];
-                //                    [self.player setIsPlaying:playState callback:nil];
-                //                    if (playState) {
-                //                        //self.playpause.image = [UIImage imageNamed:@"pause.png"];
-                //                    } else {
-                //                        //self.playpause.image = [UIImage imageNamed:@"play.png"];
-                //                    }
-                //                }
+                 //update play state, does the client view show this?
+                if (dictionaryStateData[@"play"] != nil) {
+                    BOOL playState = [dictionaryStateData[@"play"] boolValue];
+                    [self.player setIsPlaying:playState callback:nil];
+                    playing = playState;
+                }
                 
                 
                 // update queue
@@ -205,6 +209,10 @@ static SpotifyPlayer *singletonInstance;
                 if (recQ != nil) {
                     queue = (NSArray *) recQ;
                 }
+                
+                [sender updateUI];
+                
+                
                 
             }];
             
@@ -224,26 +232,28 @@ static SpotifyPlayer *singletonInstance;
 
 
 
--(void) playSong:(NSString*)trackURI {
+-(void) playSong:(NSString*)trackURIString {
     
     SPTAuth *auth = [SPTAuth defaultInstance];
     
     [self.player loginWithSession:auth.session callback:^(NSError *error) {
         
+        NSLog(@"Playing a song");
         if (error != nil) {
             NSLog(@"*** Enabling playback got error: %@", error);
             return;
         }
-        
-        //[self updateUI];
-        NSURL *trackURI = [NSURL URLWithString:@"spotify:track:58s6EuEYJdlb0kO7awm3Vp"];
-        [self.player playURIs:@[ trackURI ] fromIndex:0 callback:^(NSError *error) {
-            if (error != nil) {
-                NSLog(@"*** Starting playback got error: %@", error);
-                return;
-            }
-        }];
     }];
+    
+    NSURL *trackURI = [NSURL URLWithString:trackURIString];
+    [self.player playURIs:@[ trackURI ] fromIndex:0 callback:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"*** Starting playback got error: %@", error);
+            return;
+        }
+        NSLog(@"track to play: %@", trackURIString);
+    }];
+    [self.player setIsPlaying:playing callback:nil];
 
 }
 

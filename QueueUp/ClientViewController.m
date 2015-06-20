@@ -1,5 +1,5 @@
 //
-//  PlayerViewController.m
+//  ClientViewController.m
 //  QueueUp
 //
 //  Created by Jay Reynolds on 3/23/15.
@@ -261,7 +261,7 @@
     NSIndexPath *pathToCell = [_queueView indexPathForCell:owningCell];
     
     UIImageView *upvote = (UIImageView *)[owningCell viewWithTag:40];
-    NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
+    //NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
     
     
     NSString *strVote;

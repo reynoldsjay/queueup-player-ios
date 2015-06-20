@@ -30,7 +30,7 @@ static ServerAPI *singletonInstance;
     NSLog(@"TRYING");
     NSError *error;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:postJson options:0 error:&error];
-    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];

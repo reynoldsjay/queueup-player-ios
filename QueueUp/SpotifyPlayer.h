@@ -12,14 +12,15 @@
 @interface SpotifyPlayer : NSObject <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate>
 
 
-
 @property NSString *currentURI;
 @property NSArray *queue;
+@property NSDictionary *curTrack;
+@property BOOL playing;
 
 
 + (SpotifyPlayer*) getInstance;
 
--(void)handleNewSession;
+-(void)handleNewSession:(id)sender;
 -(void)playPause:(id)sender;
 
 @end
