@@ -9,6 +9,7 @@
 #import "SPTLoginViewController.h"
 #import <Spotify/Spotify.h>
 #import "Config.h"
+#import "SpotifyPlayer.h"
 
 @interface SPTLoginViewController () <SPTAuthViewDelegate>
 
@@ -43,6 +44,7 @@
 -(void)showPlayer {
     self.firstLoad = NO;
     self.statusLabel.text = @"Logged in.";
+    [[SpotifyPlayer getInstance] subToPlaylist];
     [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
 }
 

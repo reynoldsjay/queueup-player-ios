@@ -45,17 +45,23 @@ static SpotifyPlayer *singletonInstance;
 
 #pragma mark - Actions
 
--(void)rewind:(id)sender {
-    [self.player skipPrevious:nil];
-}
+//-(void)rewind:(id)sender {
+//    [self.player skipPrevious:nil];
+//}
 
--(void)playPause:(id)sender {
+-(void)playPause {
+    playing = !self.player.isPlaying;
+    
     [self.player setIsPlaying:!self.player.isPlaying callback:nil];
+    
+    [watcher updateUI];
+    
+    //[self.socket emit: @"track_play_pause" args: [[NSArray alloc] initWithObjects:[self.playing, nil]];
 }
 
--(void)fastForward:(id)sender {
-    [self.player skipNext:nil];
-}
+//-(void)fastForward:(id)sender {
+//    [self.player skipNext:nil];
+//}
 
 - (void)logoutClicked:(id)sender {
     SPTAuth *auth = [SPTAuth defaultInstance];
@@ -74,7 +80,15 @@ static SpotifyPlayer *singletonInstance;
 -(void)handleNewSession:(id)sender {
     
     watcher = sender;
+    [watcher updateUI];
     
+    
+}
+
+
+- (void)subToPlaylist {
+
+
     SPTAuth *auth = [SPTAuth defaultInstance];
     
     if (self.player == nil) {
@@ -83,35 +97,6 @@ static SpotifyPlayer *singletonInstance;
         self.player.diskCache = [[SPTDiskCache alloc] initWithCapacity:1024 * 1024 * 64];
     }
     
-//    [self.player loginWithSession:auth.session callback:^(NSError *error) {
-//        
-//        if (error != nil) {
-//            NSLog(@"*** Enabling playback got error: %@", error);
-//            return;
-//        }
-//        
-//        //[self updateUI];
-//        
-//        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
-//                                                                             accessToken:auth.session.accessToken
-//                                                                                   error:nil];
-//        
-//        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
-//            if (error != nil) {
-//                NSLog(@"*** Failed to get playlist %@", error);
-//                return;
-//            }
-//            
-//            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
-//            
-//            [self.player playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
-//        }];
-//    }];
-//    
-    
-    
-    
-    // AFTER handling login
     
     
     
@@ -121,14 +106,14 @@ static SpotifyPlayer *singletonInstance;
     api = [ServerAPI getInstance];
     
     
-//    // side bar set up
-//    SWRevealViewController *revealViewController = self.revealViewController;
-//    if ( revealViewController )
-//    {
-//        [self.sidebarButton setTarget: self.revealViewController];
-//        [self.sidebarButton setAction: @selector( revealToggle: )];
-//        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-//    }
+    //    // side bar set up
+    //    SWRevealViewController *revealViewController = self.revealViewController;
+    //    if ( revealViewController )
+    //    {
+    //        [self.sidebarButton setTarget: self.revealViewController];
+    //        [self.sidebarButton setAction: @selector( revealToggle: )];
+    //        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    //    }
     
     
     
@@ -156,7 +141,7 @@ static SpotifyPlayer *singletonInstance;
                      NSLog(@"Server responded to auth request.");
                      id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"playlist_id\" : \"%@\"}", (api.currentPlaylist)[@"_id"]]];
                      
-                    // CHANGE TO PLAYER EVENTUALLY
+                     // CHANGE TO PLAYER EVENTUALLY
                      [self.socket emit: @"client_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
                  } else {
                      NSLog(@"%@", [args firstObject]);
@@ -164,13 +149,13 @@ static SpotifyPlayer *singletonInstance;
                  
                  
              }];
-//            [self.socket on: @"player_subscribe_response" callback: ^(SIOParameterArray *args)
-//             {
-//                 
-//                 NSLog(@"%@", [args firstObject]);
-//                 
-//                 
-//             }];
+            //            [self.socket on: @"player_subscribe_response" callback: ^(SIOParameterArray *args)
+            //             {
+            //
+            //                 NSLog(@"%@", [args firstObject]);
+            //
+            //
+            //             }];
             
             
             
@@ -194,7 +179,7 @@ static SpotifyPlayer *singletonInstance;
                 
                 
                 
-                 //update play state, does the client view show this?
+                //update play state, does the client view show this?
                 if (dictionaryStateData[@"play"] != nil) {
                     BOOL playState = [dictionaryStateData[@"play"] boolValue];
                     [self.player setIsPlaying:playState callback:nil];
@@ -210,7 +195,9 @@ static SpotifyPlayer *singletonInstance;
                     queue = (NSArray *) recQ;
                 }
                 
-                [sender updateUI];
+                if (watcher) {
+                    [watcher updateUI];
+                }
                 
                 
                 
@@ -221,14 +208,9 @@ static SpotifyPlayer *singletonInstance;
         
     }
 
-    
-    
-    
-    
-    
-    
-}
 
+
+}
 
 
 

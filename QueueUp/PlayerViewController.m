@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
+@property (weak, nonatomic) IBOutlet UIButton *playpause;
+@property (weak, nonatomic) IBOutlet UIButton *nextTrack;
 
 @property IBOutlet UITableView *queueView;
 
@@ -36,6 +38,12 @@
     self.titleLabel.text = @"Nothing Playing";
     self.albumLabel.text = @"";
     self.artistLabel.text = @"";
+    
+    [self.playpause.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:30]];
+    [self.playpause setTitle:[NSString awesomeIcon:FaPlay] forState:UIControlStateNormal];
+    
+    [self.nextTrack.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:30]];
+    [self.nextTrack setTitle:[NSString awesomeIcon:FaFastForward] forState:UIControlStateNormal];
     
     
 }
@@ -58,9 +66,21 @@
     queue = player.queue;
     NSLog(@"%@", queue);
     [self.queueView reloadData];
+    
+    if (player.playing) {
+        [self.playpause setTitle:[NSString awesomeIcon:FaPause] forState:UIControlStateNormal];
+    } else {
+        [self.playpause setTitle:[NSString awesomeIcon:FaPlay] forState:UIControlStateNormal];
+    }
+    
 }
 
 
+
+
+- (IBAction)play_pause:(id)sender {
+    [player playPause];
+}
 
 
 
@@ -125,8 +145,8 @@
 
 // upvote button handler
 
-//-(void)voteButtonPress :(id)sender
-//{
+-(void)voteButtonPress :(id)sender
+{
 //    //Get the superview from this button which will be our cell
 //    UITableViewCell *owningCell = (UITableViewCell*)[sender superview];
 //    
@@ -171,8 +191,8 @@
 //    //[api postData:jsonVote toURL:postVoteURL];
 //    
 //    NSLog(@"Pressed: %ld", (long)pathToCell.row);
-//    
-//}
+    
+}
 
 
 

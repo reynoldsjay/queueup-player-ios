@@ -21,6 +21,7 @@
 + (SpotifyPlayer*) getInstance;
 
 -(void)handleNewSession:(id)sender;
--(void)playPause:(id)sender;
+-(void)playPause;
+-(void)subToPlaylist;
 
 @end

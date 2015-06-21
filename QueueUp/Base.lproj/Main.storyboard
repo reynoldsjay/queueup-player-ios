@@ -391,10 +391,17 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="abh-YK-cdc">
-                                <rect key="frame" x="128" y="422" width="75" height="18"/>
+                                <rect key="frame" x="68" y="422" width="186" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with a Spotify Premium account to host a playlist." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Sw-Nh-0ue">
+                                <rect key="frame" x="32" y="89" width="243" height="163"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -425,7 +432,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="8g2-Hn-qV9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="330"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BJz-QV-fu0">
@@ -446,11 +453,28 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bse-Nc-Qzi">
+                                            <rect key="frame" x="174" y="280" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AzD-6g-c08">
+                                            <rect key="frame" x="103" y="280" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="play_pause:" destination="XKQ-0K-ZlC" eventType="touchUpInside" id="lUE-oS-FRA"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="61" id="2xz-vA-C6j">
-                                        <rect key="frame" x="0.0" y="326" width="320" height="61"/>
+                                        <rect key="frame" x="0.0" y="352" width="320" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2xz-vA-C6j" id="0x0-Bj-SMx">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -491,6 +515,8 @@
                     <connections>
                         <outlet property="artistLabel" destination="AxG-CO-1PY" id="car-YQ-Ve8"/>
                         <outlet property="coverView" destination="BJz-QV-fu0" id="0Zg-4i-nXh"/>
+                        <outlet property="nextTrack" destination="Bse-Nc-Qzi" id="xFr-zf-wRd"/>
+                        <outlet property="playpause" destination="AzD-6g-c08" id="wfC-6t-pZm"/>
                         <outlet property="queueView" destination="uJb-wB-bbL" id="HC3-os-VQX"/>
                         <outlet property="titleLabel" destination="dGu-7w-ETd" id="tGc-Kg-sk1"/>
                     </connections>
