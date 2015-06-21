@@ -11,5 +11,6 @@
 
 @interface PlayerViewController : UIViewController <PlayerUIProtocol, UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end

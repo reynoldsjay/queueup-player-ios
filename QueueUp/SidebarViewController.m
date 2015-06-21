@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad
 {
-    _menuItems = @[@"nowplaying", @"playlists"];
+    _menuItems = @[@"nowplaying", @"playlists", @"yourplaylists"];
     [super viewDidLoad];
 
 }

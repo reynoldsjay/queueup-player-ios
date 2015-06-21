@@ -13,6 +13,7 @@
 
 @synthesize idAndToken = _idAndToken;
 @synthesize currentPlaylist = _currentPlaylist;
+@synthesize hosting = _hosting;
 
 static ServerAPI *singletonInstance;
 

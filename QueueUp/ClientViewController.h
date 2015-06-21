@@ -11,8 +11,11 @@
 
 @interface ClientViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (nonatomic) BOOL playing;
+
+
 
 
 @end

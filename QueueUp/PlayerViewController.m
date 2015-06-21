@@ -12,6 +12,7 @@
 #import "SpotifyPlayer.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+FontAwesome.h"
+#import "SWRevealViewController.h"
 
 @interface PlayerViewController ()
 
@@ -44,6 +45,15 @@
     
     [self.nextTrack.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:30]];
     [self.nextTrack setTitle:[NSString awesomeIcon:FaFastForward] forState:UIControlStateNormal];
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
     
     
 }

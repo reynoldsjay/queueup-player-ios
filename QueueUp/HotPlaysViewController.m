@@ -107,6 +107,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // set current playlist as selected
     api.currentPlaylist = [playlists objectAtIndex:indexPath.row];
+    api.hosting = NO;
     [self performSegueWithIdentifier:@"player" sender:self];
 }
 

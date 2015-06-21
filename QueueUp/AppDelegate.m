@@ -18,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Set up shared authentication information
     SPTAuth *auth = [SPTAuth defaultInstance];
     auth.clientID = @kClientId;

@@ -46,6 +46,15 @@
 @synthesize playing;
 
 
+- (void)viewWillAppear:(BOOL)animated {
+
+    NSLog(@"hosting: %hhd", api.hosting);
+    
+
+    
+}
+
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -59,13 +68,13 @@
 //        [sptPlayer handleNewSession];
 //    }
     
-
     
+
     
     
     // get api instance
     api = [ServerAPI getInstance];
-    
+
     
     // side bar set up
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -74,6 +83,10 @@
         [self.sidebarButton setTarget: self.revealViewController];
         [self.sidebarButton setAction: @selector( revealToggle: )];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    if (api.hosting) {
+        NSLog(@"go to player");
+        [self performSegueWithIdentifier:@"realPlayer" sender:self];
     }
     
     

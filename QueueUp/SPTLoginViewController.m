@@ -10,6 +10,7 @@
 #import <Spotify/Spotify.h>
 #import "Config.h"
 #import "SpotifyPlayer.h"
+#import "ServerAPI.h"
 
 @interface SPTLoginViewController () <SPTAuthViewDelegate>
 
@@ -18,10 +19,13 @@
 
 @end
 
-@implementation SPTLoginViewController
+@implementation SPTLoginViewController {
+    ServerAPI *api;
+}
 
 
 - (void)viewDidLoad {
+    api = [ServerAPI getInstance];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     self.statusLabel.text = @"";
     self.firstLoad = YES;
@@ -33,18 +37,22 @@
 
 -(void)sessionUpdatedNotification:(NSNotification *)notification {
     self.statusLabel.text = @"";
-    if(self.navigationController.topViewController == self) {
+    //if(self.navigationController.topViewController == self) {
         SPTAuth *auth = [SPTAuth defaultInstance];
         if (auth.session && [auth.session isValid]) {
+            api.hosting = YES;
+            NSLog(@"hosting set: %hhd", api.hosting);
             [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
         }
-    }
+    //}
 }
 
 -(void)showPlayer {
     self.firstLoad = NO;
     self.statusLabel.text = @"Logged in.";
     [[SpotifyPlayer getInstance] subToPlaylist];
+    api.hosting = YES;
+    NSLog(@"hosting set: %hhd", api.hosting);
     [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
 }
 
@@ -67,13 +75,13 @@
     
     self.authViewController = [SPTAuthViewController authenticationViewController];
     self.authViewController.delegate = self;
-    self.authViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    self.authViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    //self.authViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    //self.authViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    self.modalPresentationStyle = UIModalPresentationCurrentContext;
-    self.definesPresentationContext = YES;
+    //self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    //self.definesPresentationContext = YES;
     
-    [self presentViewController:self.authViewController animated:NO completion:nil];
+    //[self presentViewController:self.authViewController animated:NO completion:nil];
 }
 
 
