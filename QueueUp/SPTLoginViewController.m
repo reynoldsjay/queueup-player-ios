@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     api = [ServerAPI getInstance];
+    NSLog(@"Login view did load");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     self.statusLabel.text = @"";
     self.firstLoad = YES;
@@ -75,13 +76,15 @@
     
     self.authViewController = [SPTAuthViewController authenticationViewController];
     self.authViewController.delegate = self;
-    //self.authViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    //self.authViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    //self.modalPresentationStyle = UIModalPresentationCurrentContext;
-    //self.definesPresentationContext = YES;
+    // below was commented for some reason
+    self.authViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.authViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    //[self presentViewController:self.authViewController animated:NO completion:nil];
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    self.definesPresentationContext = YES;
+    
+    [self presentViewController:self.authViewController animated:NO completion:nil];
 }
 
 

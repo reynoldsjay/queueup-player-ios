@@ -49,6 +49,26 @@ static ServerAPI *singletonInstance;
     return responseString;
 }
 
+// returns string of json object response
+- (NSString*)getDataFromURL:(NSString*)url {
+    
+    NSLog(@"TRYING");
+    NSError *error;
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSData* responseData = nil;
+    NSURLResponse* response;
+    responseData = [NSMutableData data];
+    error = nil;
+    responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    //NSLog(@"Response from server:%@",responseString);
+    return responseString;
+}
+
 - (id)parseJson:(NSString*)jsonString {
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];

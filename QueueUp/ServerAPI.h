@@ -17,6 +17,7 @@
 + (ServerAPI*) getInstance;
 
 - (NSString*)postData:(id)postJson toURL:(NSString*)url;
+- (NSString*)getDataFromURL:(NSString*)url;
 
 - (NSData*)parseJson:(NSString*)jsonString;
 

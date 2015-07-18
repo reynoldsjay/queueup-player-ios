@@ -35,7 +35,7 @@
         NSString* accessString = [[NSString alloc] initWithFormat:@"{\"facebook_access_token\" : \"%@\"}", [FBSDKAccessToken currentAccessToken].tokenString];
         ServerAPI *api = [ServerAPI getInstance];
         id json = [api parseJson:accessString];
-        NSString *client = [api postData:json toURL:(@hostDomain @"/api/auth/login")];
+        NSString *client = [api postData:json toURL:(@hostDomain @"/api/v1/auth/login")];
         // store client id
         NSString *theID = ((NSDictionary*)[api parseJson:client])[@"user_id"];
         

@@ -230,6 +230,14 @@
     UILabel *qArtistLabel = (UILabel *)[cell viewWithTag:11];
     qArtistLabel.text = [(NSArray *)qTrack[@"artists"] firstObject][@"name"];
     
+    UILabel *votesLabel = (UILabel *)[cell viewWithTag:12];
+    int votes = [qItem[@"votes"] intValue];
+    if (!votes) {
+        votesLabel.text = @"0";
+    } else {
+        votesLabel.text = [NSString stringWithFormat:@"%d", votes];
+    }
+    
     
     // table cell album over
     UIImageView *albumcover = (UIImageView *)[cell viewWithTag:20];
@@ -243,9 +251,10 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button addTarget:self action:@selector(voteButtonPress:)
      forControlEvents:UIControlEventTouchDown];
-    [button.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:30]];
-    [button setTitle:[NSString awesomeIcon:FaArrowUp] forState:UIControlStateNormal];
-    button.frame = CGRectMake(280.0f, 9.0f, 35.0f, 35.0f);
+    [button.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20]];
+    [button setTitle:[NSString awesomeIcon:FaChevronUp] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    button.frame = CGRectMake(280.0f, 1.0f, 35.0f, 35.0f);
     //[button.layer setBorderColor:[[UIColor redColor] CGColor]];
     //[[button layer] setBorderWidth:2.0f];
     [cell addSubview:button];
@@ -273,37 +282,32 @@
     //the index here to do something with that array.
     NSIndexPath *pathToCell = [_queueView indexPathForCell:owningCell];
     
-    UIImageView *upvote = (UIImageView *)[owningCell viewWithTag:40];
+    //UIImageView *upvote = (UIImageView *)[owningCell viewWithTag:40];
     //NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
     
     
-    NSString *strVote;
+    NSString *strVote = @"true";
     NSDictionary *qItem = (NSDictionary *) [queue objectAtIndex:pathToCell.row];
-    NSString *trackid = qItem[@"track"][@"id"];
-                  
-    if ([upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]) {
-        upvote.image = [UIImage imageNamed:@"greenvote.png"];
-        strVote = @"true";
-        
-    } else {
-        upvote.image = [UIImage imageNamed:@"upvote.png"];
-        strVote = @"false";
-    }
+    NSString *trackid = qItem[@"_id"];
+    
     
     NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
     NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
     
     
     
-    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"user_id\" : \"%@\", \"client_token\" : \"%@\", \"track_id\" : \"%@\", \"vote\" : \"%@\"}", clientID, token, trackid, strVote];
+    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"vote\" : \"%@\", \"user_id\" : \"%@\", \"client_token\" : \"%@\", \"track_id\" : \"%@\"}", strVote, clientID, token, trackid];
     
     id jsonVote = [api parseJson:toSend];
     
-    NSString *postVoteURL = [NSString stringWithFormat:@"%@/api/playlists/%@/vote", @hostDomain, (api.currentPlaylist)[@"_id"]];
+    NSString *postVoteURL = [NSString stringWithFormat:@"%@/api/v1/playlists/%@/vote", @hostDomain, (api.currentPlaylist)[@"_id"]];
     
     NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
     
-    //[api postData:jsonVote toURL:postVoteURL];
+    NSString *response = [api postData:jsonVote toURL:postVoteURL];
+    NSLog(@"%@", response);
+    
+   
     
     NSLog(@"Pressed: %ld", (long)pathToCell.row);
     

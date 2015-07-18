@@ -46,20 +46,87 @@
     }
     
     // get all playlists
-    NSString *playlistString = [api postData:api.idAndToken toURL:(@hostDomain @"/api/playlists")];
+    //NSLog(@"%@", api.idAndToken);
+    NSString *playlistString = [api getDataFromURL:(@hostDomain @"/api/v2/playlists")];
     NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
     playlists = dictionaryData[@"playlists"];
+    //NSLog(@"%@", playlists);
     creators = [[NSMutableArray alloc] init];
     for (NSMutableDictionary *aPlaylist in playlists) {
-        NSString *userURL = [NSString stringWithFormat:@"%@/api/users/%@", @hostDomain, aPlaylist[@"admin"]];
-        id usrDict = [api postData:api.idAndToken toURL:userURL];
-        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
-        NSString *creatorName = [NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]];
-        [creators addObject:creatorName];
+//        NSString *userURL = [NSString stringWithFormat:@"%@/api/v1/users/%@", @hostDomain, aPlaylist[@"admin"]];
+//        id usrDict = [api postData:api.idAndToken toURL:userURL];
+//        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
+        
+        NSString *creatorName = aPlaylist[@"admin_name"];//[NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]]
+        NSLog(@"a playlisy: %@", creatorName);
+        if (!creatorName) {
+            [creators addObject:@"?"];
+        } else {
+            [creators addObject:creatorName];
+        }
     }
     
 }
 
+
+
+- (IBAction)newPlaylist:(id)sender {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New playlist name:"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Continue", nil];
+    
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    [message show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSString *name = [alertView textFieldAtIndex:0].text;
+        NSLog(@"%@", name);
+        // name contains the entered value
+        
+        NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+        NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
+        
+        NSString *toSend = [[NSString alloc] initWithFormat:@"{\"user_id\" : \"%@\", \"client_token\" : \"%@\",\"playlist\" : {\"name\" : \"%@\"}}", clientID, token, name];
+        
+        id jsonVote = [api parseJson:toSend];
+        
+        NSString *postVoteURL = [NSString stringWithFormat:@"%@/api/v1/playlists/new", @hostDomain];
+        
+        NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
+        NSString *theRet = [api postData:jsonVote toURL:postVoteURL];
+        NSLog(@"newplay post %@", theRet);
+        
+        // get all playlists
+        //NSLog(@"%@", api.idAndToken);
+        NSString *playlistString = [api getDataFromURL:(@hostDomain @"/api/v2/playlists")];
+        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
+        playlists = dictionaryData[@"playlists"];
+        //NSLog(@"%@", playlists);
+        creators = [[NSMutableArray alloc] init];
+        for (NSMutableDictionary *aPlaylist in playlists) {
+            //        NSString *userURL = [NSString stringWithFormat:@"%@/api/v1/users/%@", @hostDomain, aPlaylist[@"admin"]];
+            //        id usrDict = [api postData:api.idAndToken toURL:userURL];
+            //        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
+            
+            NSString *creatorName = aPlaylist[@"admin_name"];//[NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]]
+            NSLog(@"a playlisy: %@", creatorName);
+            if (!creatorName) {
+                [creators addObject:@"?"];
+            } else {
+                [creators addObject:creatorName];
+            }
+        }
+        
+        [self.collectionView reloadData];
+        
+    }
+}
 
 // table methods
 
