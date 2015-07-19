@@ -133,6 +133,15 @@
     [albumcover sd_setImageWithURL:[NSURL URLWithString:coverURL]
                   placeholderImage:[UIImage imageNamed:@""]];
     
+    UILabel *votesLabel = (UILabel *)[cell viewWithTag:12];
+    int votes = [qItem[@"votes"] intValue];
+    if (!votes) {
+        votesLabel.text = @"0";
+    } else {
+        votesLabel.text = [NSString stringWithFormat:@"%d", votes];
+    }
+    
+    
     
     // create upvote button
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];

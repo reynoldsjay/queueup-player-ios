@@ -58,7 +58,7 @@
 //        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
         
         NSString *creatorName = aPlaylist[@"admin_name"];//[NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]]
-        NSLog(@"a playlisy: %@", creatorName);
+        //NSLog(@"a playlisy: %@", creatorName);
         if (!creatorName) {
             [creators addObject:@"?"];
         } else {

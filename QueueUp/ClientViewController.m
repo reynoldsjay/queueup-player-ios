@@ -261,6 +261,22 @@
     
     
     
+    NSString *userID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+    NSArray *voters = qItem[@"voters"];
+    bool userVoted = false;
+    for (NSDictionary *aVoter in voters) {
+        if ([aVoter[@"_id"] isEqualToString:userID]) {
+            userVoted = true;
+        }
+    }
+    
+    if (userVoted) {
+        [button setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    } else {
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    }
+    
+    
     
     return cell;
 }
@@ -286,17 +302,33 @@
     //NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
     
     
-    NSString *strVote = @"true";
+    NSNumber *strVote;
     NSDictionary *qItem = (NSDictionary *) [queue objectAtIndex:pathToCell.row];
     NSString *trackid = qItem[@"_id"];
+    NSLog(@"%@", trackid);
     
     
     NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
     NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
     
+    NSString *userID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+    NSArray *voters = qItem[@"voters"];
+    bool userVoted = false;
+    for (NSDictionary *aVoter in voters) {
+        if ([aVoter[@"_id"] isEqualToString:userID]) {
+            userVoted = true;
+        }
+    }
+    
+    if (userVoted) {
+        strVote = [NSNumber numberWithBool:NO];
+    } else {
+        strVote = [NSNumber numberWithBool:YES];
+    }
     
     
-    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"vote\" : \"%@\", \"user_id\" : \"%@\", \"client_token\" : \"%@\", \"track_id\" : \"%@\"}", strVote, clientID, token, trackid];
+    
+    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"vote\" : %@, \"user_id\" : \"%@\", \"client_token\" : \"%@\", \"track_id\" : \"%@\"}", strVote, clientID, token, trackid];
     
     id jsonVote = [api parseJson:toSend];
     
@@ -304,10 +336,18 @@
     
     NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
     
-    NSString *response = [api postData:jsonVote toURL:postVoteURL];
-    NSLog(@"%@", response);
     
-   
+    
+    NSString *response = [api postData:jsonVote toURL:postVoteURL];
+    NSLog(response);
+    id jsonNewPlaylist = [api parseJson:response];
+    queue = (NSArray *) jsonNewPlaylist[@"tracks"];
+    NSLog(@"New queu: %@", queue);
+    
+    if (queue) {
+        [self.queueView reloadData];
+    }
+    
     
     NSLog(@"Pressed: %ld", (long)pathToCell.row);
     
