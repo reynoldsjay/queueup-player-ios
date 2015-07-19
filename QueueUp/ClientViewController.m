@@ -332,7 +332,7 @@
     
     id jsonVote = [api parseJson:toSend];
     
-    NSString *postVoteURL = [NSString stringWithFormat:@"%@/api/v1/playlists/%@/vote", @hostDomain, (api.currentPlaylist)[@"_id"]];
+    NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/%@/vote", (api.currentPlaylist)[@"_id"]];
     
     NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
     
@@ -341,10 +341,11 @@
     NSString *response = [api postData:jsonVote toURL:postVoteURL];
     NSLog(response);
     id jsonNewPlaylist = [api parseJson:response];
-    queue = (NSArray *) jsonNewPlaylist[@"tracks"];
-    NSLog(@"New queu: %@", queue);
+    queue = (NSArray *) jsonNewPlaylist[@"playlist"][@"tracks"];
+    //NSLog(@"New queu: %@", queue);
     
     if (queue) {
+        NSLog(@"newq");
         [self.queueView reloadData];
     }
     

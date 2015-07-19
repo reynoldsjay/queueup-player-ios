@@ -47,7 +47,7 @@
     
     // get all playlists
     //NSLog(@"%@", api.idAndToken);
-    NSString *playlistString = [api getDataFromURL:(@hostDomain @"/api/v2/playlists")];
+    NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
     NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
     playlists = dictionaryData[@"playlists"];
     //NSLog(@"%@", playlists);
@@ -96,7 +96,7 @@
         
         id jsonVote = [api parseJson:toSend];
         
-        NSString *postVoteURL = [NSString stringWithFormat:@"%@/api/v1/playlists/new", @hostDomain];
+        NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/new"];
         
         NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
         NSString *theRet = [api postData:jsonVote toURL:postVoteURL];
@@ -104,7 +104,7 @@
         
         // get all playlists
         //NSLog(@"%@", api.idAndToken);
-        NSString *playlistString = [api getDataFromURL:(@hostDomain @"/api/v2/playlists")];
+        NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
         NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
         playlists = dictionaryData[@"playlists"];
         //NSLog(@"%@", playlists);
