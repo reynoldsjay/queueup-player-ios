@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "NSString+FontAwesome.h"
 #import "SWRevealViewController.h"
+#import "ServerAPI.h"
 
 @interface PlayerViewController ()
 
@@ -32,10 +33,15 @@
 @implementation PlayerViewController {
     SpotifyPlayer *player;
     NSArray *queue;
+    ServerAPI *api;
 }
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
+    api = [ServerAPI getInstance];
+    
+    
     self.titleLabel.text = @"Nothing Playing";
     self.albumLabel.text = @"";
     self.artistLabel.text = @"";
@@ -125,14 +131,6 @@
     UILabel *qArtistLabel = (UILabel *)[cell viewWithTag:11];
     qArtistLabel.text = [(NSArray *)qTrack[@"artists"] firstObject][@"name"];
     
-    
-    // table cell album over
-    UIImageView *albumcover = (UIImageView *)[cell viewWithTag:20];
-    NSArray *coverImURLs = qTrack[@"album"][@"images"];
-    NSString *coverURL = [coverImURLs firstObject][@"url"];
-    [albumcover sd_setImageWithURL:[NSURL URLWithString:coverURL]
-                  placeholderImage:[UIImage imageNamed:@""]];
-    
     UILabel *votesLabel = (UILabel *)[cell viewWithTag:12];
     int votes = [qItem[@"votes"] intValue];
     if (!votes) {
@@ -142,18 +140,42 @@
     }
     
     
+    // table cell album over
+    UIImageView *albumcover = (UIImageView *)[cell viewWithTag:20];
+    NSArray *coverImURLs = qTrack[@"album"][@"images"];
+    NSString *coverURL = [coverImURLs firstObject][@"url"];
+    [albumcover sd_setImageWithURL:[NSURL URLWithString:coverURL]
+                  placeholderImage:[UIImage imageNamed:@""]];
+    
     
     // create upvote button
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button addTarget:self action:@selector(voteButtonPress:)
      forControlEvents:UIControlEventTouchDown];
-    [button.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:30]];
-    [button setTitle:[NSString awesomeIcon:FaArrowUp] forState:UIControlStateNormal];
-    button.frame = CGRectMake(280.0f, 9.0f, 35.0f, 35.0f);
+    [button.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20]];
+    [button setTitle:[NSString awesomeIcon:FaChevronUp] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    button.frame = CGRectMake(280.0f, 1.0f, 35.0f, 35.0f);
     //[button.layer setBorderColor:[[UIColor redColor] CGColor]];
     //[[button layer] setBorderWidth:2.0f];
     [cell addSubview:button];
     
+    
+    
+    NSString *userID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+    NSArray *voters = qItem[@"voters"];
+    bool userVoted = false;
+    for (NSDictionary *aVoter in voters) {
+        if ([aVoter[@"_id"] isEqualToString:userID]) {
+            userVoted = true;
+        }
+    }
+    
+    if (userVoted) {
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    } else {
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    }
     
     
     
@@ -161,55 +183,73 @@
 }
 
 
-
 // upvote button handler
 
 -(void)voteButtonPress :(id)sender
 {
-//    //Get the superview from this button which will be our cell
-//    UITableViewCell *owningCell = (UITableViewCell*)[sender superview];
-//    
-//    //From the cell get its index path.
-//    //
-//    //In this example I am only using the indexpath to show a unique message based
-//    //on the index of the cell.
-//    //If you were using an array of data to build the table you might use
-//    //the index here to do something with that array.
-//    NSIndexPath *pathToCell = [_queueView indexPathForCell:owningCell];
-//    
-//    UIImageView *upvote = (UIImageView *)[owningCell viewWithTag:40];
-//    //NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
-//    
-//    
-//    NSString *strVote;
-//    NSDictionary *qItem = (NSDictionary *) [queue objectAtIndex:pathToCell.row];
-//    NSString *trackid = qItem[@"track"][@"id"];
-//    
-//    if ([upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]) {
-//        upvote.image = [UIImage imageNamed:@"greenvote.png"];
-//        strVote = @"true";
-//        
-//    } else {
-//        upvote.image = [UIImage imageNamed:@"upvote.png"];
-//        strVote = @"false";
-//    }
-//    
-//    NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
-//    NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
-//    
-//    
-//    
-//    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"user_id\" : \"%@\", \"client_token\" : \"%@\", \"track_id\" : \"%@\", \"vote\" : \"%@\"}", clientID, token, trackid, strVote];
-//    
-//    id jsonVote = [api parseJson:toSend];
-//    
-//    NSString *postVoteURL = [NSString stringWithFormat:@"%@/api/playlists/%@/vote", @hostDomain, (api.currentPlaylist)[@"_id"]];
-//    
-//    NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
-//    
-//    //[api postData:jsonVote toURL:postVoteURL];
-//    
-//    NSLog(@"Pressed: %ld", (long)pathToCell.row);
+    //Get the superview from this button which will be our cell
+    UITableViewCell *owningCell = (UITableViewCell*)[sender superview];
+    
+    //From the cell get its index path.
+    //
+    //In this example I am only using the indexpath to show a unique message based
+    //on the index of the cell.
+    //If you were using an array of data to build the table you might use
+    //the index here to do something with that array.
+    NSIndexPath *pathToCell = [_queueView indexPathForCell:owningCell];
+    
+    //UIImageView *upvote = (UIImageView *)[owningCell viewWithTag:40];
+    //NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
+    
+    
+    NSNumber *strVote;
+    NSDictionary *qItem = (NSDictionary *) [queue objectAtIndex:pathToCell.row];
+    NSString *trackid = qItem[@"_id"];
+    NSLog(@"%@", trackid);
+    
+    
+    NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+    NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
+    
+    NSString *userID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+    NSArray *voters = qItem[@"voters"];
+    bool userVoted = false;
+    for (NSDictionary *aVoter in voters) {
+        if ([aVoter[@"_id"] isEqualToString:userID]) {
+            userVoted = true;
+        }
+    }
+    
+    if (userVoted) {
+        strVote = [NSNumber numberWithBool:NO];
+    } else {
+        strVote = [NSNumber numberWithBool:YES];
+    }
+    
+    
+    
+    NSString *toSend = [[NSString alloc] initWithFormat:@"{\"vote\" : %@, \"user_id\" : \"%@\", \"client_token\" : \"%@\", \"track_id\" : \"%@\"}", strVote, clientID, token, trackid];
+    
+    id jsonVote = [api parseJson:toSend];
+    
+    NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/%@/vote", (api.currentPlaylist)[@"_id"]];
+    
+    NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
+    
+    
+    
+    NSString *response = [api postData:jsonVote toURL:postVoteURL];
+    id jsonNewPlaylist = [api parseJson:response];
+    queue = (NSArray *) jsonNewPlaylist[@"playlist"][@"tracks"];
+    //NSLog(@"New queu: %@", queue);
+    
+    if (queue) {
+        NSLog(@"newq");
+        [self.queueView reloadData];
+    }
+    
+    
+    NSLog(@"Pressed: %ld", (long)pathToCell.row);
     
 }
 

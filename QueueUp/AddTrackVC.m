@@ -13,6 +13,7 @@
 @interface AddTrackVC ()
 
 @property IBOutlet UITableView *trackTable;
+@property IBOutlet UISearchBar *search;
 
 @end
 
@@ -27,6 +28,12 @@
     // Do view setup here.
     api = [ServerAPI getInstance];
 }
+
+
+- (void) viewDidAppear:(BOOL)animated {
+    [self.search becomeFirstResponder];
+}
+
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
@@ -47,6 +54,7 @@
 
 
 -(void)onTextChange:(id)sender {
+    toSearch = [toSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *searchURL = [NSString stringWithFormat:@"/api/v2/search/tracks/%@/0", toSearch];
     NSDictionary *dict = (NSDictionary *) [api parseJson:[api getDataFromURL:searchURL]];
     tracks = (NSArray *) dict[@"tracks"];

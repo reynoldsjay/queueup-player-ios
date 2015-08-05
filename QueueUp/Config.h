@@ -25,7 +25,7 @@
 
 // Qup Server
 
-#define hostDomain "http://localhost:27017"
+#define hostDomain "http://dev.queueup.io"
 
 
 #endif

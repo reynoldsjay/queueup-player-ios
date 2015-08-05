@@ -140,21 +140,21 @@
     static NSString *identifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    
     // set background of cells as album covers
     NSDictionary * aPlaylist = [playlists objectAtIndex:indexPath.row];
     NSDictionary *firstTrack = aPlaylist[@"current"];
-    NSArray *images = firstTrack[@"album"][@"images"];
-    NSString *thisImgURL = [images firstObject][@"url"];
+    if (firstTrack != (id)[NSNull null]) {
+        NSLog(@"%d", firstTrack == NULL);
+        NSArray *images = firstTrack[@"album"][@"images"];
+        NSString *thisImgURL = [images firstObject][@"url"];
     
-    UIImageView *bgalbum = (UIImageView *)[cell viewWithTag:5];
-    [bgalbum sd_setImageWithURL:[NSURL URLWithString:thisImgURL]
-             placeholderImage:[UIImage imageNamed:@""]];
-    
+        UIImageView *bgalbum = (UIImageView *)[cell viewWithTag:5];
+        [bgalbum sd_setImageWithURL:[NSURL URLWithString:thisImgURL]
+                 placeholderImage:[UIImage imageNamed:@""]];
+    }
     // set transparent cover
     UIImageView *shade = (UIImageView *)[cell viewWithTag:10];
     shade.image = [UIImage imageNamed:@"albumShade.png"];
-    
     
     
     // set label with name of playlist
@@ -173,8 +173,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // set current playlist as selected
-    api.currentPlaylist = [playlists objectAtIndex:indexPath.row];
-    api.hosting = NO;
+    NSString *currString = ((NSDictionary *) api.currentPlaylist)[@"_id"];
+    NSString *clickedString = ((NSDictionary *)[playlists objectAtIndex:indexPath.row])[@"_id"];
+    
+    if (![currString isEqualToString:clickedString]) {
+        api.currentPlaylist = [playlists objectAtIndex:indexPath.row];
+        api.hosting = NO;
+    }
     [self performSegueWithIdentifier:@"player" sender:self];
 }
 

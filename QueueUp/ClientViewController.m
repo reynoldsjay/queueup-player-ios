@@ -47,7 +47,11 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-
+    
+    if (api.hosting) {
+        NSLog(@"go to player");
+        [self performSegueWithIdentifier:@"realPlayer" sender:self];
+    }
     NSLog(@"hosting: %hhd", api.hosting);
     
 
@@ -84,10 +88,7 @@
         [self.sidebarButton setAction: @selector( revealToggle: )];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
-    if (api.hosting) {
-        NSLog(@"go to player");
-        [self performSegueWithIdentifier:@"realPlayer" sender:self];
-    }
+
     
     
     self.titleLabel.text = @"Nothing Playing";
@@ -190,7 +191,6 @@
 }
 
 
-
 - (void)viewWillDisappear:(BOOL)animated {
 
     [self.socket emit: @"client_unsubscribe" args:[[NSArray alloc] initWithObjects: nil]];
@@ -271,7 +271,7 @@
     }
     
     if (userVoted) {
-        [button setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     } else {
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
