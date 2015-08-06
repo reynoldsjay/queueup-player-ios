@@ -28,6 +28,10 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 
+@property IBOutlet UIButton *playHere;
+
+@property IBOutlet UILabel *playNameLabel;
+
 
 @property IBOutlet UITableView *queueView;
 
@@ -78,6 +82,23 @@
     
     // get api instance
     api = [ServerAPI getInstance];
+    
+    
+    
+    
+    if (api.currentPlaylist) {
+        self.playNameLabel.text = ((NSDictionary *)api.currentPlaylist)[@"name"];
+    } else {
+        self.playNameLabel.text = @"";
+    }
+    
+    
+    NSString *me = ((NSDictionary *)api.idAndToken)[@"user_id"];
+    NSString *admin = ((NSDictionary *)api.currentPlaylist)[@"admin"];
+    if (![me isEqualToString:admin]) {
+        NSLog(@"not admin");
+        self.playHere.hidden = YES;
+    }
 
     
     // side bar set up

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property IBOutlet UILabel *playNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UIButton *playpause;
 @property (weak, nonatomic) IBOutlet UIButton *nextTrack;
@@ -40,6 +41,12 @@
     [super viewDidLoad];
     
     api = [ServerAPI getInstance];
+    
+    if (api.currentPlaylist) {
+        self.playNameLabel.text = ((NSDictionary *)api.currentPlaylist)[@"name"];
+    } else {
+        self.playNameLabel.text = @"";
+    }
     
     
     self.titleLabel.text = @"Nothing Playing";

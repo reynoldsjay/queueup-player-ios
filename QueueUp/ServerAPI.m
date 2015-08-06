@@ -58,7 +58,7 @@ static ServerAPI *singletonInstance;
     error = nil;
     responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"Response from server:%@",responseString);
+    //NSLog(@"Response from server:%@",responseString);
     return responseString;
 }
 
@@ -85,7 +85,7 @@ static ServerAPI *singletonInstance;
     error = nil;
     responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    //NSLog(@"Response from server:%@",responseString);
+    NSLog(@"Response from server:%@",responseString);
     return responseString;
 }
 
