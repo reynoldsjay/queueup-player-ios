@@ -33,10 +33,14 @@
 		818CB1F51B72DF6700FDEBF9 /* YourPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */; };
 		819FF3A21B2DF61200DBF90D /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819FF3A11B2DF61200DBF90D /* Spotify.framework */; };
 		819FF3A51B2DF77600DBF90D /* SPTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */; };
+		81B7B1E71B73C5A6006A8DB6 /* logo120.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B7B1E61B73C5A6006A8DB6 /* logo120.png */; };
+		81B7B1E91B73DD01006A8DB6 /* logo180.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B7B1E81B73DD01006A8DB6 /* logo180.png */; };
+		81B7B1ED1B73DDEB006A8DB6 /* logo58.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B7B1EA1B73DDEB006A8DB6 /* logo58.png */; };
+		81B7B1EE1B73DDEB006A8DB6 /* logo80.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B7B1EB1B73DDEB006A8DB6 /* logo80.png */; };
+		81B7B1EF1B73DDEB006A8DB6 /* logo87.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B7B1EC1B73DDEB006A8DB6 /* logo87.png */; };
 		81B92D631B5C5C1800DBAE44 /* AddTrackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B92D621B5C5C1800DBAE44 /* AddTrackVC.m */; };
 		81C779AC1B5E0FED00A67EE0 /* full-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 81C779AA1B5E0FED00A67EE0 /* full-logo.jpg */; };
 		81C779AD1B5E0FED00A67EE0 /* justQ.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 81C779AB1B5E0FED00A67EE0 /* justQ.jpg */; };
-		81C779AF1B5E133900A67EE0 /* logo40.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C779AE1B5E133900A67EE0 /* logo40.png */; };
 		81DB7ACA1B292E1A00CFC1FD /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */; };
 		C447C89C09E2B19E4ADE193F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC3677A21B62D72379479 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -98,11 +102,15 @@
 		819FF3A11B2DF61200DBF90D /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		819FF3A31B2DF77600DBF90D /* SPTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTLoginViewController.h; sourceTree = "<group>"; };
 		819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTLoginViewController.m; sourceTree = "<group>"; };
+		81B7B1E61B73C5A6006A8DB6 /* logo120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo120.png; path = Images/logo120.png; sourceTree = "<group>"; };
+		81B7B1E81B73DD01006A8DB6 /* logo180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo180.png; path = Images/logo180.png; sourceTree = "<group>"; };
+		81B7B1EA1B73DDEB006A8DB6 /* logo58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo58.png; path = Images/logo58.png; sourceTree = "<group>"; };
+		81B7B1EB1B73DDEB006A8DB6 /* logo80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo80.png; path = Images/logo80.png; sourceTree = "<group>"; };
+		81B7B1EC1B73DDEB006A8DB6 /* logo87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo87.png; path = Images/logo87.png; sourceTree = "<group>"; };
 		81B92D611B5C5C1800DBAE44 /* AddTrackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTrackVC.h; sourceTree = "<group>"; };
 		81B92D621B5C5C1800DBAE44 /* AddTrackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTrackVC.m; sourceTree = "<group>"; };
 		81C779AA1B5E0FED00A67EE0 /* full-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "full-logo.jpg"; path = "Images/full-logo.jpg"; sourceTree = "<group>"; };
 		81C779AB1B5E0FED00A67EE0 /* justQ.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = justQ.jpg; path = Images/justQ.jpg; sourceTree = "<group>"; };
-		81C779AE1B5E133900A67EE0 /* logo40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo40.png; path = Images/logo40.png; sourceTree = "<group>"; };
 		81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
 		81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,11 +229,15 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				81B7B1EA1B73DDEB006A8DB6 /* logo58.png */,
+				81B7B1EB1B73DDEB006A8DB6 /* logo80.png */,
+				81B7B1EC1B73DDEB006A8DB6 /* logo87.png */,
+				81B7B1E81B73DD01006A8DB6 /* logo180.png */,
+				81B7B1E61B73C5A6006A8DB6 /* logo120.png */,
 				81C779AA1B5E0FED00A67EE0 /* full-logo.jpg */,
 				81C779AB1B5E0FED00A67EE0 /* justQ.jpg */,
 				816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */,
 				813DF7AD1ABE1EC30057D655 /* Images.xcassets */,
-				81C779AE1B5E133900A67EE0 /* logo40.png */,
 				811549871B312E1900806049 /* albumShade.png */,
 				811549881B312E1900806049 /* albumShade.xcf */,
 				8115498A1B312E1900806049 /* menu.png */,
@@ -340,13 +352,17 @@
 			files = (
 				811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */,
 				81C779AD1B5E0FED00A67EE0 /* justQ.jpg in Resources */,
+				81B7B1EF1B73DDEB006A8DB6 /* logo87.png in Resources */,
 				8115498D1B312E1A00806049 /* albumShade.xcf in Resources */,
+				81B7B1E71B73C5A6006A8DB6 /* logo120.png in Resources */,
 				8115498F1B312E1A00806049 /* menu.png in Resources */,
 				8115498C1B312E1A00806049 /* albumShade.png in Resources */,
+				81B7B1EE1B73DDEB006A8DB6 /* logo80.png in Resources */,
 				811549811B312D9F00806049 /* Images.xcassets in Resources */,
+				81B7B1ED1B73DDEB006A8DB6 /* logo58.png in Resources */,
 				813DF7AC1ABE1EC30057D655 /* Main.storyboard in Resources */,
+				81B7B1E91B73DD01006A8DB6 /* logo180.png in Resources */,
 				811549901B312E1A00806049 /* upvote.xcf in Resources */,
-				81C779AF1B5E133900A67EE0 /* logo40.png in Resources */,
 				813DF7B11ABE1EC30057D655 /* LaunchScreen.xib in Resources */,
 				81C779AC1B5E0FED00A67EE0 /* full-logo.jpg in Resources */,
 			);
