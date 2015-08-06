@@ -49,6 +49,12 @@ static SpotifyPlayer *singletonInstance;
 //    [self.player skipPrevious:nil];
 //}
 
+-(void)pause {
+    if (self.player) {
+        [self.player setIsPlaying:NO callback:nil];
+    }
+}
+
 -(void)playPause {
     playing = !self.player.isPlaying;
     
@@ -59,9 +65,9 @@ static SpotifyPlayer *singletonInstance;
     //[self.socket emit: @"track_play_pause" args: [[NSArray alloc] initWithObjects:[self.playing, nil]];
 }
 
-//-(void)fastForward:(id)sender {
-//    [self.player skipNext:nil];
-//}
+-(void)nextTrack {
+    [self.player skipNext:nil];
+}
 
 - (void)logoutClicked:(id)sender {
     SPTAuth *auth = [SPTAuth defaultInstance];
@@ -142,7 +148,7 @@ static SpotifyPlayer *singletonInstance;
                      id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"playlist_id\" : \"%@\"}", (api.currentPlaylist)[@"_id"]]];
                      
                      // CHANGE TO PLAYER EVENTUALLY
-                     [self.socket emit: @"client_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
+                     [self.socket emit: @"player_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
                  } else {
                      NSLog(@"%@", [args firstObject]);
                  }
@@ -196,6 +202,7 @@ static SpotifyPlayer *singletonInstance;
                 }
                 
                 if (watcher) {
+                    NSLog(@"updating UI");
                     [watcher updateUI];
                 }
                 
@@ -260,13 +267,25 @@ static SpotifyPlayer *singletonInstance;
 }
 
 - (void) audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeToTrack:(NSDictionary *)trackMetadata {
-    NSLog(@"track changed = %@", [trackMetadata valueForKey:SPTAudioStreamingMetadataTrackURI]);
+//    NSLog(@"track changed = %@", [trackMetadata valueForKey:SPTAudioStreamingMetadataTrackURI]);
+//    NSLog(@"current: %@", self.player.currentTrackURI);
+//    if ([[trackMetadata valueForKey:SPTAudioStreamingMetadataTrackURI] isEqualToString:self.player.currentTrackURI.absoluteString]){
+        //NSLog(@"finished track");
+        //[self.socket emit: @"track_finished" args:nil];
+    //}
     //[self updateUI];
+    NSLog(@"qu size %d", self.player.currentTrackIndex);
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
     NSLog(@"is playing = %d", isPlaying);
 }
+
+-(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSURL *)trackUri {
+    NSLog(@"stopped playing strack");
+    [self.socket emit: @"track_finished" args:nil];
+}
+
 
 
 

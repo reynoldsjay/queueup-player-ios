@@ -23,5 +23,7 @@
 -(void)handleNewSession:(id)sender;
 -(void)playPause;
 -(void)subToPlaylist;
+-(void)pause;
+-(void)nextTrack;
 
 @end

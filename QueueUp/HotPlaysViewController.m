@@ -12,6 +12,7 @@
 #import "ServerAPI.h"
 #import "Config.h"
 #import "UIImageView+WebCache.h"
+#import "SpotifyPlayer.h"
 
 
 @interface HotPlaysViewController ()
@@ -173,12 +174,14 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // set current playlist as selected
+    [[SpotifyPlayer getInstance] pause];
     NSString *currString = ((NSDictionary *) api.currentPlaylist)[@"_id"];
     NSString *clickedString = ((NSDictionary *)[playlists objectAtIndex:indexPath.row])[@"_id"];
     
     if (![currString isEqualToString:clickedString]) {
         api.currentPlaylist = [playlists objectAtIndex:indexPath.row];
         api.hosting = NO;
+        
     }
     [self performSegueWithIdentifier:@"player" sender:self];
 }

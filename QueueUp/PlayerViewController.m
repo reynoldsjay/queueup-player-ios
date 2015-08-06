@@ -87,7 +87,7 @@
                       placeholderImage:[UIImage imageNamed:@"albumShade.png"]];
     
     queue = player.queue;
-    NSLog(@"%@", queue);
+    //NSLog(@"%@", queue);
     [self.queueView reloadData];
     
     if (player.playing) {
@@ -103,6 +103,10 @@
 
 - (IBAction)play_pause:(id)sender {
     [player playPause];
+}
+
+- (IBAction)next:(id)sender {
+    [player nextTrack];
 }
 
 
