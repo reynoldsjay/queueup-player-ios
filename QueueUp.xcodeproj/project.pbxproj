@@ -319,6 +319,11 @@
 					813DF79C1ABE1EC30057D655 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = W8H925WLKF;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					813DF7B51ABE1EC30057D655 = {
 						CreatedOnToolsVersion = 6.2;
