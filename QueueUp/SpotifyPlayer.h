@@ -12,6 +12,9 @@
 @interface SpotifyPlayer : NSObject <SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate>
 
 
+@property (nonatomic, strong) SPTAudioStreamingController *player;
+
+
 @property NSString *currentURI;
 @property NSArray *queue;
 @property NSDictionary *curTrack;

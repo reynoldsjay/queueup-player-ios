@@ -37,7 +37,7 @@ static ServerAPI *singletonInstance;
     NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     NSString *toURL = [NSString stringWithFormat:@"%@%@", @hostDomain, url];
-    //NSLog(@"post %@ to %@", postJson, toURL);
+    NSLog(@"post %@ to %@", postJson, toURL);
     [request setURL:[NSURL URLWithString:toURL]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -58,7 +58,7 @@ static ServerAPI *singletonInstance;
     error = nil;
     responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    //NSLog(@"Response from server:%@",responseString);
+    NSLog(@"Response from server:%@",responseString);
     return responseString;
 }
 

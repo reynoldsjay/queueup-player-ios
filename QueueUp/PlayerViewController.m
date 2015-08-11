@@ -19,7 +19,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property IBOutlet UILabel *playNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
@@ -50,13 +50,16 @@
     
     
     self.titleLabel.text = @"Nothing Playing";
-    self.albumLabel.text = @"";
+    //self.albumLabel.text = @"";
     self.artistLabel.text = @"";
     
-    [self.playpause.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:30]];
+    self.progressLabel.text = @"0:00/0:00";
+    self.trackProgress.progress = 0.0;
+    
+    [self.playpause.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20]];
     [self.playpause setTitle:[NSString awesomeIcon:FaPlay] forState:UIControlStateNormal];
     
-    [self.nextTrack.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:30]];
+    [self.nextTrack.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20]];
     [self.nextTrack setTitle:[NSString awesomeIcon:FaFastForward] forState:UIControlStateNormal];
     
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -68,7 +71,23 @@
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
     
+    [self performSelectorOnMainThread:@selector(correctProgressBar) withObject:nil waitUntilDone:NO];
     
+    
+}
+
+- (void)correctProgressBar {
+
+    self.trackProgress.progress =((float)player.player.currentPlaybackPosition/(float)player.player.currentTrackDuration);
+    NSLog(@"%f", self.trackProgress.progress);
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(correctProgressBar) userInfo:nil repeats:NO];
+    int pMin = (int)((float)player.player.currentPlaybackPosition / 60);
+    int pSec = (int)((float)player.player.currentPlaybackPosition -  pMin * 60);
+    int dMin = (int)((float)player.player.currentTrackDuration / 60);
+    int dSec = (int)((float)player.player.currentTrackDuration -  (dMin * 60));
+    NSString *progText = [NSString stringWithFormat:@"%d:%02d/%d:%02d", pMin, pSec, dMin, dSec];
+    self.progressLabel.text = progText;
+
 }
 
 
@@ -81,7 +100,7 @@
         
     self.titleLabel.text = track[@"name"];
     self.artistLabel.text = [(NSArray*) track[@"artists"] firstObject][@"name"];
-    self.albumLabel.text = track[@"album"][@"name"];
+    //self.albumLabel.text = track[@"album"][@"name"];
     NSString *coverURL = [(NSArray *)track[@"album"][@"images"] firstObject][@"url"];
     [self.coverView sd_setImageWithURL:[NSURL URLWithString:coverURL]
                       placeholderImage:[UIImage imageNamed:@"albumShade.png"]];

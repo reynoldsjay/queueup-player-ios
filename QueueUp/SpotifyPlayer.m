@@ -15,7 +15,6 @@
 
 @interface SpotifyPlayer () <SPTAudioStreamingDelegate>
 
-@property (nonatomic, strong) SPTAudioStreamingController *player;
 
 @property SIOSocket *socket;
 @property BOOL socketIsConnected;
@@ -267,13 +266,6 @@ static SpotifyPlayer *singletonInstance;
 }
 
 - (void) audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeToTrack:(NSDictionary *)trackMetadata {
-//    NSLog(@"track changed = %@", [trackMetadata valueForKey:SPTAudioStreamingMetadataTrackURI]);
-//    NSLog(@"current: %@", self.player.currentTrackURI);
-//    if ([[trackMetadata valueForKey:SPTAudioStreamingMetadataTrackURI] isEqualToString:self.player.currentTrackURI.absoluteString]){
-        //NSLog(@"finished track");
-        //[self.socket emit: @"track_finished" args:nil];
-    //}
-    //[self updateUI];
     NSLog(@"qu size %d", self.player.currentTrackIndex);
 }
 

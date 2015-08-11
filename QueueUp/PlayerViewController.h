@@ -13,4 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
+@property IBOutlet UIProgressView * trackProgress;
+@property IBOutlet UILabel * progressLabel;
+
+
 @end
