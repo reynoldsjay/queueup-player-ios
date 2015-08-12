@@ -47,19 +47,14 @@
     }
     
     // get all playlists
-    //NSLog(@"%@", api.idAndToken);
     NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
     NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
     playlists = dictionaryData[@"playlists"];
-    //NSLog(@"%@", playlists);
+    
+    // get the admins names
     creators = [[NSMutableArray alloc] init];
     for (NSMutableDictionary *aPlaylist in playlists) {
-//        NSString *userURL = [NSString stringWithFormat:@"%@/api/v1/users/%@", @hostDomain, aPlaylist[@"admin"]];
-//        id usrDict = [api postData:api.idAndToken toURL:userURL];
-//        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
-        
-        NSString *creatorName = aPlaylist[@"admin_name"];//[NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]]
-        //NSLog(@"a playlisy: %@", creatorName);
+        NSString *creatorName = aPlaylist[@"admin_name"];
         if (!creatorName) {
             [creators addObject:@"?"];
         } else {
@@ -70,7 +65,7 @@
 }
 
 
-
+// create a new playlist alert
 - (IBAction)newPlaylist:(id)sender {
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New playlist name:"
                                                       message:nil
@@ -83,11 +78,11 @@
     [message show];
 }
 
+// tells server about new playlist
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
         NSString *name = [alertView textFieldAtIndex:0].text;
-        NSLog(@"%@", name);
         // name contains the entered value
         
         NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
@@ -103,20 +98,13 @@
         NSString *theRet = [api postData:jsonVote toURL:postVoteURL];
         NSLog(@"newplay post %@", theRet);
         
-        // get all playlists
-        //NSLog(@"%@", api.idAndToken);
+        // update local playlist list
         NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
         NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
         playlists = dictionaryData[@"playlists"];
-        //NSLog(@"%@", playlists);
         creators = [[NSMutableArray alloc] init];
         for (NSMutableDictionary *aPlaylist in playlists) {
-            //        NSString *userURL = [NSString stringWithFormat:@"%@/api/v1/users/%@", @hostDomain, aPlaylist[@"admin"]];
-            //        id usrDict = [api postData:api.idAndToken toURL:userURL];
-            //        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
-            
-            NSString *creatorName = aPlaylist[@"admin_name"];//[NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]]
-            NSLog(@"a playlisy: %@", creatorName);
+            NSString *creatorName = aPlaylist[@"admin_name"];
             if (!creatorName) {
                 [creators addObject:@"?"];
             } else {
@@ -129,7 +117,9 @@
     }
 }
 
-// table methods
+
+
+// table delegate methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [playlists count];

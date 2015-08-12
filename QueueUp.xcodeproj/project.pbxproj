@@ -18,6 +18,7 @@
 		811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D01B1162E10029F4E3 /* SWRevealViewController.m */; };
 		811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D31B11631D0029F4E3 /* SidebarViewController.m */; };
 		813146881AC0572B002CBD2E /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813146871AC0572B002CBD2E /* ClientViewController.m */; };
+		813583831B7BE89F00403EB2 /* proPicOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 813583821B7BE89F00403EB2 /* proPicOverlay.png */; };
 		813DF7A31ABE1EC30057D655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A21ABE1EC30057D655 /* main.m */; };
 		813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A51ABE1EC30057D655 /* AppDelegate.m */; };
 		813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7A81ABE1EC30057D655 /* HotPlaysViewController.m */; };
@@ -74,6 +75,7 @@
 		811D52D31B11631D0029F4E3 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		813146861AC0572B002CBD2E /* ClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientViewController.h; sourceTree = "<group>"; };
 		813146871AC0572B002CBD2E /* ClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientViewController.m; sourceTree = "<group>"; };
+		813583821B7BE89F00403EB2 /* proPicOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = proPicOverlay.png; path = Images/proPicOverlay.png; sourceTree = "<group>"; };
 		813DF79D1ABE1EC30057D655 /* QueueUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueueUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		813DF7A11ABE1EC30057D655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813DF7A21ABE1EC30057D655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				813583821B7BE89F00403EB2 /* proPicOverlay.png */,
 				81B7B1EA1B73DDEB006A8DB6 /* logo58.png */,
 				81B7B1EB1B73DDEB006A8DB6 /* logo80.png */,
 				81B7B1EC1B73DDEB006A8DB6 /* logo87.png */,
@@ -358,6 +361,7 @@
 				811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */,
 				81C779AD1B5E0FED00A67EE0 /* justQ.jpg in Resources */,
 				81B7B1EF1B73DDEB006A8DB6 /* logo87.png in Resources */,
+				813583831B7BE89F00403EB2 /* proPicOverlay.png in Resources */,
 				8115498D1B312E1A00806049 /* albumShade.xcf in Resources */,
 				81B7B1E71B73C5A6006A8DB6 /* logo120.png in Resources */,
 				8115498F1B312E1A00806049 /* menu.png in Resources */,

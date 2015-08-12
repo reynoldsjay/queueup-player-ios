@@ -12,6 +12,7 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    // facebook set up
     [FBSDKAppEvents activateApp];
 }
 
