@@ -48,6 +48,7 @@
     
     // get all playlists
     NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
+    
     NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
     playlists = dictionaryData[@"playlists"];
     
@@ -94,9 +95,8 @@
         
         NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/new"];
         
-        NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
-        NSString *theRet = [api postData:jsonVote toURL:postVoteURL];
-        NSLog(@"newplay post %@", theRet);
+        NSLog(@"Sending playlists/new");
+        [api postData:jsonVote toURL:postVoteURL];
         
         // update local playlist list
         NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
@@ -135,7 +135,6 @@
     NSDictionary * aPlaylist = [playlists objectAtIndex:indexPath.row];
     NSDictionary *firstTrack = aPlaylist[@"current"];
     if (firstTrack != (id)[NSNull null]) {
-        NSLog(@"%d", firstTrack == NULL);
         NSArray *images = firstTrack[@"album"][@"images"];
         NSString *thisImgURL = [images firstObject][@"url"];
     

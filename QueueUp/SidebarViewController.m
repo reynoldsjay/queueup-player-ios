@@ -70,12 +70,14 @@
     // add profile picture
     if (indexPath.row == 0) {
         UIImageView *profilePicture = (UIImageView *)[cell viewWithTag:5];
+        UILabel *fbName = (UILabel *)[cell viewWithTag:10];
         if (!photoURL) {
             if ([FBSDKAccessToken currentAccessToken]) {
-                [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"picture.type(large)"}]
+                [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"name, picture.type(large)"}]
                  startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                      if (!error) {
                          NSLog(@"fetched user:%@", result);
+                         fbName.text = result[@"name"];
                          photoURL = result[@"picture"][@"data"][@"url"];
                          NSLog(@"photoURL: %@", photoURL);
                          [profilePicture sd_setImageWithURL:[NSURL URLWithString:photoURL]

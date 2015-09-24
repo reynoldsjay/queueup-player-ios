@@ -49,6 +49,7 @@
         id json = [api parseJson:accessString];
         NSString *client = [api postData:json toURL:(@"/api/v2/auth/login")];
         // store client id
+        NSLog(@"login: %@", client);
         NSString *theID = ((NSDictionary*)[api parseJson:client])[@"user_id"];
         
 

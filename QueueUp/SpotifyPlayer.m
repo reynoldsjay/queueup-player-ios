@@ -64,7 +64,7 @@ static SpotifyPlayer *singletonInstance;
     //[self.socket emit: @"track_play_pause" args: [[NSArray alloc] initWithObjects:[self.playing, nil]];
 }
 
--(void)nextTrack {
+-(void)neetTrack {
     [self.player skipNext:nil];
 }
 
@@ -77,7 +77,7 @@ static SpotifyPlayer *singletonInstance;
         }];
     }
 //    } else {
-//        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popViewControllerAnimated:YeS];
 //    }
 }
 
@@ -141,12 +141,12 @@ static SpotifyPlayer *singletonInstance;
             
             [self.socket on: @"auth_response" callback: ^(SIOParameterArray *args)
              {
-                 NSLog(@"RESPONSE");
+                 NSLog(@"ReSPONSe");
                  if ([args firstObject] == nil) {
                      NSLog(@"Server responded to auth request.");
                      id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"playlist_id\" : \"%@\"}", (api.currentPlaylist)[@"_id"]]];
                      
-                     // CHANGE TO PLAYER EVENTUALLY
+                     // CHANGe TO PLAYeR eVeNTUALLY
                      [self.socket emit: @"player_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
                  } else {
                      NSLog(@"%@", [args firstObject]);
@@ -228,7 +228,7 @@ static SpotifyPlayer *singletonInstance;
         
         NSLog(@"Playing a song");
         if (error != nil) {
-            NSLog(@"*** Enabling playback got error: %@", error);
+            NSLog(@"*** enabling playback got error: %@", error);
             return;
         }
     }];
