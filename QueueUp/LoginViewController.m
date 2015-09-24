@@ -82,7 +82,7 @@
 
 - (IBAction)loginClick:(id)sender {
     NSString* logString = [[NSString alloc] initWithFormat:@"{\"email\" : \"%@\", \"password\" : \"%@\"}", self.emailField.text, self.passwordField.text];
-    NSLog(logString);
+//    NSLog(logString);
     id json = [api parseJson:logString];
     NSString *client = [api postData:json toURL:(@"/api/v2/auth/login")];
     if (((NSDictionary*)[api parseJson:client])[@"user_id"]) {
