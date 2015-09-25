@@ -112,18 +112,27 @@
         
         id json = [api parseJson:regString];
         NSString *client = [api postData:json toURL:(@"/api/v2/auth/register")];
-        // store client id
-        NSString *theID = ((NSDictionary*)[api parseJson:client])[@"user_id"];
-        NSString *token = ((NSDictionary*)[api parseJson:client])[@"client_token"];
-        NSString *combine = [[NSString alloc] initWithFormat:@"{\"user_id\":\"%@\", \"client_token\":\"%@\"}", theID, token];
-        api.idAndToken = [api parseJson:combine];
-        api.loggedIn = YES;
-        
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        api.idAndToken = [userDefaults objectForKey:@"user_info"];
-        api.loggedIn = [userDefaults boolForKey:@"loggedIn"];
-        [self.revealViewController.rearViewController viewDidLoad];
-        [self performSegueWithIdentifier:@"login" sender:self];
+        if (((NSDictionary*)[api parseJson:client])[@"user_id"] == nil) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email is taken."
+                                                            message:@""
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        } else {
+            // store client id
+            NSString *theID = ((NSDictionary*)[api parseJson:client])[@"user_id"];
+            NSString *token = ((NSDictionary*)[api parseJson:client])[@"client_token"];
+            NSString *combine = [[NSString alloc] initWithFormat:@"{\"user_id\":\"%@\", \"client_token\":\"%@\"}", theID, token];
+            api.idAndToken = [api parseJson:combine];
+            api.loggedIn = YES;
+            
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            api.idAndToken = [userDefaults objectForKey:@"user_info"];
+            api.loggedIn = [userDefaults boolForKey:@"loggedIn"];
+            [self.revealViewController.rearViewController viewDidLoad];
+            [self performSegueWithIdentifier:@"login" sender:self];
+        }
     }
     
 }
@@ -141,6 +150,11 @@
         NSString *token = ((NSDictionary*)[api parseJson:client])[@"client_token"];
         NSString *combine = [[NSString alloc] initWithFormat:@"{\"user_id\":\"%@\", \"client_token\":\"%@\"}", theID, token];
         api.idAndToken = [api parseJson:combine];
+        api.loggedIn = YES;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setValue:api.idAndToken forKey:@"user_info"];
+        [userDefaults setBool:api.loggedIn forKey:@"loggedIn"];
+        [self.revealViewController.rearViewController viewDidLoad];
         [self performSegueWithIdentifier:@"login" sender:self];
     } else {
         NSLog(@"wrong password");

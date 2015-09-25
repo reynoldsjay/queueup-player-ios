@@ -157,21 +157,25 @@
                 
                 
                 // update current track
-                NSDictionary *track = dictionaryStateData[@"track"];
-                NSString *trackURI = track[@"uri"];
-                if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
-                    //[self playSong:trackURI];
-                    NSLog(@"New song.");
-                    currentURI = trackURI;
-                    
-                    
-                    self.titleLabel.text = track[@"name"];
-                    self.artistLabel.text = [(NSArray*) track[@"artists"] firstObject][@"name"];
-                    self.albumLabel.text = track[@"album"][@"name"];
-                    NSString *coverURL = [(NSArray *)track[@"album"][@"images"] firstObject][@"url"];
-                    [self.coverView sd_setImageWithURL:[NSURL URLWithString:coverURL]
-                                  placeholderImage:[UIImage imageNamed:@"albumShade.png"]];
-                    
+                if (dictionaryStateData) {
+                    NSDictionary *track = dictionaryStateData[@"track"];
+                    if (track != [NSNull null]) {
+                        NSString *trackURI = track[@"uri"];
+                        if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
+                            //[self playSong:trackURI];
+                            NSLog(@"New song.");
+                            currentURI = trackURI;
+                            
+                            
+                            self.titleLabel.text = track[@"name"];
+                            self.artistLabel.text = [(NSArray*) track[@"artists"] firstObject][@"name"];
+                            self.albumLabel.text = track[@"album"][@"name"];
+                            NSString *coverURL = [(NSArray *)track[@"album"][@"images"] firstObject][@"url"];
+                            [self.coverView sd_setImageWithURL:[NSURL URLWithString:coverURL]
+                                          placeholderImage:[UIImage imageNamed:@"albumShade.png"]];
+                            
+                        }
+                    }
                 }
 
 

@@ -18,6 +18,7 @@
 @synthesize currentPlaylist = _currentPlaylist;
 @synthesize hosting = _hosting;
 @synthesize loggedIn = _loggedIn;
+@synthesize name = _name;
 
 static ServerAPI *singletonInstance;
 

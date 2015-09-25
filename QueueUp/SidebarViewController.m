@@ -14,6 +14,7 @@
 #import "ServerAPI.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "SpotifyPlayer.h"
 
 @interface SidebarViewController ()
 
@@ -84,6 +85,7 @@
         UILabel *fbName = (UILabel *)[cell viewWithTag:10];
         if (!photoURL) {
             if ([FBSDKAccessToken currentAccessToken]) {
+                profilePicture.hidden = NO;
                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"name, picture.type(large)"}]
                  startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                      if (!error) {
@@ -97,6 +99,21 @@
                  }];
             }
         }
+        if ([FBSDKAccessToken currentAccessToken] == nil && api.loggedIn) {
+//            NSLog(@"HITDABLOCK");
+            NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+            NSString *url = [NSString stringWithFormat:@"/api/v2/users/%@", clientID];
+            NSString *userString = [api getDataFromURL:url];
+//            NSLog(userString);
+            NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:userString];
+            NSString *name = dictionaryData[@"user"][@"name"];
+            fbName.text = name;
+            profilePicture.hidden = NO;
+            profilePicture.image = [UIImage imageNamed:@"alphaLogo.png"];
+            
+            
+        }
+        
         if (!api.loggedIn) {
             profilePicture.hidden = YES;
             fbName.hidden = YES;
@@ -106,7 +123,7 @@
             login.enabled = YES;
             
         } else {
-            profilePicture.hidden = NO;
+
             fbName.hidden = NO;
             logout.hidden = NO;
             logout.enabled = YES;
@@ -120,6 +137,14 @@
 }
 
 -(void)clickedLogout:(id)sender {
+    if (api.hosting) {
+        api.hosting = NO;
+        SpotifyPlayer *curPlayer = [SpotifyPlayer getInstance];
+        if (curPlayer.playing) {
+            [curPlayer playPause];
+        }
+    }
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     api.loggedIn = NO;
     NSString *strUniqueIdentifier = [userDefaults valueForKey:@"uuid"];
@@ -136,6 +161,7 @@
     [FBSDKAccessToken setCurrentAccessToken:nil];
     [FBSDKProfile setCurrentProfile:nil];
     [self viewDidLoad];
+    [self performSegueWithIdentifier:@"toTrending" sender:self];
     
 }
 

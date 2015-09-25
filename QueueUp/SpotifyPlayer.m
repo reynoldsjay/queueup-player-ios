@@ -55,17 +55,24 @@ static SpotifyPlayer *singletonInstance;
 }
 
 -(void)playPause {
-    playing = !self.player.isPlaying;
-    
-    [self.player setIsPlaying:!self.player.isPlaying callback:nil];
-    
-    [watcher updateUI];
+    if (self.player.currentTrackURI) {
+        playing = !self.player.isPlaying;
+        
+        [self.player setIsPlaying:!self.player.isPlaying callback:nil];
+        
+        [watcher updateUI];
+    }
     
     //[self.socket emit: @"track_play_pause" args: [[NSArray alloc] initWithObjects:[self.playing, nil]];
 }
 
--(void)neetTrack {
+-(void)nextTrack {
+    self.curTrack = nil;
+    self.playing = NO;
+    self.currentURI = nil;
     [self.player skipNext:nil];
+    [watcher updateUI];
+
 }
 
 - (void)logoutClicked:(id)sender {
@@ -172,13 +179,16 @@ static SpotifyPlayer *singletonInstance;
                 
                 // update current track
                 NSDictionary *track = dictionaryStateData[@"track"];
-                NSString *trackURI = track[@"uri"];
-                if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
-                    [self playSong:trackURI];
-                    NSLog(@"New song (player).");
-                    currentURI = trackURI;
-                    curTrack = track;
-                    
+                
+                if (track != [NSNull null]) {
+                    NSString *trackURI = track[@"uri"];
+                    if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
+                        [self playSong:trackURI];
+                        NSLog(@"New song (player).");
+                        currentURI = trackURI;
+                        curTrack = track;
+                        
+                    }
                 }
                 
                 

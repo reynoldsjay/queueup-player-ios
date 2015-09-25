@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8109D10A1BB4D733007D0209 /* FriendsPlaylistsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */; settings = {ASSET_TAGS = (); }; };
 		811549761B31190800806049 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811549751B31190800806049 /* PlayerViewController.m */; };
 		811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */; };
 		811549811B312D9F00806049 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AD1ABE1EC30057D655 /* Images.xcassets */; };
@@ -32,6 +33,7 @@
 		8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD6E1B128A5000B1D846 /* ServerAPI.m */; };
 		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
 		818CB1F51B72DF6700FDEBF9 /* YourPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */; };
+		819A6DD21BB50061003561A0 /* alphaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 819A6DD11BB50061003561A0 /* alphaLogo.png */; settings = {ASSET_TAGS = (); }; };
 		819FF3A21B2DF61200DBF90D /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819FF3A11B2DF61200DBF90D /* Spotify.framework */; };
 		819FF3A51B2DF77600DBF90D /* SPTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */; };
 		81B7B1E71B73C5A6006A8DB6 /* logo120.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B7B1E61B73C5A6006A8DB6 /* logo120.png */; };
@@ -60,6 +62,8 @@
 		002EC3677A21B62D72379479 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0547A9CC784B87D2C8D7C56D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		39C26FC7DC65F8A620FCEF5F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8109D1081BB4D733007D0209 /* FriendsPlaylistsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPlaylistsVC.h; sourceTree = "<group>"; };
+		8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPlaylistsVC.m; sourceTree = "<group>"; };
 		811549741B31190800806049 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		811549751B31190800806049 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		811549871B312E1900806049 /* albumShade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = albumShade.png; path = Images/albumShade.png; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		818CB1F31B72DF6700FDEBF9 /* YourPlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourPlaylistsViewController.h; sourceTree = "<group>"; };
 		818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourPlaylistsViewController.m; sourceTree = "<group>"; };
+		819A6DD11BB50061003561A0 /* alphaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alphaLogo.png; path = Images/alphaLogo.png; sourceTree = "<group>"; };
 		819FF3A11B2DF61200DBF90D /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		819FF3A31B2DF77600DBF90D /* SPTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTLoginViewController.h; sourceTree = "<group>"; };
 		819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTLoginViewController.m; sourceTree = "<group>"; };
@@ -201,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
+				8109D1081BB4D733007D0209 /* FriendsPlaylistsVC.h */,
+				8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */,
 				817F3E2F1AE350D8008E48B8 /* Config.h */,
 				813DF7A41ABE1EC30057D655 /* AppDelegate.h */,
 				813DF7A51ABE1EC30057D655 /* AppDelegate.m */,
@@ -232,6 +239,7 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				819A6DD11BB50061003561A0 /* alphaLogo.png */,
 				813583821B7BE89F00403EB2 /* proPicOverlay.png */,
 				81B7B1EA1B73DDEB006A8DB6 /* logo58.png */,
 				81B7B1EB1B73DDEB006A8DB6 /* logo80.png */,
@@ -364,6 +372,7 @@
 				813583831B7BE89F00403EB2 /* proPicOverlay.png in Resources */,
 				8115498D1B312E1A00806049 /* albumShade.xcf in Resources */,
 				81B7B1E71B73C5A6006A8DB6 /* logo120.png in Resources */,
+				819A6DD21BB50061003561A0 /* alphaLogo.png in Resources */,
 				8115498F1B312E1A00806049 /* menu.png in Resources */,
 				8115498C1B312E1A00806049 /* albumShade.png in Resources */,
 				81B7B1EE1B73DDEB006A8DB6 /* logo80.png in Resources */,
@@ -427,6 +436,7 @@
 				8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */,
 				813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */,
 				81B92D631B5C5C1800DBAE44 /* AddTrackVC.m in Sources */,
+				8109D10A1BB4D733007D0209 /* FriendsPlaylistsVC.m in Sources */,
 				818CB1F51B72DF6700FDEBF9 /* YourPlaylistsViewController.m in Sources */,
 				81DB7ACA1B292E1A00CFC1FD /* NSString+FontAwesome.m in Sources */,
 				813DF7A61ABE1EC30057D655 /* AppDelegate.m in Sources */,
@@ -554,6 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -565,6 +576,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reynoldsJay.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -574,6 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -585,6 +598,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reynoldsJay.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

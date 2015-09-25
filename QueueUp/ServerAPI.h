@@ -14,6 +14,7 @@
 @property id currentPlaylist;
 @property BOOL hosting;
 @property BOOL loggedIn;
+@property NSString *name;
 
 + (ServerAPI*) getInstance;
 

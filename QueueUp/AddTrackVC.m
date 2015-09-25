@@ -32,18 +32,13 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [self.search becomeFirstResponder];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.trackTable addGestureRecognizer:tap];
 
 }
 
--(void)dismissKeyboard {
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
     [self.search resignFirstResponder];
 }
-
 
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -127,7 +122,16 @@
     NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
     NSString *response = [api postData:jsonVote toURL:postVoteURL];
     NSLog(@"%@", response);
-    [self performSegueWithIdentifier:@"back" sender:self];
+    
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Added."
+                                                    message:@""
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 
