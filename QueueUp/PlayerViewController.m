@@ -185,7 +185,7 @@
     [button.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20]];
     [button setTitle:[NSString awesomeIcon:FaChevronUp] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    button.frame = CGRectMake(280.0f, 1.0f, 35.0f, 35.0f);
+    button.frame = CGRectMake(self.view.frame.size.width - 40, 1.0f, 35.0f, 35.0f);
     //[button.layer setBorderColor:[[UIColor redColor] CGColor]];
     //[[button layer] setBorderWidth:2.0f];
     [cell addSubview:button];

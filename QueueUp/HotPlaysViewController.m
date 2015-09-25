@@ -68,15 +68,19 @@
 
 // create a new playlist alert
 - (IBAction)newPlaylist:(id)sender {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New playlist name:"
-                                                      message:nil
-                                                     delegate:self
-                                            cancelButtonTitle:@"Cancel"
-                                            otherButtonTitles:@"Continue", nil];
+    if (!api.loggedIn) {
+        [self performSegueWithIdentifier:@"toLogin" sender:self];
+    } else {
     
-    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
-    
-    [message show];
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New playlist name:"
+                                                          message:nil
+                                                         delegate:self
+                                                cancelButtonTitle:@"Cancel"
+                                                otherButtonTitles:@"Continue", nil];
+        
+        [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [message show];
+    }
 }
 
 // tells server about new playlist

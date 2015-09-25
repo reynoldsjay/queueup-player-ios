@@ -56,7 +56,7 @@
         NSLog(@"go to player");
         [self performSegueWithIdentifier:@"realPlayer" sender:self];
     }
-    NSLog(@"hosting: %hhd", api.hosting);
+//    NSLog(@"hosting: %hhd", api.hosting);
     
 
     

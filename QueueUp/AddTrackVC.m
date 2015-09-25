@@ -32,7 +32,18 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [self.search becomeFirstResponder];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.trackTable addGestureRecognizer:tap];
+
 }
+
+-(void)dismissKeyboard {
+    [self.search resignFirstResponder];
+}
+
 
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {

@@ -42,7 +42,7 @@
         SPTAuth *auth = [SPTAuth defaultInstance];
         if (auth.session && [auth.session isValid]) {
             api.hosting = YES;
-            NSLog(@"hosting set: %hhd", api.hosting);
+//            NSLog(@"hosting set: %hhd", api.hosting);
             [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
         }
     //}
@@ -53,7 +53,7 @@
     self.statusLabel.text = @"Logged in.";
     [[SpotifyPlayer getInstance] subToPlaylist];
     api.hosting = YES;
-    NSLog(@"hosting set: %hhd", api.hosting);
+//    NSLog(@"hosting set: %hhd", api.hosting);
     [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
 }
 

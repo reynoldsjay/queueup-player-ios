@@ -11,7 +11,9 @@
 #import "SWRevealViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "UIImageView+WebCache.h"
-
+#import "ServerAPI.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface SidebarViewController ()
 
@@ -22,6 +24,7 @@
     
     NSArray *_menuItems;
     NSString *photoURL;
+    ServerAPI *api;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -30,12 +33,17 @@
     if (self) {
         // Custom initialization
     }
+//    api = [ServerAPI getInstance];
     return self;
 }
 
 - (void)viewDidLoad
 {
-    _menuItems = @[@"user", @"nowplaying", @"playlists", @"yourplaylists"];
+    api = [ServerAPI getInstance];
+    _menuItems = @[@"user", @"nowplaying", @"playlists", @"yourplaylists", @"friendsplaylists"];
+    NSLog(@"sidebar");
+    NSLog(@"%d", api.loggedIn);
+    [self.tableView reloadData];
     [super viewDidLoad];
 
 }
@@ -70,6 +78,9 @@
     // add profile picture
     if (indexPath.row == 0) {
         UIImageView *profilePicture = (UIImageView *)[cell viewWithTag:5];
+        UIButton *logout = (UIButton *)[cell viewWithTag:111];
+        [logout addTarget:self action:@selector(clickedLogout:) forControlEvents:UIControlEventTouchDown];
+        UIButton *login = (UIButton *)[cell viewWithTag:112];
         UILabel *fbName = (UILabel *)[cell viewWithTag:10];
         if (!photoURL) {
             if ([FBSDKAccessToken currentAccessToken]) {
@@ -86,16 +97,56 @@
                  }];
             }
         }
+        if (!api.loggedIn) {
+            profilePicture.hidden = YES;
+            fbName.hidden = YES;
+            logout.hidden = YES;
+            logout.enabled = NO;
+            login.hidden = NO;
+            login.enabled = YES;
+            
+        } else {
+            profilePicture.hidden = NO;
+            fbName.hidden = NO;
+            logout.hidden = NO;
+            logout.enabled = YES;
+            login.hidden = YES;
+            login.enabled = NO;
+        }
         
     }
     
     return cell;
 }
 
+-(void)clickedLogout:(id)sender {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    api.loggedIn = NO;
+    NSString *strUniqueIdentifier = [userDefaults valueForKey:@"uuid"];
+    NSString *toPost = [[NSString alloc] initWithFormat:@"{\"device\" : {\"id\" : \"%@\"}}", strUniqueIdentifier];
+    id json = [api parseJson:toPost];
+    NSString *userInfo = [api postData:json toURL:(@"/api/v2/auth/init")];
+    NSString *theID = ((NSDictionary*)[api parseJson:userInfo])[@"user_id"];
+    NSString *token = ((NSDictionary*)[api parseJson:userInfo])[@"client_token"];
+    NSString *combine = [[NSString alloc] initWithFormat:@"{\"user_id\":\"%@\", \"client_token\":\"%@\"}", theID, token];
+    id combinedInfo = [api parseJson:combine];
+    api.idAndToken = combinedInfo;
+    [userDefaults setBool:NO forKey:@"loggedIn"];
+    [userDefaults setObject:combinedInfo forKey:@"user_info"];
+    [FBSDKAccessToken setCurrentAccessToken:nil];
+    [FBSDKProfile setCurrentProfile:nil];
+    [self viewDidLoad];
+    
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     // top cell is bigger
     if(indexPath.row == 0) {
-        return 120.0;
+        if (api.loggedIn) {
+            return 80.0;
+        } else {
+            return 80.0;
+        }
     } else {
         return 57.0f;
     }
