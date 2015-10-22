@@ -79,7 +79,7 @@
 - (void)correctProgressBar {
 
     self.trackProgress.progress =((float)player.player.currentPlaybackPosition/(float)player.player.currentTrackDuration);
-    NSLog(@"%f", self.trackProgress.progress);
+    // NSLog(@"%f", self.trackProgress.progress);
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(correctProgressBar) userInfo:nil repeats:NO];
     int pMin = (int)((float)player.player.currentPlaybackPosition / 60);
     int pSec = (int)((float)player.player.currentPlaybackPosition -  pMin * 60);
@@ -106,7 +106,7 @@
                       placeholderImage:[UIImage imageNamed:@"albumShade.png"]];
     
     queue = player.queue;
-    //NSLog(@"%@", queue);
+    //// NSLog(@"%@", queue);
     [self.queueView reloadData];
     
     if (player.playing) {
@@ -229,13 +229,13 @@
     NSIndexPath *pathToCell = [_queueView indexPathForCell:owningCell];
     
     //UIImageView *upvote = (UIImageView *)[owningCell viewWithTag:40];
-    //NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
+    //// NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
     
     
     NSNumber *strVote;
     NSDictionary *qItem = (NSDictionary *) [queue objectAtIndex:pathToCell.row];
     NSString *trackid = qItem[@"_id"];
-    NSLog(@"%@", trackid);
+    // NSLog(@"%@", trackid);
     
     
     NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
@@ -264,22 +264,22 @@
     
     NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/%@/vote", (api.currentPlaylist)[@"_id"]];
     
-    NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
+    // NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
     
     
     
     NSString *response = [api postData:jsonVote toURL:postVoteURL];
     id jsonNewPlaylist = [api parseJson:response];
     queue = (NSArray *) jsonNewPlaylist[@"playlist"][@"tracks"];
-    //NSLog(@"New queu: %@", queue);
+    //// NSLog(@"New queu: %@", queue);
     
     if (queue) {
-        NSLog(@"newq");
+        // NSLog(@"newq");
         [self.queueView reloadData];
     }
     
     
-    NSLog(@"Pressed: %ld", (long)pathToCell.row);
+    // NSLog(@"Pressed: %ld", (long)pathToCell.row);
     
 }
 

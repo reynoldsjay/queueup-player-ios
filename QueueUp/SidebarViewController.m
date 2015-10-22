@@ -42,8 +42,8 @@
 {
     api = [ServerAPI getInstance];
     _menuItems = @[@"user", @"nowplaying", @"playlists", @"yourplaylists", @"friendsplaylists"];
-    NSLog(@"sidebar");
-    NSLog(@"%d", api.loggedIn);
+//    NSLog(@"sidebar");
+//    NSLog(@"%d", api.loggedIn);
     [self.tableView reloadData];
     [super viewDidLoad];
 
@@ -89,10 +89,10 @@
                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"name, picture.type(large)"}]
                  startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                      if (!error) {
-                         NSLog(@"fetched user:%@", result);
+//                         NSLog(@"fetched user:%@", result);
                          fbName.text = result[@"name"];
                          photoURL = result[@"picture"][@"data"][@"url"];
-                         NSLog(@"photoURL: %@", photoURL);
+//                         NSLog(@"photoURL: %@", photoURL);
                          [profilePicture sd_setImageWithURL:[NSURL URLWithString:photoURL]
                                            placeholderImage:[UIImage imageNamed:@""]];
                      }

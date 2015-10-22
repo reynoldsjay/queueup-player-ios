@@ -65,13 +65,13 @@
     if ([FBSDKAccessToken currentAccessToken]) {
         
         // send fb access token
-        NSLog(@"User logged in.");
+        // NSLog(@"User logged in.");
         NSString* accessString = [[NSString alloc] initWithFormat:@"{\"facebook_access_token\" : \"%@\"}", [FBSDKAccessToken currentAccessToken].tokenString];
 
         id json = [api parseJson:accessString];
         NSString *client = [api postData:json toURL:(@"/api/v2/auth/login")];
         // store client id
-        NSLog(@"login: %@", client);
+        // NSLog(@"login: %@", client);
         NSString *theID = ((NSDictionary*)[api parseJson:client])[@"user_id"];
 
 
@@ -84,7 +84,7 @@
         [userDefaults setObject:api.idAndToken forKey:@"user_info"];
         [userDefaults setBool:YES forKey:@"loggedIn"];
 
-//        NSLog(@"%hd", api.loggedIn);
+//        // NSLog(@"%hd", api.loggedIn);
         [self.revealViewController.rearViewController viewDidLoad];
         [self performSegueWithIdentifier:@"login" sender:self];
         
@@ -139,7 +139,7 @@
 
 - (IBAction)loginClick:(id)sender {
     NSString* logString = [[NSString alloc] initWithFormat:@"{\"email\" : \"%@\", \"password\" : \"%@\"}", self.emailField.text, self.passwordField.text];
-//    NSLog(logString);
+//    // NSLog(logString);
     id json = [api parseJson:logString];
     NSString *client = [api postData:json toURL:(@"/api/v2/auth/login")];
     if (((NSDictionary*)[api parseJson:client])[@"user_id"]) {
@@ -157,7 +157,7 @@
         [self.revealViewController.rearViewController viewDidLoad];
         [self performSegueWithIdentifier:@"login" sender:self];
     } else {
-        NSLog(@"wrong password");
+//        // NSLog(@"wrong password");
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong email/password combination."
                                                         message:@""
                                                        delegate:nil

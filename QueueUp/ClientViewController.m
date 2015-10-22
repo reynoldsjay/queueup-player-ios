@@ -53,10 +53,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     if (api.hosting) {
-        NSLog(@"go to player");
+        // NSLog(@"go to player");
         [self performSegueWithIdentifier:@"realPlayer" sender:self];
     }
-//    NSLog(@"hosting: %hhd", api.hosting);
+//    // NSLog(@"hosting: %hhd", api.hosting);
     
 
     
@@ -96,7 +96,7 @@
     NSString *me = ((NSDictionary *)api.idAndToken)[@"user_id"];
     NSString *admin = ((NSDictionary *)api.currentPlaylist)[@"admin"];
     if (![me isEqualToString:admin]) {
-        NSLog(@"not admin");
+//        // NSLog(@"not admin");
         self.playHere.hidden = YES;
     }
 
@@ -130,19 +130,19 @@
             self.socket.onConnect = ^()
             {
                 weakSelf.socketIsConnected = YES;
-                NSLog(@"Connected.");
+//                // NSLog(@"Connected.");
                 [weakSelf.socket emit: @"auth" args: [[NSArray alloc] initWithObjects:weakapi.idAndToken, nil]];
             };
             
             [self.socket on: @"auth_response" callback: ^(SIOParameterArray *args)
                      {
-                         NSLog(@"RESPONSE");
+                         // NSLog(@"RESPONSE");
                          if ([args firstObject] == nil) {
-                             NSLog(@"Server responded to auth request.");
+                             // NSLog(@"Server responded to auth request.");
                              id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"playlist_id\" : \"%@\"}", (api.currentPlaylist)[@"_id"]]];
                              [self.socket emit: @"client_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
                          } else {
-                             NSLog(@"%@", [args firstObject]);
+                             // NSLog(@"%@", [args firstObject]);
                          }
                          
                          
@@ -153,7 +153,7 @@
             [self.socket on: @"state_change" callback: ^(SIOParameterArray *args) {
                 
                 NSMutableDictionary *dictionaryStateData = [args firstObject];
-                //NSLog(@"%@", dictionaryStateData);
+                //// NSLog(@"%@", dictionaryStateData);
                 
                 
                 // update current track
@@ -163,7 +163,7 @@
                         NSString *trackURI = track[@"uri"];
                         if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
                             //[self playSong:trackURI];
-                            NSLog(@"New song.");
+                            // NSLog(@"New song.");
                             currentURI = trackURI;
                             
                             
@@ -324,13 +324,13 @@
     NSIndexPath *pathToCell = [_queueView indexPathForCell:owningCell];
     
     //UIImageView *upvote = (UIImageView *)[owningCell viewWithTag:40];
-    //NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
+    //// NSLog(@"%hhd", [upvote.image isEqual:[UIImage imageNamed:@"upvote.png"]]);
     
     
     NSNumber *strVote;
     NSDictionary *qItem = (NSDictionary *) [queue objectAtIndex:pathToCell.row];
     NSString *trackid = qItem[@"_id"];
-    NSLog(@"%@", trackid);
+    // NSLog(@"%@", trackid);
     
     
     NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
@@ -359,22 +359,22 @@
     
     NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/%@/vote", (api.currentPlaylist)[@"_id"]];
     
-    NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
+    // NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
     
     
     
     NSString *response = [api postData:jsonVote toURL:postVoteURL];
     id jsonNewPlaylist = [api parseJson:response];
     queue = (NSArray *) jsonNewPlaylist[@"playlist"][@"tracks"];
-    //NSLog(@"New queu: %@", queue);
+    //// NSLog(@"New queu: %@", queue);
     
     if (queue) {
-        NSLog(@"newq");
+        // NSLog(@"newq");
         [self.queueView reloadData];
     }
     
     
-    NSLog(@"Pressed: %ld", (long)pathToCell.row);
+    // NSLog(@"Pressed: %ld", (long)pathToCell.row);
     
 }
 

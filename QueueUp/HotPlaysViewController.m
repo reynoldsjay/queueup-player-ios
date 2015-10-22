@@ -99,7 +99,7 @@
         
         NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/new"];
         
-        NSLog(@"Sending playlists/new");
+//        NSLog(@"Sending playlists/new");
         [api postData:jsonVote toURL:postVoteURL];
         
         // update local playlist list

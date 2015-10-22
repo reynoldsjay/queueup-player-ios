@@ -44,7 +44,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     toSearch = searchText;
-    NSLog(@"Timer=%@",myTimer);
+    // NSLog(@"Timer=%@",myTimer);
     if (myTimer)
     {
         if ([myTimer isValid])
@@ -119,9 +119,9 @@
     
     NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/%@/add", (api.currentPlaylist)[@"_id"]];
     
-    NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
+    // NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
     NSString *response = [api postData:jsonVote toURL:postVoteURL];
-    NSLog(@"%@", response);
+    // NSLog(@"%@", response);
     
     
     

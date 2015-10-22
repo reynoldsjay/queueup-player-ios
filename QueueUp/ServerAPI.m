@@ -33,20 +33,20 @@ static ServerAPI *singletonInstance;
 // returns string of json object response
 - (NSString*)postData:(id)postJson toURL:(NSString*)url {
     
-    //NSLog(@"TRYING POST");
+    //// NSLog(@"TRYING POST");
     NSError *error;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:postJson options:0 error:&error];
     NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     NSString *toURL = [NSString stringWithFormat:@"%@%@", @hostDomain, url];
-    NSLog(@"post %@ to %@", postJson, toURL);
+    // NSLog(@"post %@ to %@", postJson, toURL);
     [request setURL:[NSURL URLWithString:toURL]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     if (self.idAndToken) {
-        NSLog(@"extra header");
+        // NSLog(@"extra header");
         [request setValue:[self getDate] forHTTPHeaderField:@"Date"];
         [request setValue:[self hashAuthForMethod:@"POST" andRoute:url] forHTTPHeaderField:@"Authorization"];
     }
@@ -60,14 +60,14 @@ static ServerAPI *singletonInstance;
     error = nil;
     responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    //NSLog(@"Response from server:%@",responseString);
+    //// NSLog(@"Response from server:%@",responseString);
     return responseString;
 }
 
 // returns string of json object response
 - (NSString*)getDataFromURL:(NSString*)url {
     
-    //NSLog(@"TRYING GET");
+    //// NSLog(@"TRYING GET");
     NSError *error;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:([NSString stringWithFormat:@"%@%@", @hostDomain, url])]];
@@ -75,7 +75,7 @@ static ServerAPI *singletonInstance;
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     if (self.idAndToken) {
-        //NSLog(@"extra header");
+        //// NSLog(@"extra header");
         [request setValue:[self getDate] forHTTPHeaderField:@"Date"];
         [request setValue:[self hashAuthForMethod:@"GET" andRoute:url] forHTTPHeaderField:@"Authorization"];
     }
@@ -87,7 +87,7 @@ static ServerAPI *singletonInstance;
     error = nil;
     responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    //NSLog(@"Response from server:%@",responseString);
+    //// NSLog(@"Response from server:%@",responseString);
     return responseString;
 }
 

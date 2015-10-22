@@ -142,21 +142,21 @@ static SpotifyPlayer *singletonInstance;
             self.socket.onConnect = ^()
             {
                 weakSelf.socketIsConnected = YES;
-                NSLog(@"Connected.");
+                // NSLog(@"Connected.");
                 [weakSelf.socket emit: @"auth" args: [[NSArray alloc] initWithObjects:weakapi.idAndToken, nil]];
             };
             
             [self.socket on: @"auth_response" callback: ^(SIOParameterArray *args)
              {
-                 NSLog(@"ReSPONSe");
+                 // NSLog(@"ReSPONSe");
                  if ([args firstObject] == nil) {
-                     NSLog(@"Server responded to auth request.");
+                     // NSLog(@"Server responded to auth request.");
                      id json = [api parseJson:[[NSString alloc] initWithFormat:@"{\"playlist_id\" : \"%@\"}", (api.currentPlaylist)[@"_id"]]];
                      
                      // CHANGe TO PLAYeR eVeNTUALLY
                      [self.socket emit: @"player_subscribe" args: [[NSArray alloc] initWithObjects:json, nil]];
                  } else {
-                     NSLog(@"%@", [args firstObject]);
+                     // NSLog(@"%@", [args firstObject]);
                  }
                  
                  
@@ -164,7 +164,7 @@ static SpotifyPlayer *singletonInstance;
             //            [self.socket on: @"player_subscribe_response" callback: ^(SIOParameterArray *args)
             //             {
             //
-            //                 NSLog(@"%@", [args firstObject]);
+            //                 // NSLog(@"%@", [args firstObject]);
             //
             //
             //             }];
@@ -174,7 +174,7 @@ static SpotifyPlayer *singletonInstance;
             [self.socket on: @"state_change" callback: ^(SIOParameterArray *args) {
                 
                 NSMutableDictionary *dictionaryStateData = [args firstObject];
-                //NSLog(@"%@", dictionaryStateData);
+                //// NSLog(@"%@", dictionaryStateData);
                 
                 
                 // update current track
@@ -184,7 +184,7 @@ static SpotifyPlayer *singletonInstance;
                     NSString *trackURI = track[@"uri"];
                     if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
                         [self playSong:trackURI];
-                        NSLog(@"New song (player).");
+                        // NSLog(@"New song (player).");
                         currentURI = trackURI;
                         curTrack = track;
                         
@@ -211,7 +211,7 @@ static SpotifyPlayer *singletonInstance;
                 }
                 
                 if (watcher) {
-                    NSLog(@"updating UI");
+                    // NSLog(@"updating UI");
                     [watcher updateUI];
                 }
                 
@@ -236,9 +236,9 @@ static SpotifyPlayer *singletonInstance;
     
     [self.player loginWithSession:auth.session callback:^(NSError *error) {
         
-        NSLog(@"Playing a song");
+        // NSLog(@"Playing a song");
         if (error != nil) {
-            NSLog(@"*** enabling playback got error: %@", error);
+            // NSLog(@"*** enabling playback got error: %@", error);
             return;
         }
     }];
@@ -246,10 +246,10 @@ static SpotifyPlayer *singletonInstance;
     NSURL *trackURI = [NSURL URLWithString:trackURIString];
     [self.player playURIs:@[ trackURI ] fromIndex:0 callback:^(NSError *error) {
         if (error != nil) {
-            NSLog(@"*** Starting playback got error: %@", error);
+            // NSLog(@"*** Starting playback got error: %@", error);
             return;
         }
-        NSLog(@"track to play: %@", trackURIString);
+        // NSLog(@"track to play: %@", trackURIString);
     }];
     [self.player setIsPlaying:playing callback:nil];
 
@@ -272,19 +272,19 @@ static SpotifyPlayer *singletonInstance;
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didFailToPlayTrack:(NSURL *)trackUri {
-    NSLog(@"failed to play track: %@", trackUri);
+    // NSLog(@"failed to play track: %@", trackUri);
 }
 
 - (void) audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeToTrack:(NSDictionary *)trackMetadata {
-    NSLog(@"qu size %d", self.player.currentTrackIndex);
+    // NSLog(@"qu size %d", self.player.currentTrackIndex);
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
-    NSLog(@"is playing = %d", isPlaying);
+    // NSLog(@"is playing = %d", isPlaying);
 }
 
 -(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSURL *)trackUri {
-    NSLog(@"stopped playing strack");
+    // NSLog(@"stopped playing strack");
     [self.socket emit: @"track_finished" args:nil];
 }
 

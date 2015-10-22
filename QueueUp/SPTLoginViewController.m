@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     api = [ServerAPI getInstance];
-    NSLog(@"Login view did load");
+    // NSLog(@"Login view did load");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     self.statusLabel.text = @"";
     self.firstLoad = YES;
@@ -42,7 +42,7 @@
         SPTAuth *auth = [SPTAuth defaultInstance];
         if (auth.session && [auth.session isValid]) {
             api.hosting = YES;
-//            NSLog(@"hosting set: %hhd", api.hosting);
+//            // NSLog(@"hosting set: %hhd", api.hosting);
             [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
         }
     //}
@@ -53,13 +53,13 @@
     self.statusLabel.text = @"Logged in.";
     [[SpotifyPlayer getInstance] subToPlaylist];
     api.hosting = YES;
-//    NSLog(@"hosting set: %hhd", api.hosting);
+//    // NSLog(@"hosting set: %hhd", api.hosting);
     [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
 }
 
 - (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didFailToLogin:(NSError *)error {
     self.statusLabel.text = @"Login failed.";
-    NSLog(@"*** Failed to log in: %@", error);
+    // NSLog(@"*** Failed to log in: %@", error);
 }
 
 - (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
@@ -97,7 +97,7 @@
         
         if (error) {
             self.statusLabel.text = @"Refreshing token failed.";
-            NSLog(@"*** Error renewing session: %@", error);
+            // NSLog(@"*** Error renewing session: %@", error);
             return;
         }
         

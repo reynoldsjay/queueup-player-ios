@@ -93,7 +93,7 @@
             [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friends" parameters:@{}]
              startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                  if (!error) {
-                     NSLog(@"%@", result);
+//                     NSLog(@"%@", result);
                      NSArray* friends = ((NSDictionary *) result)[@"data"];
                      NSMutableArray* fbIds = [[NSMutableArray alloc] init];
                      for (NSDictionary* aFriend in friends) {
@@ -112,13 +112,13 @@
                      NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
     
                      id toSend = [api parseJson:JSONString];
-                     NSLog(@"%@", toSend);
+//                     NSLog(@"%@", toSend);
     
                      NSString *url = [NSString stringWithFormat:@"/api/v2/users/friends/playlists"];
                      NSString *playlistString = [api postData:toSend toURL:url];
                      NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
                      playlists = dictionaryData[@"playlists"];
-                     NSLog(@"friends list %@", playlists);
+//                     NSLog(@"friends list %@", playlists);
                      creators = [[NSMutableArray alloc] init];
                      for (NSMutableDictionary *aPlaylist in playlists) {
                          //        NSString *userURL = [NSString stringWithFormat:@"%@/api/v1/users/%@", @hostDomain, aPlaylist[@"admin"]];
@@ -168,7 +168,7 @@
 {
     if (buttonIndex == 1) {
         NSString *name = [alertView textFieldAtIndex:0].text;
-        NSLog(@"%@", name);
+//        NSLog(@"%@", name);
         // name contains the entered value
         
         NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
@@ -180,9 +180,9 @@
         
         NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/new"];
         
-        NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
+//        NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
         NSString *theRet = [api postData:jsonVote toURL:postVoteURL];
-        NSLog(@"newplay post %@", theRet);
+//        NSLog(@"newplay post %@", theRet);
         
         // get all playlists
         //NSLog(@"%@", api.idAndToken);
@@ -198,7 +198,7 @@
             //        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
             
             NSString *creatorName = aPlaylist[@"admin_name"];//[NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]]
-            NSLog(@"a playlisy: %@", creatorName);
+//            NSLog(@"a playlisy: %@", creatorName);
             if (!creatorName) {
                 [creators addObject:@"?"];
             } else {
@@ -227,7 +227,7 @@
     NSDictionary * aPlaylist = [playlists objectAtIndex:indexPath.row];
     NSDictionary *firstTrack = aPlaylist[@"current"];
     if (firstTrack != (id)[NSNull null]) {
-        NSLog(@"%d", firstTrack == NULL);
+//        NSLog(@"%d", firstTrack == NULL);
         NSArray *images = firstTrack[@"album"][@"images"];
         NSString *thisImgURL = [images firstObject][@"url"];
         
