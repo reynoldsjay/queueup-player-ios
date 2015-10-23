@@ -165,6 +165,12 @@
 }
 
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(collectionView.bounds.size.width/2 - 4, collectionView.bounds.size.width/2 - 4);
+}
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // set current playlist as selected
     [[SpotifyPlayer getInstance] pause];
