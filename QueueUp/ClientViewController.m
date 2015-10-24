@@ -53,7 +53,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     if (api.hosting) {
-        NSLog(@"go to player");
+//        NSLog(@"go to player");
         [self performSegueWithIdentifier:@"realPlayer" sender:self];
     }
 //    NSLog(@"hosting: %hhd", api.hosting);
@@ -96,7 +96,7 @@
     NSString *me = ((NSDictionary *)api.idAndToken)[@"user_id"];
     NSString *admin = ((NSDictionary *)api.currentPlaylist)[@"admin"];
     if (![me isEqualToString:admin]) {
-        NSLog(@"not admin");
+//        NSLog(@"not admin");
         self.playHere.hidden = YES;
     }
 

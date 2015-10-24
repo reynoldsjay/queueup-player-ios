@@ -92,7 +92,7 @@
 - (void)correctProgressBar {
 
     self.trackProgress.progress =((float)player.player.currentPlaybackPosition/(float)player.player.currentTrackDuration);
-    NSLog(@"%f", self.trackProgress.progress);
+//    NSLog(@"%f", self.trackProgress.progress);
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(correctProgressBar) userInfo:nil repeats:NO];
     int pMin = (int)((float)player.player.currentPlaybackPosition / 60);
     int pSec = (int)((float)player.player.currentPlaybackPosition -  pMin * 60);

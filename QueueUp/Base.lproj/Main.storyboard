@@ -1479,9 +1479,9 @@
         <image name="menu.png" width="28" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SgJ-Nm-62h"/>
-        <segue reference="qeI-YX-nMV"/>
-        <segue reference="kae-Vy-8UW"/>
+        <segue reference="6lT-4d-N3M"/>
         <segue reference="Zys-f8-zdR"/>
+        <segue reference="eLl-Gi-Qh9"/>
+        <segue reference="kae-Vy-8UW"/>
     </inferredMetricsTieBreakers>
 </document>
