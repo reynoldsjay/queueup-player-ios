@@ -373,12 +373,35 @@
             NSLog(@"Sending playlists/delete");
             [api postData:jsonVote toURL:postVoteURL];
             
+            
+            api.hosting = NO;
+            api.currentPlaylist = nil;
+            [player pause];
+            
             [self performSegueWithIdentifier:@"backToList" sender:self];
         }
         
         if (alertView.tag == 2) {
         
             NSString *name = [alertView textFieldAtIndex:0].text;
+            
+            NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+            NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
+            
+            NSString *toSend = [[NSString alloc] initWithFormat:@"{\"user_id\" : \"%@\", \"client_token\" : \"%@\", \"name\" : \"%@\"}", clientID, token, name];
+            
+            id jsonVote = [api parseJson:toSend];
+            
+            NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/%@/rename", api.currentPlaylist[@"_id"]];
+            
+            NSLog(@"Sending playlists/rename");
+            [api postData:jsonVote toURL:postVoteURL];
+            
+            api.hosting = NO;
+            api.currentPlaylist = nil;
+            [player pause];
+            
+            [self performSegueWithIdentifier:@"backToList" sender:self];
         }
         
     }
