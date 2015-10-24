@@ -308,6 +308,8 @@
 
 
 
+
+
 // upvote button handler
 
 -(void)voteButtonPress :(id)sender
@@ -381,26 +383,51 @@
 
 
 
-
+-(IBAction)clickedNowPlaying :(id)sender {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Open in Spotify?"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Yes", nil];
+    message.tag = 9999;
+    [message setAlertViewStyle:UIAlertViewStyleDefault];
+    [message show];
+}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    [[wlitems objectAtIndex:indexPath.row] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        
-//        NSString *text = [NSString stringWithFormat:@"Price: %@",
-//                          ((PFUser*)object)[@"price"]];
-//        
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:object[@"name"]
-//                                                        message:text
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles:nil];
-//        [alert show];
-//    }];
-//    
-//    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Open in Spotify?"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Yes", nil];
+    message.tag = indexPath.row;
+    [message setAlertViewStyle:UIAlertViewStyleDefault];
+    [message show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if (buttonIndex == 1) {
+        
+        if (alertView.tag == 9999) {
+            NSString *link = [@"http://open.spotify.com/track/" stringByAppendingString:[currentURI substringFromIndex:14]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+            
+        } else {
+        
+            NSDictionary *qItem = (NSDictionary *)[queue objectAtIndex:alertView.tag];
+            NSString *qTrack = qItem[@"track"][@"uri"];
+            
+            NSString *link = [@"http://open.spotify.com/track/" stringByAppendingString:[qTrack substringFromIndex:14]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+        }
+        
+    }
+    
 }
 
 /*

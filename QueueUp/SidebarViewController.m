@@ -41,7 +41,7 @@
 - (void)viewDidLoad
 {
     api = [ServerAPI getInstance];
-    _menuItems = @[@"user", @"nowplaying", @"playlists", @"yourplaylists", @"friendsplaylists"];
+    _menuItems = @[@"user", @"nowplaying", @"playlists", @"yourplaylists", @"friendsplaylists", @"logo"];
     NSLog(@"sidebar");
     NSLog(@"%d", api.loggedIn);
     [self.tableView reloadData];

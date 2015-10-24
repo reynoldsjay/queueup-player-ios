@@ -182,11 +182,14 @@
         votesLabel.text = [NSString stringWithFormat:@"%d", votes];
     }
     
+//        NSArray *pics = @[@"bg1024.png", @"bg1024purple.png", @"bg1024blue.png", @"bg1024gold.png"];
+
     
     // table cell album over
     UIImageView *albumcover = (UIImageView *)[cell viewWithTag:20];
     NSArray *coverImURLs = qTrack[@"album"][@"images"];
     NSString *coverURL = [coverImURLs firstObject][@"url"];
+
     [albumcover sd_setImageWithURL:[NSURL URLWithString:coverURL]
                   placeholderImage:[UIImage imageNamed:@""]];
     
@@ -302,24 +305,6 @@
 
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    //    [[wlitems objectAtIndex:indexPath.row] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-    //
-    //        NSString *text = [NSString stringWithFormat:@"Price: %@",
-    //                          ((PFUser*)object)[@"price"]];
-    //
-    //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:object[@"name"]
-    //                                                        message:text
-    //                                                       delegate:nil
-    //                                              cancelButtonTitle:@"OK"
-    //                                              otherButtonTitles:nil];
-    //        [alert show];
-    //    }];
-    //    
-    //    
-}
 
 
 
@@ -330,7 +315,7 @@
                                                      delegate:self
                                             cancelButtonTitle:@"Cancel"
                                             otherButtonTitles:@"Yes", nil];
-    message.tag = 1;
+    message.tag = 5000;
     [message setAlertViewStyle:UIAlertViewStyleDefault];
     [message show];
 
@@ -343,12 +328,36 @@
                                                      delegate:self
                                             cancelButtonTitle:@"Cancel"
                                             otherButtonTitles:@"Continue", nil];
-    message.tag = 2;
+    message.tag = 5001;
     [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [message show];
     
 }
 
+-(IBAction)clickedNowPlaying :(id)sender {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Open in Spotify?"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Yes", nil];
+    message.tag = 9999;
+    [message setAlertViewStyle:UIAlertViewStyleDefault];
+    [message show];
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Open in Spotify?"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Yes", nil];
+    message.tag = indexPath.row;
+    [message setAlertViewStyle:UIAlertViewStyleDefault];
+    [message show];
+}
 
 
 // tells server about new playlist
@@ -357,7 +366,7 @@
 
     if (buttonIndex == 1) {
         
-        if (alertView.tag == 1) {
+        if (alertView.tag == 5000) {
 
             // name contains the entered value
             
@@ -381,7 +390,7 @@
             [self performSegueWithIdentifier:@"backToList" sender:self];
         }
         
-        if (alertView.tag == 2) {
+        if (alertView.tag == 5001) {
         
             NSString *name = [alertView textFieldAtIndex:0].text;
             
@@ -402,6 +411,21 @@
             [player pause];
             
             [self performSegueWithIdentifier:@"backToList" sender:self];
+        }
+        
+        if (alertView.tag == 9999) {
+            NSString *link = [@"http://open.spotify.com/track/" stringByAppendingString:[player.currentURI substringFromIndex:14]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+            
+        }
+        
+        if (alertView.tag < 5000) {
+            
+            NSDictionary *qItem = (NSDictionary *)[queue objectAtIndex:alertView.tag];
+            NSString *qTrack = qItem[@"track"][@"uri"];
+            
+            NSString *link = [@"http://open.spotify.com/track/" stringByAppendingString:[qTrack substringFromIndex:14]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
         }
         
     }

@@ -135,6 +135,10 @@
     static NSString *identifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
+    
+//    NSArray *pics = @[@"bg1024.png", @"bg1024purple.png", @"bg1024blue.png", @"bg1024gold.png"];
+    
+    
     // set background of cells as album covers
     NSDictionary * aPlaylist = [playlists objectAtIndex:indexPath.row];
     NSDictionary *firstTrack = aPlaylist[@"current"];
@@ -143,6 +147,7 @@
         NSString *thisImgURL = [images firstObject][@"url"];
     
         UIImageView *bgalbum = (UIImageView *)[cell viewWithTag:5];
+//        bgalbum.image = [UIImage imageNamed:pics[indexPath.row%4]];
         [bgalbum sd_setImageWithURL:[NSURL URLWithString:thisImgURL]
                  placeholderImage:[UIImage imageNamed:@""]];
     }

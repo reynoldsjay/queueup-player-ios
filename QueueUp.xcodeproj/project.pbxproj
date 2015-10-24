@@ -44,6 +44,11 @@
 		817E09F91BDB20BD0014E407 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E09EF1BDB20BD0014E407 /* Icon-Small.png */; };
 		817E09FA1BDB20BD0014E407 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E09F01BDB20BD0014E407 /* Icon-Small@2x.png */; };
 		817E09FB1BDB20BD0014E407 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E09F11BDB20BD0014E407 /* Icon-Small@3x.png */; };
+		817E0A001BDBE9A20014E407 /* bg1024purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E09FC1BDBE9A20014E407 /* bg1024purple.png */; };
+		817E0A011BDBE9A20014E407 /* bg1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E09FD1BDBE9A20014E407 /* bg1024.png */; };
+		817E0A021BDBE9A20014E407 /* bg1024gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E09FE1BDBE9A20014E407 /* bg1024gold.png */; };
+		817E0A031BDBE9A20014E407 /* bg1024blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E09FF1BDBE9A20014E407 /* bg1024blue.png */; };
+		817E0A051BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */; };
 		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
 		818CB1F51B72DF6700FDEBF9 /* YourPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */; };
 		819A6DD21BB50061003561A0 /* alphaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 819A6DD11BB50061003561A0 /* alphaLogo.png */; };
@@ -122,6 +127,11 @@
 		817E09EF1BDB20BD0014E407 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Images/Icon-Small.png"; sourceTree = "<group>"; };
 		817E09F01BDB20BD0014E407 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Images/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		817E09F11BDB20BD0014E407 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@3x.png"; path = "Images/Icon-Small@3x.png"; sourceTree = "<group>"; };
+		817E09FC1BDBE9A20014E407 /* bg1024purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg1024purple.png; path = Images/bg1024purple.png; sourceTree = "<group>"; };
+		817E09FD1BDBE9A20014E407 /* bg1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg1024.png; path = Images/bg1024.png; sourceTree = "<group>"; };
+		817E09FE1BDBE9A20014E407 /* bg1024gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg1024gold.png; path = Images/bg1024gold.png; sourceTree = "<group>"; };
+		817E09FF1BDBE9A20014E407 /* bg1024blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg1024blue.png; path = Images/bg1024blue.png; sourceTree = "<group>"; };
+		817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spotify-logo-primary-horizontal-dark-background-rgb.png"; path = "Images/spotify-buttons/spotify-logo-primary-horizontal-dark-background-rgb.png"; sourceTree = "<group>"; };
 		817F3E2F1AE350D8008E48B8 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		818CB1F31B72DF6700FDEBF9 /* YourPlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourPlaylistsViewController.h; sourceTree = "<group>"; };
@@ -255,6 +265,11 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */,
+				817E09FC1BDBE9A20014E407 /* bg1024purple.png */,
+				817E09FD1BDBE9A20014E407 /* bg1024.png */,
+				817E09FE1BDBE9A20014E407 /* bg1024gold.png */,
+				817E09FF1BDBE9A20014E407 /* bg1024blue.png */,
 				817E09E81BDB20BD0014E407 /* Icon-40.png */,
 				817E09E91BDB20BD0014E407 /* Icon-40@2x.png */,
 				817E09EA1BDB20BD0014E407 /* Icon-40@3x.png */,
@@ -390,9 +405,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				817E0A031BDBE9A20014E407 /* bg1024blue.png in Resources */,
 				817E09F31BDB20BD0014E407 /* Icon-40@2x.png in Resources */,
 				811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */,
 				81C779AD1B5E0FED00A67EE0 /* justQ.jpg in Resources */,
+				817E0A021BDBE9A20014E407 /* bg1024gold.png in Resources */,
+				817E0A011BDBE9A20014E407 /* bg1024.png in Resources */,
 				817E09FB1BDB20BD0014E407 /* Icon-Small@3x.png in Resources */,
 				813583831B7BE89F00403EB2 /* proPicOverlay.png in Resources */,
 				817E09F41BDB20BD0014E407 /* Icon-40@3x.png in Resources */,
@@ -401,6 +419,7 @@
 				8115498F1B312E1A00806049 /* menu.png in Resources */,
 				817E09BD1BDB0AC10014E407 /* bgsmall.jpg in Resources */,
 				8115498C1B312E1A00806049 /* albumShade.png in Resources */,
+				817E0A001BDBE9A20014E407 /* bg1024purple.png in Resources */,
 				817E09F21BDB20BD0014E407 /* Icon-40.png in Resources */,
 				811549811B312D9F00806049 /* Images.xcassets in Resources */,
 				817E09BC1BDB0AC10014E407 /* bgmed.jpg in Resources */,
@@ -410,6 +429,7 @@
 				817E09F81BDB20BD0014E407 /* Icon-76@2x.png in Resources */,
 				817E09F61BDB20BD0014E407 /* Icon-60@3x.png in Resources */,
 				817E09F71BDB20BD0014E407 /* Icon-76.png in Resources */,
+				817E0A051BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png in Resources */,
 				811549901B312E1A00806049 /* upvote.xcf in Resources */,
 				817E09F51BDB20BD0014E407 /* Icon-60@2x.png in Resources */,
 				817E09FA1BDB20BD0014E407 /* Icon-Small@2x.png in Resources */,
