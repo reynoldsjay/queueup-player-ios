@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="61h-vM-1SV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="61h-vM-1SV">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Hot Plays View Controller-->
@@ -812,6 +813,26 @@
                                         <barButtonItem key="leftBarButtonItem" image="menu.png" id="wHY-eq-EPz">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem style="plain" id="YZh-KH-ykD">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YOr-CV-lVK">
+                                                    <rect key="frame" x="274" y="7" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="T"/>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="KFR-tC-dq6">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3rU-UF-HnC">
+                                                    <rect key="frame" x="236" y="7" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="R"/>
+                                                </button>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -1025,14 +1046,17 @@
                         <outlet property="playpause" destination="AzD-6g-c08" id="wfC-6t-pZm"/>
                         <outlet property="progressLabel" destination="aqS-kB-IOZ" id="evJ-cR-Kcl"/>
                         <outlet property="queueView" destination="uJb-wB-bbL" id="HC3-os-VQX"/>
+                        <outlet property="rename" destination="3rU-UF-HnC" id="PgX-D8-ise"/>
                         <outlet property="sidebarButton" destination="wHY-eq-EPz" id="BWa-xn-CzT"/>
                         <outlet property="titleLabel" destination="dGu-7w-ETd" id="tGc-Kg-sk1"/>
                         <outlet property="trackProgress" destination="xC9-ie-FQH" id="3W6-PK-hDs"/>
+                        <outlet property="trash" destination="YOr-CV-lVK" id="mU3-r3-cGr"/>
+                        <segue destination="vXZ-lx-hvc" kind="custom" identifier="backToList" customClass="SWRevealViewControllerSeguePushController" id="Zys-f8-zdR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yzh-sd-G6w" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="827" y="1839"/>
+            <point key="canvasLocation" x="803" y="1801"/>
         </scene>
         <!--Add TrackVC-->
         <scene sceneID="cHV-5I-euy">
@@ -1182,15 +1206,15 @@
                                 <rect key="frame" x="0.0" y="62" width="320" height="506"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="9" minimumInteritemSpacing="2" id="jSd-lZ-YXg">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="0.0" id="jSd-lZ-YXg">
                                     <size key="itemSize" width="141" height="141"/>
-                                    <size key="headerReferenceSize" width="0.0" height="11"/>
-                                    <size key="footerReferenceSize" width="0.0" height="4"/>
-                                    <inset key="sectionInset" minX="23" minY="0.0" maxX="12" maxY="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="4"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="4" minY="0.0" maxX="2" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="f4b-67-L3B">
-                                        <rect key="frame" x="23" y="11" width="141" height="141"/>
+                                        <rect key="frame" x="4" y="4" width="141" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="141" height="141"/>
@@ -1245,12 +1269,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="9Sr-KY-ZBx">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="11"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="footer" id="jCO-zO-kST">
-                                    <rect key="frame" x="0.0" y="152" width="320" height="4"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="4"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </collectionReusableView>
@@ -1328,15 +1347,15 @@
                                 <rect key="frame" x="0.0" y="62" width="320" height="506"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="9" minimumInteritemSpacing="2" id="myf-Ln-QE4">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="0.0" id="myf-Ln-QE4">
                                     <size key="itemSize" width="141" height="141"/>
-                                    <size key="headerReferenceSize" width="0.0" height="11"/>
-                                    <size key="footerReferenceSize" width="0.0" height="4"/>
-                                    <inset key="sectionInset" minX="23" minY="0.0" maxX="12" maxY="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="4"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="4" minY="0.0" maxX="2" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3m8-LM-ddd">
-                                        <rect key="frame" x="23" y="11" width="141" height="141"/>
+                                        <rect key="frame" x="4" y="4" width="141" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="141" height="141"/>
@@ -1391,12 +1410,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="2rh-U4-Vgl">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="11"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="n0q-cP-Veb">
-                                    <rect key="frame" x="0.0" y="152" width="320" height="4"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="4"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </collectionReusableView>
@@ -1465,9 +1479,9 @@
         <image name="menu.png" width="28" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fRi-IB-oKj"/>
-        <segue reference="eLl-Gi-Qh9"/>
-        <segue reference="6lT-4d-N3M"/>
+        <segue reference="SgJ-Nm-62h"/>
+        <segue reference="qeI-YX-nMV"/>
         <segue reference="kae-Vy-8UW"/>
+        <segue reference="Zys-f8-zdR"/>
     </inferredMetricsTieBreakers>
 </document>

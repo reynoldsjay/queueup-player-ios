@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UIButton *playpause;
 @property (weak, nonatomic) IBOutlet UIButton *nextTrack;
+@property (weak, nonatomic) IBOutlet UIButton *trash;
+@property (weak, nonatomic) IBOutlet UIButton *rename;
 
 @property IBOutlet UITableView *queueView;
 
@@ -47,6 +49,17 @@
     } else {
         self.playNameLabel.text = @"";
     }
+    
+    
+    [_trash addTarget:self action:@selector(startTrash:)
+     forControlEvents:UIControlEventTouchDown];
+    [_trash.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20]];
+    [_trash setTitle:[NSString awesomeIcon:FaTrashO] forState:UIControlStateNormal];
+    
+    [_rename addTarget:self action:@selector(startRename:)
+     forControlEvents:UIControlEventTouchDown];
+    [_rename.titleLabel setFont:[UIFont fontWithName:@"FontAwesome" size:20]];
+    [_rename setTitle:[NSString awesomeIcon:FaPencil] forState:UIControlStateNormal];
     
     
     self.titleLabel.text = @"Nothing Playing";
@@ -310,6 +323,66 @@
 
 
 
+-(void)startTrash :(id)sender {
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Delete playlist?"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Yes", nil];
+    message.tag = 1;
+    [message setAlertViewStyle:UIAlertViewStyleDefault];
+    [message show];
+
+}
+
+-(void)startRename :(id)sender {
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Rename playlist to:"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Continue", nil];
+    message.tag = 2;
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [message show];
+    
+}
+
+
+
+// tells server about new playlist
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+    if (buttonIndex == 1) {
+        
+        if (alertView.tag == 1) {
+
+            // name contains the entered value
+            
+            NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
+            NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
+            
+            NSString *toSend = [[NSString alloc] initWithFormat:@"{\"user_id\" : \"%@\", \"client_token\" : \"%@\"}", clientID, token];
+            
+            id jsonVote = [api parseJson:toSend];
+            
+            NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/%@/delete", api.currentPlaylist[@"_id"]];
+            
+            NSLog(@"Sending playlists/delete");
+            [api postData:jsonVote toURL:postVoteURL];
+            
+            [self performSegueWithIdentifier:@"backToList" sender:self];
+        }
+        
+        if (alertView.tag == 2) {
+        
+            NSString *name = [alertView textFieldAtIndex:0].text;
+        }
+        
+    }
+}
 
 
 - (void)viewDidAppear:(BOOL)animated {
