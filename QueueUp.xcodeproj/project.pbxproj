@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81015ED41C27A782000872E2 /* AbstractPlaylistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81015ED31C27A782000872E2 /* AbstractPlaylistView.m */; };
 		8109D10A1BB4D733007D0209 /* FriendsPlaylistsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */; };
 		811549761B31190800806049 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811549751B31190800806049 /* PlayerViewController.m */; };
 		811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */; };
@@ -75,6 +76,8 @@
 		002EC3677A21B62D72379479 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0547A9CC784B87D2C8D7C56D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		39C26FC7DC65F8A620FCEF5F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		81015ED21C27A782000872E2 /* AbstractPlaylistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractPlaylistView.h; sourceTree = "<group>"; };
+		81015ED31C27A782000872E2 /* AbstractPlaylistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractPlaylistView.m; sourceTree = "<group>"; };
 		8109D1081BB4D733007D0209 /* FriendsPlaylistsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPlaylistsVC.h; sourceTree = "<group>"; };
 		8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPlaylistsVC.m; sourceTree = "<group>"; };
 		811549741B31190800806049 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
@@ -144,8 +147,8 @@
 		81B92D621B5C5C1800DBAE44 /* AddTrackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTrackVC.m; sourceTree = "<group>"; };
 		81C779AA1B5E0FED00A67EE0 /* full-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "full-logo.jpg"; path = "Images/full-logo.jpg"; sourceTree = "<group>"; };
 		81C779AB1B5E0FED00A67EE0 /* justQ.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = justQ.jpg; path = Images/justQ.jpg; sourceTree = "<group>"; };
-		81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
-		81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+FontAwesome.h"; path = "../NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+FontAwesome.m"; path = "../NSString+FontAwesome.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +204,7 @@
 				811D52D01B1162E10029F4E3 /* SWRevealViewController.m */,
 			);
 			name = SWRevealViewController;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		813DF7941ABE1EC30057D655 = {
@@ -213,9 +217,6 @@
 				813DF79E1ABE1EC30057D655 /* Products */,
 				7F6F15B4ECA184F1BEE0466D /* Pods */,
 				3AC6F9847CB79E0AB20A5B7C /* Frameworks */,
-				81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */,
-				81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */,
-				811D52CB1B1162A30029F4E3 /* SWRevealViewController */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,6 +259,8 @@
 				81B92D621B5C5C1800DBAE44 /* AddTrackVC.m */,
 				818CB1F31B72DF6700FDEBF9 /* YourPlaylistsViewController.h */,
 				818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */,
+				81015ED21C27A782000872E2 /* AbstractPlaylistView.h */,
+				81015ED31C27A782000872E2 /* AbstractPlaylistView.m */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -265,6 +268,9 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				811D52CB1B1162A30029F4E3 /* SWRevealViewController */,
+				81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */,
+				81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */,
 				817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */,
 				817E09FC1BDBE9A20014E407 /* bg1024purple.png */,
 				817E09FD1BDBE9A20014E407 /* bg1024.png */,
@@ -487,6 +493,7 @@
 			files = (
 				8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */,
 				813DF7A91ABE1EC30057D655 /* HotPlaysViewController.m in Sources */,
+				81015ED41C27A782000872E2 /* AbstractPlaylistView.m in Sources */,
 				81B92D631B5C5C1800DBAE44 /* AddTrackVC.m in Sources */,
 				8109D10A1BB4D733007D0209 /* FriendsPlaylistsVC.m in Sources */,
 				818CB1F51B72DF6700FDEBF9 /* YourPlaylistsViewController.m in Sources */,

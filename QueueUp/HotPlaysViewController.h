@@ -5,12 +5,10 @@
 //  Created by Jay Reynolds on 3/21/15.
 //  Copyright (c) 2015 com.reynoldsJay. All rights reserved.
 //
+#import "AbstractPlaylistView.h"
 
-#import <UIKit/UIKit.h>
+@interface HotPlaysViewController : AbstractPlaylistView
 
-@interface HotPlaysViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end
 
