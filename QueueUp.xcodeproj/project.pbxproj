@@ -13,9 +13,7 @@
 		811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */; };
 		811549811B312D9F00806049 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813DF7AD1ABE1EC30057D655 /* Images.xcassets */; };
 		8115498C1B312E1A00806049 /* albumShade.png in Resources */ = {isa = PBXBuildFile; fileRef = 811549871B312E1900806049 /* albumShade.png */; };
-		8115498D1B312E1A00806049 /* albumShade.xcf in Resources */ = {isa = PBXBuildFile; fileRef = 811549881B312E1900806049 /* albumShade.xcf */; };
 		8115498F1B312E1A00806049 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8115498A1B312E1900806049 /* menu.png */; };
-		811549901B312E1A00806049 /* upvote.xcf in Resources */ = {isa = PBXBuildFile; fileRef = 8115498B1B312E1900806049 /* upvote.xcf */; };
 		811549941B324E0500806049 /* SpotifyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 811549931B324E0500806049 /* SpotifyPlayer.m */; };
 		811D52D11B1162E10029F4E3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D01B1162E10029F4E3 /* SWRevealViewController.m */; };
 		811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811D52D31B11631D0029F4E3 /* SidebarViewController.m */; };
@@ -28,9 +26,6 @@
 		813DF7BD1ABE1EC30057D655 /* QueueUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813DF7BC1ABE1EC30057D655 /* QueueUpTests.m */; };
 		814F4AF11BB38AAE00837D1F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814F4AF01BB38AAE00837D1F /* Launch Screen.storyboard */; };
 		8174AD671B1250CA00B1D846 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD661B1250CA00B1D846 /* LoginViewController.m */; };
-		8174AD6B1B1257FD00B1D846 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */; };
-		8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */; };
-		8174AD6D1B1257FD00B1D846 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */; };
 		8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174AD6E1B128A5000B1D846 /* ServerAPI.m */; };
 		817E09BB1BDB0AC10014E407 /* bglarge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 817E09B81BDB0AC10014E407 /* bglarge.jpg */; };
 		817E09BC1BDB0AC10014E407 /* bgmed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 817E09B91BDB0AC10014E407 /* bgmed.jpg */; };
@@ -52,8 +47,11 @@
 		817E0A051BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */; };
 		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
 		818CB1F51B72DF6700FDEBF9 /* YourPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */; };
+		819127251C40B8D300546A5F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819127221C40B8D300546A5F /* FBSDKCoreKit.framework */; };
+		819127261C40B8D300546A5F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819127231C40B8D300546A5F /* FBSDKLoginKit.framework */; };
+		819127271C40B8D300546A5F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819127241C40B8D300546A5F /* FBSDKShareKit.framework */; };
+		8191272C1C40C8B700546A5F /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8191272B1C40C8B700546A5F /* Spotify.framework */; };
 		819A6DD21BB50061003561A0 /* alphaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 819A6DD11BB50061003561A0 /* alphaLogo.png */; };
-		819FF3A21B2DF61200DBF90D /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819FF3A11B2DF61200DBF90D /* Spotify.framework */; };
 		819FF3A51B2DF77600DBF90D /* SPTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */; };
 		81B92D631B5C5C1800DBAE44 /* AddTrackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B92D621B5C5C1800DBAE44 /* AddTrackVC.m */; };
 		81C779AC1B5E0FED00A67EE0 /* full-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 81C779AA1B5E0FED00A67EE0 /* full-logo.jpg */; };
@@ -83,9 +81,7 @@
 		811549741B31190800806049 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		811549751B31190800806049 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		811549871B312E1900806049 /* albumShade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = albumShade.png; path = Images/albumShade.png; sourceTree = "<group>"; };
-		811549881B312E1900806049 /* albumShade.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; name = albumShade.xcf; path = Images/albumShade.xcf; sourceTree = "<group>"; };
 		8115498A1B312E1900806049 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Images/menu.png; sourceTree = "<group>"; };
-		8115498B1B312E1900806049 /* upvote.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; name = upvote.xcf; path = Images/upvote.xcf; sourceTree = "<group>"; };
 		811549911B312F8500806049 /* PlayerUIProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerUIProtocol.h; sourceTree = "<group>"; };
 		811549921B324E0500806049 /* SpotifyPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyPlayer.h; sourceTree = "<group>"; };
 		811549931B324E0500806049 /* SpotifyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyPlayer.m; sourceTree = "<group>"; };
@@ -112,9 +108,6 @@
 		816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		8174AD651B1250CA00B1D846 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8174AD661B1250CA00B1D846 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		8174AD6E1B128A5000B1D846 /* ServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerAPI.m; sourceTree = "<group>"; };
 		8174AD701B128A6400B1D846 /* ServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerAPI.h; sourceTree = "<group>"; };
 		817E09B81BDB0AC10014E407 /* bglarge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bglarge.jpg; path = Images/bglarge.jpg; sourceTree = "<group>"; };
@@ -139,8 +132,11 @@
 		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		818CB1F31B72DF6700FDEBF9 /* YourPlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourPlaylistsViewController.h; sourceTree = "<group>"; };
 		818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourPlaylistsViewController.m; sourceTree = "<group>"; };
+		819127221C40B8D300546A5F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		819127231C40B8D300546A5F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		819127241C40B8D300546A5F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		8191272B1C40C8B700546A5F /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		819A6DD11BB50061003561A0 /* alphaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alphaLogo.png; path = Images/alphaLogo.png; sourceTree = "<group>"; };
-		819FF3A11B2DF61200DBF90D /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		819FF3A31B2DF77600DBF90D /* SPTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTLoginViewController.h; sourceTree = "<group>"; };
 		819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTLoginViewController.m; sourceTree = "<group>"; };
 		81B92D611B5C5C1800DBAE44 /* AddTrackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTrackVC.h; sourceTree = "<group>"; };
@@ -157,10 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */,
-				819FF3A21B2DF61200DBF90D /* Spotify.framework in Frameworks */,
-				8174AD6B1B1257FD00B1D846 /* FBSDKCoreKit.framework in Frameworks */,
-				8174AD6D1B1257FD00B1D846 /* FBSDKShareKit.framework in Frameworks */,
-				8174AD6C1B1257FD00B1D846 /* FBSDKLoginKit.framework in Frameworks */,
+				8191272C1C40C8B700546A5F /* Spotify.framework in Frameworks */,
+				819127251C40B8D300546A5F /* FBSDKCoreKit.framework in Frameworks */,
+				819127271C40B8D300546A5F /* FBSDKShareKit.framework in Frameworks */,
+				819127261C40B8D300546A5F /* FBSDKLoginKit.framework in Frameworks */,
 				C447C89C09E2B19E4ADE193F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,10 +174,10 @@
 		3AC6F9847CB79E0AB20A5B7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				819FF3A11B2DF61200DBF90D /* Spotify.framework */,
-				8174AD681B1257FD00B1D846 /* FBSDKCoreKit.framework */,
-				8174AD691B1257FD00B1D846 /* FBSDKLoginKit.framework */,
-				8174AD6A1B1257FD00B1D846 /* FBSDKShareKit.framework */,
+				8191272B1C40C8B700546A5F /* Spotify.framework */,
+				819127221C40B8D300546A5F /* FBSDKCoreKit.framework */,
+				819127231C40B8D300546A5F /* FBSDKLoginKit.framework */,
+				819127241C40B8D300546A5F /* FBSDKShareKit.framework */,
 				818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */,
 				002EC3677A21B62D72379479 /* libPods.a */,
 			);
@@ -232,14 +228,12 @@
 		813DF79F1ABE1EC30057D655 /* QueueUp */ = {
 			isa = PBXGroup;
 			children = (
+				8191272A1C40BDFA00546A5F /* New Group */,
+				819127291C40BDCC00546A5F /* PlaylistHolders */,
 				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
-				8109D1081BB4D733007D0209 /* FriendsPlaylistsVC.h */,
-				8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */,
 				817F3E2F1AE350D8008E48B8 /* Config.h */,
 				813DF7A41ABE1EC30057D655 /* AppDelegate.h */,
 				813DF7A51ABE1EC30057D655 /* AppDelegate.m */,
-				813DF7A71ABE1EC30057D655 /* HotPlaysViewController.h */,
-				813DF7A81ABE1EC30057D655 /* HotPlaysViewController.m */,
 				811D52D21B11631D0029F4E3 /* SidebarViewController.h */,
 				811D52D31B11631D0029F4E3 /* SidebarViewController.m */,
 				813146861AC0572B002CBD2E /* ClientViewController.h */,
@@ -257,10 +251,6 @@
 				811549931B324E0500806049 /* SpotifyPlayer.m */,
 				81B92D611B5C5C1800DBAE44 /* AddTrackVC.h */,
 				81B92D621B5C5C1800DBAE44 /* AddTrackVC.m */,
-				818CB1F31B72DF6700FDEBF9 /* YourPlaylistsViewController.h */,
-				818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */,
-				81015ED21C27A782000872E2 /* AbstractPlaylistView.h */,
-				81015ED31C27A782000872E2 /* AbstractPlaylistView.m */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -268,37 +258,12 @@
 		813DF7A01ABE1EC30057D655 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				819127281C40B8FC00546A5F /* Images */,
 				811D52CB1B1162A30029F4E3 /* SWRevealViewController */,
 				81DB7AC81B292E1A00CFC1FD /* NSString+FontAwesome.h */,
 				81DB7AC91B292E1A00CFC1FD /* NSString+FontAwesome.m */,
-				817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */,
-				817E09FC1BDBE9A20014E407 /* bg1024purple.png */,
-				817E09FD1BDBE9A20014E407 /* bg1024.png */,
-				817E09FE1BDBE9A20014E407 /* bg1024gold.png */,
-				817E09FF1BDBE9A20014E407 /* bg1024blue.png */,
-				817E09E81BDB20BD0014E407 /* Icon-40.png */,
-				817E09E91BDB20BD0014E407 /* Icon-40@2x.png */,
-				817E09EA1BDB20BD0014E407 /* Icon-40@3x.png */,
-				817E09EB1BDB20BD0014E407 /* Icon-60@2x.png */,
-				817E09EC1BDB20BD0014E407 /* Icon-60@3x.png */,
-				817E09ED1BDB20BD0014E407 /* Icon-76.png */,
-				817E09EE1BDB20BD0014E407 /* Icon-76@2x.png */,
-				817E09EF1BDB20BD0014E407 /* Icon-Small.png */,
-				817E09F01BDB20BD0014E407 /* Icon-Small@2x.png */,
-				817E09F11BDB20BD0014E407 /* Icon-Small@3x.png */,
-				817E09B81BDB0AC10014E407 /* bglarge.jpg */,
-				817E09B91BDB0AC10014E407 /* bgmed.jpg */,
-				817E09BA1BDB0AC10014E407 /* bgsmall.jpg */,
-				819A6DD11BB50061003561A0 /* alphaLogo.png */,
-				813583821B7BE89F00403EB2 /* proPicOverlay.png */,
-				81C779AA1B5E0FED00A67EE0 /* full-logo.jpg */,
-				81C779AB1B5E0FED00A67EE0 /* justQ.jpg */,
 				816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */,
 				813DF7AD1ABE1EC30057D655 /* Images.xcassets */,
-				811549871B312E1900806049 /* albumShade.png */,
-				811549881B312E1900806049 /* albumShade.xcf */,
-				8115498A1B312E1900806049 /* menu.png */,
-				8115498B1B312E1900806049 /* upvote.xcf */,
 				813DF7A11ABE1EC30057D655 /* Info.plist */,
 				813DF7A21ABE1EC30057D655 /* main.m */,
 			);
@@ -321,6 +286,59 @@
 				813DF7BB1ABE1EC30057D655 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		819127281C40B8FC00546A5F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */,
+				817E09FC1BDBE9A20014E407 /* bg1024purple.png */,
+				817E09FD1BDBE9A20014E407 /* bg1024.png */,
+				817E09FE1BDBE9A20014E407 /* bg1024gold.png */,
+				817E09FF1BDBE9A20014E407 /* bg1024blue.png */,
+				817E09E81BDB20BD0014E407 /* Icon-40.png */,
+				817E09E91BDB20BD0014E407 /* Icon-40@2x.png */,
+				817E09EA1BDB20BD0014E407 /* Icon-40@3x.png */,
+				817E09EB1BDB20BD0014E407 /* Icon-60@2x.png */,
+				817E09EC1BDB20BD0014E407 /* Icon-60@3x.png */,
+				817E09ED1BDB20BD0014E407 /* Icon-76.png */,
+				817E09EE1BDB20BD0014E407 /* Icon-76@2x.png */,
+				817E09EF1BDB20BD0014E407 /* Icon-Small.png */,
+				817E09F01BDB20BD0014E407 /* Icon-Small@2x.png */,
+				817E09F11BDB20BD0014E407 /* Icon-Small@3x.png */,
+				817E09B81BDB0AC10014E407 /* bglarge.jpg */,
+				817E09B91BDB0AC10014E407 /* bgmed.jpg */,
+				817E09BA1BDB0AC10014E407 /* bgsmall.jpg */,
+				819A6DD11BB50061003561A0 /* alphaLogo.png */,
+				813583821B7BE89F00403EB2 /* proPicOverlay.png */,
+				81C779AA1B5E0FED00A67EE0 /* full-logo.jpg */,
+				81C779AB1B5E0FED00A67EE0 /* justQ.jpg */,
+				811549871B312E1900806049 /* albumShade.png */,
+				8115498A1B312E1900806049 /* menu.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		819127291C40BDCC00546A5F /* PlaylistHolders */ = {
+			isa = PBXGroup;
+			children = (
+				81015ED21C27A782000872E2 /* AbstractPlaylistView.h */,
+				81015ED31C27A782000872E2 /* AbstractPlaylistView.m */,
+				8109D1081BB4D733007D0209 /* FriendsPlaylistsVC.h */,
+				8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */,
+				813DF7A71ABE1EC30057D655 /* HotPlaysViewController.h */,
+				813DF7A81ABE1EC30057D655 /* HotPlaysViewController.m */,
+				818CB1F31B72DF6700FDEBF9 /* YourPlaylistsViewController.h */,
+				818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */,
+			);
+			name = PlaylistHolders;
+			sourceTree = "<group>";
+		};
+		8191272A1C40BDFA00546A5F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,7 +438,6 @@
 				817E09FB1BDB20BD0014E407 /* Icon-Small@3x.png in Resources */,
 				813583831B7BE89F00403EB2 /* proPicOverlay.png in Resources */,
 				817E09F41BDB20BD0014E407 /* Icon-40@3x.png in Resources */,
-				8115498D1B312E1A00806049 /* albumShade.xcf in Resources */,
 				819A6DD21BB50061003561A0 /* alphaLogo.png in Resources */,
 				8115498F1B312E1A00806049 /* menu.png in Resources */,
 				817E09BD1BDB0AC10014E407 /* bgsmall.jpg in Resources */,
@@ -436,7 +453,6 @@
 				817E09F61BDB20BD0014E407 /* Icon-60@3x.png in Resources */,
 				817E09F71BDB20BD0014E407 /* Icon-76.png in Resources */,
 				817E0A051BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png in Resources */,
-				811549901B312E1A00806049 /* upvote.xcf in Resources */,
 				817E09F51BDB20BD0014E407 /* Icon-60@2x.png in Resources */,
 				817E09FA1BDB20BD0014E407 /* Icon-Small@2x.png in Resources */,
 				81C779AC1B5E0FED00A67EE0 /* full-logo.jpg in Resources */,
@@ -627,8 +643,8 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"~/Documents/FacebookSDK",
 					"$(PROJECT_DIR)",
-					/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = QueueUp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -649,8 +665,8 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"~/Documents/FacebookSDK",
 					"$(PROJECT_DIR)",
-					/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = QueueUp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
