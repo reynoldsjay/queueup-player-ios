@@ -25,7 +25,7 @@
 
 // Qup Server
 
-#define hostDomain "http://queueup.io"
+#define hostDomain "https://queueup.io"
 #define hashDomain "queueup.io"
 
 

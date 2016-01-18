@@ -66,6 +66,10 @@
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Find nearby playlists.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Find nearby playlists.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
