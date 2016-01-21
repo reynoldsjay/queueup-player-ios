@@ -20,6 +20,8 @@
     ServerAPI *api;
 }
 
+-(void)testSub;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property IBOutlet UICollectionView *collectionView;
 

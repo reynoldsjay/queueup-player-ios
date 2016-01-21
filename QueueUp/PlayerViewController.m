@@ -87,6 +87,8 @@
     [self performSelectorOnMainThread:@selector(correctProgressBar) withObject:nil waitUntilDone:NO];
     
     
+    
+    
 }
 
 - (void)correctProgressBar {
@@ -120,7 +122,9 @@
     
     queue = player.queue;
     //NSLog(@"%@", queue);
-    [self.queueView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.queueView reloadData];
+    });
     
     if (player.playing) {
         [self.playpause setTitle:[NSString awesomeIcon:FaPause] forState:UIControlStateNormal];

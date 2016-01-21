@@ -29,8 +29,23 @@
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(startRefresh:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    self.collectionView.alwaysBounceVertical = YES;
     
 }
+
+-(void)startRefresh:(id)sender{
+    NSLog(@"Refresh");
+    [sender endRefreshing];
+}
+
+-(void) testSub{
+    NSLog(@"called from sub");
+}
+
 
 
 // create a new playlist alert
@@ -93,6 +108,7 @@
 // table delegate methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSLog(@"playlists! %lu", (unsigned long)[playlists count]);
     return [playlists count];
 }
 

@@ -197,7 +197,9 @@
                 NSDictionary *recQ = dictionaryStateData[@"queue"];
                 if (recQ != nil) {
                     queue = (NSArray *) recQ;
-                    [self.queueView reloadData];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.queueView reloadData];
+                    });
                 }
                 
             }];

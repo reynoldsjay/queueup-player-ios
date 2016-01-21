@@ -13,6 +13,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setPlaylists];
+}
+
+- (void)setPlaylists {
     // get all playlists
     NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
     

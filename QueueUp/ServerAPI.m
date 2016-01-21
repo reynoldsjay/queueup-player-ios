@@ -39,14 +39,13 @@ static ServerAPI *singletonInstance;
     NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     NSString *toURL = [NSString stringWithFormat:@"%@%@", @hostDomain, url];
-    NSLog(@"post %@ to %@", postJson, toURL);
+    //NSLog(@"post %@ to %@", postJson, toURL);
     [request setURL:[NSURL URLWithString:toURL]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     if (self.idAndToken) {
-        NSLog(@"extra header");
         [request setValue:[self getDate] forHTTPHeaderField:@"Date"];
         [request setValue:[self hashAuthForMethod:@"POST" andRoute:url] forHTTPHeaderField:@"Authorization"];
     }

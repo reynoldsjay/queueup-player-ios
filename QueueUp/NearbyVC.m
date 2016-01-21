@@ -12,7 +12,8 @@
 
 
 @implementation NearbyVC {
-    
+    double lattitude;
+    double longitude;
 }
 
 - (void)viewDidLoad {
@@ -22,9 +23,62 @@
     api = [ServerAPI getInstance];
     [self startStandardUpdates];
     
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(setPlaylistData:)
+                                   userInfo:nil
+                                    repeats:NO];
+
     
     
 }
+
+
+- (void)setPlaylistData:(id)sender {
+    NSLog(@"setting playlists for %fl and %fl", lattitude, longitude);
+    
+    NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
+    
+    NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
+    playlists = dictionaryData[@"playlists"];
+    
+    // get the admins names
+    creators = [[NSMutableArray alloc] init];
+    for (NSMutableDictionary *aPlaylist in playlists) {
+        NSString *creatorName = aPlaylist[@"admin_name"];
+        if (!creatorName) {
+            [creators addObject:@"?"];
+        } else {
+            [creators addObject:creatorName];
+        }
+    }
+    [self.collectionView reloadData];
+    
+    
+//            NSString *toSend = [[NSString alloc] initWithFormat:@"{\"location\" : {\"latitude\" : %.6f, \"longitude\" : %.6f}}", lat, longi];
+//            id jsonLocation = [api parseJson:toSend];
+//            NSString *postURL = [NSString stringWithFormat:@"/api/v2/playlists/nearby"];
+//            NSString *playlistString = [api postData:jsonLocation toURL:postURL];
+//            NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
+//            playlists = dictionaryData[@"playlists"];
+//    
+//    
+//    
+//    
+//            // get the admins names
+//            creators = [[NSMutableArray alloc] init];
+//            for (NSMutableDictionary *aPlaylist in playlists) {
+//                NSString *creatorName = aPlaylist[@"admin_name"];
+//                if (!creatorName) {
+//                    [creators addObject:@"?"];
+//                } else {
+//                    [creators addObject:creatorName];
+//                }
+//            }
+//            
+//            [self.collectionView reloadData];
+}
+
 
 
 - (void)startStandardUpdates
@@ -44,6 +98,7 @@
     
     
     [locationManager startUpdatingLocation];
+    
 }
 
 
@@ -59,32 +114,8 @@
         NSLog(@"latitude %+.6f, longitude %+.6f\n",
               location.coordinate.latitude,
               location.coordinate.longitude);
-        
-        NSString *toSend = [[NSString alloc] initWithFormat:@"{\"location\" : {\"latitude\" : \"%.6f\", \"longitude\" : \"%.6f\"}}", location.coordinate.latitude,
-                            location.coordinate.longitude];
-        id jsonLocation = [api parseJson:toSend];
-        NSString *postURL = [NSString stringWithFormat:@"/api/v2/playlists/nearby"];
-        NSLog(@"post: %@ to %@", jsonLocation, postURL);
-        NSString *playlistString = [api postData:jsonLocation toURL:postURL];
-        NSLog(playlistString);
-        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
-        playlists = dictionaryData[@"playlists"];
-        
-        
-        
-        
-        // get the admins names
-        creators = [[NSMutableArray alloc] init];
-        for (NSMutableDictionary *aPlaylist in playlists) {
-            NSString *creatorName = aPlaylist[@"admin_name"];
-            if (!creatorName) {
-                [creators addObject:@"?"];
-            } else {
-                [creators addObject:creatorName];
-            }
-        }
-        
-        
+        lattitude = location.coordinate.latitude;
+        longitude = location.coordinate.longitude;
         
     }
 }
