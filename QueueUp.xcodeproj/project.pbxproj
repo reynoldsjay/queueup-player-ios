@@ -47,6 +47,7 @@
 		817E0A031BDBE9A20014E407 /* bg1024blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E09FF1BDBE9A20014E407 /* bg1024blue.png */; };
 		817E0A051BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */; };
 		818ACD051ABF7C8A00E9C866 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */; };
+		818BFD471C51EB930096CCC0 /* browsePlaylists.png in Resources */ = {isa = PBXBuildFile; fileRef = 818BFD461C51EB930096CCC0 /* browsePlaylists.png */; };
 		818CB1F51B72DF6700FDEBF9 /* YourPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */; };
 		819127251C40B8D300546A5F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819127221C40B8D300546A5F /* FBSDKCoreKit.framework */; };
 		819127261C40B8D300546A5F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819127231C40B8D300546A5F /* FBSDKLoginKit.framework */; };
@@ -133,6 +134,7 @@
 		817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spotify-logo-primary-horizontal-dark-background-rgb.png"; path = "Images/spotify-buttons/spotify-logo-primary-horizontal-dark-background-rgb.png"; sourceTree = "<group>"; };
 		817F3E2F1AE350D8008E48B8 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		818ACD041ABF7C8A00E9C866 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		818BFD461C51EB930096CCC0 /* browsePlaylists.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = browsePlaylists.png; path = "spotify-buttons/Rounded buttons/png/browsePlaylists.png"; sourceTree = SOURCE_ROOT; };
 		818CB1F31B72DF6700FDEBF9 /* YourPlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourPlaylistsViewController.h; sourceTree = "<group>"; };
 		818CB1F41B72DF6700FDEBF9 /* YourPlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourPlaylistsViewController.m; sourceTree = "<group>"; };
 		819127221C40B8D300546A5F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 		819127281C40B8FC00546A5F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				818BFD461C51EB930096CCC0 /* browsePlaylists.png */,
 				817E0A041BDC089F0014E407 /* spotify-logo-primary-horizontal-dark-background-rgb.png */,
 				817E09FC1BDBE9A20014E407 /* bg1024purple.png */,
 				817E09FD1BDBE9A20014E407 /* bg1024.png */,
@@ -362,6 +365,7 @@
 				813DF79A1ABE1EC30057D655 /* Frameworks */,
 				813DF79B1ABE1EC30057D655 /* Resources */,
 				3EF0D1AED4B7F299A49048BD /* Copy Pods Resources */,
+				9E7DF26D2D2B3FD47DE8D30E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -440,6 +444,7 @@
 			files = (
 				817E0A031BDBE9A20014E407 /* bg1024blue.png in Resources */,
 				817E09F31BDB20BD0014E407 /* Icon-40@2x.png in Resources */,
+				818BFD471C51EB930096CCC0 /* browsePlaylists.png in Resources */,
 				811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */,
 				81C779AD1B5E0FED00A67EE0 /* justQ.jpg in Resources */,
 				817E0A021BDBE9A20014E407 /* bg1024gold.png in Resources */,
@@ -507,6 +512,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E7DF26D2D2B3FD47DE8D30E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -691,10 +711,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -711,10 +728,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = QueueUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reynoldsJay.$(PRODUCT_NAME:rfc1034identifier)";

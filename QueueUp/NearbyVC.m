@@ -32,9 +32,6 @@
 
 - (void)getPlaylistData:(id)sender {
     
-    NSLog(@"setting playlists for %fl and %fl", lattitude, longitude);
-
-
     NSString *toSend = [[NSString alloc] initWithFormat:@"{\"location\" : {\"latitude\" : %.6f, \"longitude\" : %.6f}}", lattitude, longitude];
     id jsonLocation = [api parseJson:toSend];
     NSString *postURL = [NSString stringWithFormat:@"/api/v2/playlists/nearby"];
@@ -96,9 +93,9 @@
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     if (fabs(howRecent) < 15.0) {
         // If the event is recent, do something with it.
-        NSLog(@"latitude %+.6f, longitude %+.6f\n",
-              location.coordinate.latitude,
-              location.coordinate.longitude);
+//        NSLog(@"latitude %+.6f, longitude %+.6f\n",
+//              location.coordinate.latitude,
+//              location.coordinate.longitude);
         lattitude = location.coordinate.latitude;
         longitude = location.coordinate.longitude;
         if (!firstLocationFound) {
