@@ -28,9 +28,15 @@
         [alert show];
     }
     
+    [self getPlaylistData:self];
+    
+}
+
+
+-(void)getPlaylistData:(id)sender {
     NSString *playlistString;
     if (api.loggedIn){
-
+        
         // get all playlists
         //NSLog(@"%@", api.idAndToken);
         NSString *userID = ((NSDictionary *) api.idAndToken)[@"user_id"];
@@ -43,7 +49,7 @@
         playlistString = @"";
     }
     
-
+    
     
     
     NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
@@ -60,59 +66,13 @@
         }
     }
     
-    
-//    // TESTING FRIENDS
-//    if ([FBSDKAccessToken currentAccessToken]) {
-//        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friends" parameters:@{}]
-//         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-//             if (!error) {
-//                 NSLog(@"%@", result);
-//                 NSArray* friends = ((NSDictionary *) result)[@"data"];
-//                 NSMutableArray* fbIds = [[NSMutableArray alloc] init];
-//                 for (NSDictionary* aFriend in friends) {
-//                     [fbIds addObject:aFriend[@"id"]];
-//                 }
-//                 
-//                 
-//                 
-//                 NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
-//                 NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
-//                 
-//                 // SWITCH TO THIS
-//                 NSDictionary* sendObject = [NSDictionary dictionaryWithObjects:@[clientID, token, fbIds] forKeys:@[@"user_id", @"client_token", @"fbids"]];
-//                 
-//                 NSData *jsonData = [NSJSONSerialization dataWithJSONObject:sendObject options:0 error:nil];
-//                 NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-//                 
-//                 id toSend = [api parseJson:JSONString];
-//                 NSLog(@"%@", toSend);
-//
-//                 NSString *url = [NSString stringWithFormat:@"/api/v2/users/%@/playlists", userID];
-//                 NSString *playlistString = [api postData:toSend toURL:url];
-//                 NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
-//                 playlists = dictionaryData[@"playlists"];
-//                 NSLog(@"friends list %@", playlists);
-//                 creators = [[NSMutableArray alloc] init];
-//                 for (NSMutableDictionary *aPlaylist in playlists) {
-//                     //        NSString *userURL = [NSString stringWithFormat:@"%@/api/v1/users/%@", @hostDomain, aPlaylist[@"admin"]];
-//                     //        id usrDict = [api postData:api.idAndToken toURL:userURL];
-//                     //        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:usrDict];
-//                     
-//                     NSString *creatorName = aPlaylist[@"admin_name"];//[NSString stringWithFormat:@"%@", dictionaryData[@"user"][@"name"]]
-//                     //NSLog(@"a playlisy: %@", creatorName);
-//                     if (!creatorName) {
-//                         [creators addObject:@"?"];
-//                     } else {
-//                         [creators addObject:creatorName];
-//                     }
-//                 }
-//                 [self.collectionView reloadData];
-//             }
-//         }];
-//    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView reloadData];
+    });
+    if([sender isMemberOfClass:[UIRefreshControl class]]) {
+        [sender endRefreshing];
+    }
 
-
-    
 }
 
 @end

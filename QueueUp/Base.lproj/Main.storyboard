@@ -1546,6 +1546,7 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="collectionView" destination="Kep-1y-ml9" id="g17-wT-uj5"/>
                         <outlet property="sidebarButton" destination="BWP-8k-wQa" id="kXc-q1-08q"/>
                     </connections>
                 </viewController>

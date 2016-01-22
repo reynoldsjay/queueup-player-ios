@@ -30,21 +30,24 @@
     }
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(startRefresh:)
+    [refreshControl addTarget:self action:@selector(getPlaylistData:)
              forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:refreshControl];
     self.collectionView.alwaysBounceVertical = YES;
     
+    
+    
 }
 
--(void)startRefresh:(id)sender{
-    NSLog(@"Refresh");
-    [sender endRefreshing];
+// MUST BE OVERRIDDEN
+-(void)getPlaylistData:(id)sender {
+    [NSException raise:NSInternalInconsistencyException
+                format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
 }
 
--(void) testSub{
-    NSLog(@"called from sub");
-}
+
+
+
 
 
 
@@ -105,10 +108,9 @@
 
 
 
-// table delegate methods
+// TABLE DELGATE METHODS
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSLog(@"playlists! %lu", (unsigned long)[playlists count]);
     return [playlists count];
 }
 

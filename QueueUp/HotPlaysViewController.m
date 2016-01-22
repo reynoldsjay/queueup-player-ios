@@ -13,10 +13,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setPlaylists];
+    [self getPlaylistData:self];
 }
 
-- (void)setPlaylists {
+- (void)getPlaylistData:(id)sender {
     // get all playlists
     NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
     
@@ -33,6 +33,16 @@
             [creators addObject:creatorName];
         }
     }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView reloadData];
+    });
+    
+    if([sender isMemberOfClass:[UIRefreshControl class]]) {
+        [sender endRefreshing];
+    }
 }
+
+
 
 @end
