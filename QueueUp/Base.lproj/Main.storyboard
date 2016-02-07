@@ -541,7 +541,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfi-Cv-3pa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-479" y="1493"/>
+            <point key="canvasLocation" x="-757" y="1501"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="bJM-Xi-gGI">
@@ -1096,7 +1096,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAU-Sl-iA9">
-                                            <rect key="frame" x="132" y="0.0" width="56" height="28"/>
+                                            <rect key="frame" x="132" y="2" width="56" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="56" id="hT1-G5-8nQ"/>
                                             </constraints>
@@ -1105,9 +1105,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVw-Ka-L1P">
-                                            <rect key="frame" x="51" y="30" width="219" height="47"/>
+                                            <rect key="frame" x="47" y="31" width="227" height="40"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="47" id="bAg-IL-ggI"/>
+                                                <constraint firstAttribute="width" secondItem="pVw-Ka-L1P" secondAttribute="height" multiplier="219:40" constant="8" id="8Tu-wo-xvz"/>
+                                                <constraint firstAttribute="height" constant="40" id="bAg-IL-ggI"/>
                                             </constraints>
                                             <state key="normal" title="Button" image="browsePlaylists.png"/>
                                         </button>
@@ -1115,11 +1116,9 @@
                                     <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="pVw-Ka-L1P" firstAttribute="centerX" secondItem="IAU-Sl-iA9" secondAttribute="centerX" id="9CQ-SB-RGc"/>
-                                        <constraint firstItem="pVw-Ka-L1P" firstAttribute="bottom" secondItem="nL1-ji-lsM" secondAttribute="bottomMargin" id="O6n-kT-UEo"/>
-                                        <constraint firstItem="pVw-Ka-L1P" firstAttribute="leading" secondItem="nL1-ji-lsM" secondAttribute="leading" constant="51" id="OuS-nd-hlA"/>
-                                        <constraint firstItem="pVw-Ka-L1P" firstAttribute="centerX" secondItem="nL1-ji-lsM" secondAttribute="centerX" id="f8i-7m-DH6"/>
-                                        <constraint firstItem="pVw-Ka-L1P" firstAttribute="top" secondItem="IAU-Sl-iA9" secondAttribute="bottom" constant="2" id="hNn-GX-jqc"/>
-                                        <constraint firstItem="IAU-Sl-iA9" firstAttribute="top" secondItem="nL1-ji-lsM" secondAttribute="top" id="i4o-DK-Wmv"/>
+                                        <constraint firstItem="IAU-Sl-iA9" firstAttribute="centerX" secondItem="nL1-ji-lsM" secondAttribute="centerX" id="Cag-x0-w0j"/>
+                                        <constraint firstItem="pVw-Ka-L1P" firstAttribute="top" secondItem="IAU-Sl-iA9" secondAttribute="bottom" constant="8" id="hNn-GX-jqc"/>
+                                        <constraint firstItem="IAU-Sl-iA9" firstAttribute="top" secondItem="nL1-ji-lsM" secondAttribute="top" constant="2" id="i4o-DK-Wmv"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -1603,9 +1602,9 @@
         <image name="spotify-logo-primary-horizontal-dark-background-rgb.png" width="3344" height="1010"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eLl-Gi-Qh9"/>
-        <segue reference="Zys-f8-zdR"/>
-        <segue reference="kae-Vy-8UW"/>
+        <segue reference="fRi-IB-oKj"/>
         <segue reference="6lT-4d-N3M"/>
+        <segue reference="p53-oU-srF"/>
+        <segue reference="kae-Vy-8UW"/>
     </inferredMetricsTieBreakers>
 </document>

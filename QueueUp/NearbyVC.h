@@ -7,11 +7,8 @@
 //
 
 #import "AbstractPlaylistView.h"
-#import <CoreLocation/CoreLocation.h>
 
-@interface NearbyVC : AbstractPlaylistView <CLLocationManagerDelegate> {
-    CLLocationManager *locationManager;
-}
+@interface NearbyVC : AbstractPlaylistView
 
 
 @end

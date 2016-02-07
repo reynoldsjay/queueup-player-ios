@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81015ED41C27A782000872E2 /* AbstractPlaylistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81015ED31C27A782000872E2 /* AbstractPlaylistView.m */; };
+		810492321C67FA8C00A6CBD4 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 810492311C67FA8C00A6CBD4 /* LocationManager.m */; };
 		8109D10A1BB4D733007D0209 /* FriendsPlaylistsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */; };
 		811549761B31190800806049 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811549751B31190800806049 /* PlayerViewController.m */; };
 		811549801B312D9F00806049 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 816422C41B2924E700A8BFB8 /* fontawesome-webfont.ttf */; };
@@ -79,6 +80,8 @@
 		39C26FC7DC65F8A620FCEF5F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		81015ED21C27A782000872E2 /* AbstractPlaylistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractPlaylistView.h; sourceTree = "<group>"; };
 		81015ED31C27A782000872E2 /* AbstractPlaylistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractPlaylistView.m; sourceTree = "<group>"; };
+		810492301C67FA8C00A6CBD4 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		810492311C67FA8C00A6CBD4 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		8109D1081BB4D733007D0209 /* FriendsPlaylistsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPlaylistsVC.h; sourceTree = "<group>"; };
 		8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPlaylistsVC.m; sourceTree = "<group>"; };
 		811549741B31190800806049 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 				811549931B324E0500806049 /* SpotifyPlayer.m */,
 				81B92D611B5C5C1800DBAE44 /* AddTrackVC.h */,
 				81B92D621B5C5C1800DBAE44 /* AddTrackVC.m */,
+				810492301C67FA8C00A6CBD4 /* LocationManager.h */,
+				810492311C67FA8C00A6CBD4 /* LocationManager.m */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 				813DF7A31ABE1EC30057D655 /* main.m in Sources */,
 				811549941B324E0500806049 /* SpotifyPlayer.m in Sources */,
 				8174AD6F1B128A5000B1D846 /* ServerAPI.m in Sources */,
+				810492321C67FA8C00A6CBD4 /* LocationManager.m in Sources */,
 				819FF3A51B2DF77600DBF90D /* SPTLoginViewController.m in Sources */,
 				811D52D41B11631D0029F4E3 /* SidebarViewController.m in Sources */,
 				813146881AC0572B002CBD2E /* ClientViewController.m in Sources */,
