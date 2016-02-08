@@ -47,6 +47,8 @@
 
 }
 
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -132,7 +134,7 @@
     return cell;
 }
 
--(void)clickedLogout:(id)sender {
+- (void)clickedLogout:(id)sender {
     if (api.hosting) {
         api.hosting = NO;
         SpotifyPlayer *curPlayer = [SpotifyPlayer getInstance];
@@ -171,6 +173,19 @@
         }
     } else {
         return 57.0f;
+    }
+}
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if (indexPath.row == 1) {
+        if (api.hosting) {
+            //        NSLog(@"go to player");
+            [self performSegueWithIdentifier:@"realPlayer" sender:self];
+        } else {
+            [self performSegueWithIdentifier:@"toClient" sender:self];
+        }
     }
 }
 

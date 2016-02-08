@@ -8,7 +8,7 @@
 
 #import "AbstractPlaylistView.h"
 
-@interface NearbyVC : AbstractPlaylistView
+@interface NearbyVC : AbstractPlaylistView <LocationGetter>
 
 
 @end

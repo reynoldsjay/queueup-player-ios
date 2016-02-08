@@ -17,6 +17,6 @@
 @property double longitude;
 
 + (LocationManager*) getInstance;
-- (void)getALocation:(id)sender;
+- (void)getALocation:(id)sender withTag:(int)sendTag;
 
 @end

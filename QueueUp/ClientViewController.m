@@ -50,17 +50,17 @@
 @synthesize playing;
 
 
-- (void)viewWillAppear:(BOOL)animated {
-    
-    if (api.hosting) {
-//        NSLog(@"go to player");
-        [self performSegueWithIdentifier:@"realPlayer" sender:self];
-    }
-//    NSLog(@"hosting: %hhd", api.hosting);
-    
-
-    
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    
+//    if (api.hosting) {
+////        NSLog(@"go to player");
+//        [self performSegueWithIdentifier:@"realPlayer" sender:self];
+//    }
+////    NSLog(@"hosting: %hhd", api.hosting);
+//    
+//
+//    
+//}
 
 
 - (void)viewDidLoad {
@@ -163,7 +163,7 @@
                         NSString *trackURI = track[@"uri"];
                         if (![currentURI isEqualToString:trackURI] && trackURI != nil) {
                             //[self playSong:trackURI];
-                            NSLog(@"New song.");
+                            NSLog(@"New song. (client)");
                             currentURI = trackURI;
                             
                             
@@ -219,7 +219,7 @@
 
 
 - (void)viewWillDisappear:(BOOL)animated {
-
+    NSLog(@"Leaving client.");
     [self.socket emit: @"client_unsubscribe" args:nil];
 
 }

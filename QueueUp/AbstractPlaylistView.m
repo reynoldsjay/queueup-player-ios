@@ -11,7 +11,9 @@
 
 
 
-@implementation AbstractPlaylistView 
+@implementation AbstractPlaylistView {
+    
+}
 
 - (void)viewDidLoad {
     
@@ -19,6 +21,7 @@
     
     // get api object
     api = [ServerAPI getInstance];
+    lManager = [LocationManager getInstance];
     
     // side bar set up
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -44,12 +47,24 @@
     [NSException raise:NSInternalInconsistencyException
                 format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
 }
--(void)locationCallback{
+
+
+
+
+
+
+- (void)locationCallback:(int)tag {
+    lattitude = lManager.lattitude;
+    longitude = lManager.longitude;
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New playlist name:"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Continue", nil];
+    
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [message show];
 }
-
-
-
-
 
 
 // create a new playlist alert
@@ -57,15 +72,8 @@
     if (!api.loggedIn) {
         [self performSegueWithIdentifier:@"toLogin" sender:self];
     } else {
+        [lManager getALocation:self withTag:0];
         
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New playlist name:"
-                                                          message:nil
-                                                         delegate:self
-                                                cancelButtonTitle:@"Cancel"
-                                                otherButtonTitles:@"Continue", nil];
-        
-        [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
-        [message show];
     }
 }
 
@@ -79,7 +87,8 @@
         NSString *clientID = ((NSDictionary*)api.idAndToken)[@"user_id"];
         NSString *token = ((NSDictionary*)api.idAndToken)[@"client_token"];
         
-        NSString *toSend = [[NSString alloc] initWithFormat:@"{\"user_id\" : \"%@\", \"client_token\" : \"%@\",\"playlist\" : {\"name\" : \"%@\"}}", clientID, token, name];
+        NSString *toSend = [[NSString alloc] initWithFormat:@"{\"user_id\" : \"%@\", \"client_token\" : \"%@\",\"playlist\" : {\"name\" : \"%@\", \"location\" : {\"latitude\" : %.6f, \"longitude\" : %.6f} } }", clientID, token, name, lattitude, longitude];
+        NSLog(@"%f, %f", longitude, lattitude);
         
         id jsonVote = [api parseJson:toSend];
         
@@ -87,22 +96,23 @@
         
         NSLog(@"Sending playlists/new");
         [api postData:jsonVote toURL:postVoteURL];
-        
-        // update local playlist list
-        NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
-        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
-        playlists = dictionaryData[@"playlists"];
-        creators = [[NSMutableArray alloc] init];
-        for (NSMutableDictionary *aPlaylist in playlists) {
-            NSString *creatorName = aPlaylist[@"admin_name"];
-            if (!creatorName) {
-                [creators addObject:@"?"];
-            } else {
-                [creators addObject:creatorName];
-            }
-        }
-        
-        [self.collectionView reloadData];
+
+        [self getPlaylistData:self];
+//        // update local playlist list
+//        NSString *playlistString = [api getDataFromURL:(@"/api/v2/playlists")];
+//        NSMutableDictionary *dictionaryData = (NSMutableDictionary*) [api parseJson:playlistString];
+//        playlists = dictionaryData[@"playlists"];
+//        creators = [[NSMutableArray alloc] init];
+//        for (NSMutableDictionary *aPlaylist in playlists) {
+//            NSString *creatorName = aPlaylist[@"admin_name"];
+//            if (!creatorName) {
+//                [creators addObject:@"?"];
+//            } else {
+//                [creators addObject:creatorName];
+//            }
+//        }
+//        
+//        [self.collectionView reloadData];
         
     }
 }

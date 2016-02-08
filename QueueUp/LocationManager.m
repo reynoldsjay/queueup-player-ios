@@ -9,9 +9,11 @@
 #import "LocationManager.h"
 #import <UIKit/UIKit.h>
 #import "AbstractPlaylistView.h"
+#import "LocationGetter.h"
 
 @implementation LocationManager {
-    AbstractPlaylistView *caller;
+    id <LocationGetter> caller;
+    int tag;
 }
 
 
@@ -24,7 +26,7 @@ static LocationManager *singletonInstance;
     return singletonInstance;
 }
 
-- (void)getALocation:(id)sender
+- (void)getALocation:(id <LocationGetter>)sender withTag:(int)sendTag
 {
     // Create the location manager if this object does not
     // already have one.
@@ -35,6 +37,7 @@ static LocationManager *singletonInstance;
     locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     
     caller = sender;
+    tag = sendTag;
     
     // Set a movement threshold for new events.
     //locationManager.distanceFilter = 500; // meters
@@ -62,7 +65,7 @@ static LocationManager *singletonInstance;
         _lattitude = location.coordinate.latitude;
         _longitude = location.coordinate.longitude;
         [locationManager stopUpdatingLocation];
-        [caller locationCallback];
+        [caller locationCallback:tag];
         
     }
 }
@@ -70,7 +73,7 @@ static LocationManager *singletonInstance;
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable location services for QueueUp in settings to see nearby playlists."
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable location services for QueueUp in settings."
                                                     message:@""
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"

@@ -82,6 +82,7 @@
 		81015ED31C27A782000872E2 /* AbstractPlaylistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractPlaylistView.m; sourceTree = "<group>"; };
 		810492301C67FA8C00A6CBD4 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		810492311C67FA8C00A6CBD4 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		810492331C680D8200A6CBD4 /* LocationGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationGetter.h; sourceTree = "<group>"; };
 		8109D1081BB4D733007D0209 /* FriendsPlaylistsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPlaylistsVC.h; sourceTree = "<group>"; };
 		8109D1091BB4D733007D0209 /* FriendsPlaylistsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPlaylistsVC.m; sourceTree = "<group>"; };
 		811549741B31190800806049 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
@@ -215,6 +216,45 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		813CCEF81C6843D800CBBD03 /* NowPlayingViews */ = {
+			isa = PBXGroup;
+			children = (
+				81B92D611B5C5C1800DBAE44 /* AddTrackVC.h */,
+				81B92D621B5C5C1800DBAE44 /* AddTrackVC.m */,
+				813146861AC0572B002CBD2E /* ClientViewController.h */,
+				813146871AC0572B002CBD2E /* ClientViewController.m */,
+				811549741B31190800806049 /* PlayerViewController.h */,
+				811549751B31190800806049 /* PlayerViewController.m */,
+			);
+			name = NowPlayingViews;
+			sourceTree = "<group>";
+		};
+		813CCEF91C68441C00CBBD03 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				811549911B312F8500806049 /* PlayerUIProtocol.h */,
+				810492331C680D8200A6CBD4 /* LocationGetter.h */,
+				8174AD701B128A6400B1D846 /* ServerAPI.h */,
+				8174AD6E1B128A5000B1D846 /* ServerAPI.m */,
+				811549921B324E0500806049 /* SpotifyPlayer.h */,
+				811549931B324E0500806049 /* SpotifyPlayer.m */,
+				810492301C67FA8C00A6CBD4 /* LocationManager.h */,
+				810492311C67FA8C00A6CBD4 /* LocationManager.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		813CCEFA1C68444300CBBD03 /* Logins */ = {
+			isa = PBXGroup;
+			children = (
+				8174AD651B1250CA00B1D846 /* LoginViewController.h */,
+				8174AD661B1250CA00B1D846 /* LoginViewController.m */,
+				819FF3A31B2DF77600DBF90D /* SPTLoginViewController.h */,
+				819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */,
+			);
+			name = Logins;
+			sourceTree = "<group>";
+		};
 		813DF7941ABE1EC30057D655 = {
 			isa = PBXGroup;
 			children = (
@@ -240,31 +280,16 @@
 		813DF79F1ABE1EC30057D655 /* QueueUp */ = {
 			isa = PBXGroup;
 			children = (
-				8191272A1C40BDFA00546A5F /* New Group */,
+				813CCEF81C6843D800CBBD03 /* NowPlayingViews */,
 				819127291C40BDCC00546A5F /* PlaylistHolders */,
+				813CCEF91C68441C00CBBD03 /* Helpers */,
+				813CCEFA1C68444300CBBD03 /* Logins */,
 				813DF7AA1ABE1EC30057D655 /* Main.storyboard */,
 				817F3E2F1AE350D8008E48B8 /* Config.h */,
 				813DF7A41ABE1EC30057D655 /* AppDelegate.h */,
 				813DF7A51ABE1EC30057D655 /* AppDelegate.m */,
 				811D52D21B11631D0029F4E3 /* SidebarViewController.h */,
 				811D52D31B11631D0029F4E3 /* SidebarViewController.m */,
-				813146861AC0572B002CBD2E /* ClientViewController.h */,
-				813146871AC0572B002CBD2E /* ClientViewController.m */,
-				8174AD651B1250CA00B1D846 /* LoginViewController.h */,
-				8174AD661B1250CA00B1D846 /* LoginViewController.m */,
-				8174AD701B128A6400B1D846 /* ServerAPI.h */,
-				8174AD6E1B128A5000B1D846 /* ServerAPI.m */,
-				819FF3A31B2DF77600DBF90D /* SPTLoginViewController.h */,
-				819FF3A41B2DF77600DBF90D /* SPTLoginViewController.m */,
-				811549741B31190800806049 /* PlayerViewController.h */,
-				811549751B31190800806049 /* PlayerViewController.m */,
-				811549911B312F8500806049 /* PlayerUIProtocol.h */,
-				811549921B324E0500806049 /* SpotifyPlayer.h */,
-				811549931B324E0500806049 /* SpotifyPlayer.m */,
-				81B92D611B5C5C1800DBAE44 /* AddTrackVC.h */,
-				81B92D621B5C5C1800DBAE44 /* AddTrackVC.m */,
-				810492301C67FA8C00A6CBD4 /* LocationManager.h */,
-				810492311C67FA8C00A6CBD4 /* LocationManager.m */,
 			);
 			path = QueueUp;
 			sourceTree = "<group>";
@@ -349,13 +374,6 @@
 				8191272E1C40D44E00546A5F /* NearbyVC.m */,
 			);
 			name = PlaylistHolders;
-			sourceTree = "<group>";
-		};
-		8191272A1C40BDFA00546A5F /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
