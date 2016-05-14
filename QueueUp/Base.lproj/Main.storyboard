@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="61h-vM-1SV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="61h-vM-1SV">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -673,7 +673,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etM-3R-gW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242" y="654"/>
+            <point key="canvasLocation" x="-327" y="599"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="G6y-nI-67y">
@@ -1062,7 +1062,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="09m-oY-BKJ" kind="custom" identifier="back" customClass="SWRevealViewControllerSeguePushController" id="QDY-1z-qIv"/>
+                                    <action selector="backButtonClicked:" destination="dCX-oa-OPT" eventType="touchUpInside" id="QEA-Ra-ipx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Track" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUV-H2-XYY">
@@ -1177,11 +1177,13 @@
                     <connections>
                         <outlet property="search" destination="xdy-9X-luL" id="LFk-G6-NIe"/>
                         <outlet property="trackTable" destination="nF3-aU-z3H" id="fI6-8c-z5C"/>
+                        <segue destination="09m-oY-BKJ" kind="custom" identifier="backToClient" customClass="SWRevealViewControllerSeguePushController" id="Ih1-Qt-YzQ"/>
+                        <segue destination="XKQ-0K-ZlC" kind="custom" identifier="backToHost" customClass="SWRevealViewControllerSeguePushController" id="fpN-6I-JWI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSX-Ph-7Zi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444" y="1481"/>
+            <point key="canvasLocation" x="1621" y="1375"/>
         </scene>
         <!--Your Playlists View Controller-->
         <scene sceneID="nay-jD-ioE">
@@ -1588,11 +1590,11 @@
         <image name="spotify-logo-primary-horizontal-dark-background-rgb.png" width="3344" height="1010"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p53-oU-srF"/>
-        <segue reference="0EI-5U-0Nr"/>
-        <segue reference="Zys-f8-zdR"/>
+        <segue reference="Ih1-Qt-YzQ"/>
         <segue reference="kae-Vy-8UW"/>
+        <segue reference="zyk-r9-PhO"/>
         <segue reference="jLf-RY-cms"/>
         <segue reference="ZGN-8R-ZSd"/>
+        <segue reference="8ir-E9-UU5"/>
     </inferredMetricsTieBreakers>
 </document>

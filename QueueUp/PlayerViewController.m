@@ -292,7 +292,6 @@
     NSString *response = [api postData:jsonVote toURL:postVoteURL];
     id jsonNewPlaylist = [api parseJson:response];
     queue = (NSArray *) jsonNewPlaylist[@"playlist"][@"tracks"];
-    //NSLog(@"New queu: %@", queue);
     
     if (queue) {
         NSLog(@"newq");

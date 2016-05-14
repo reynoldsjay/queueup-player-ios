@@ -13,7 +13,7 @@
 #import "Config.h"
 #import "PlayerUIProtocol.h"
 
-@interface SpotifyPlayer () <SPTAudioStreamingDelegate>
+@interface SpotifyPlayer () <SPTAudioStreamingPlaybackDelegate>
 
 
 @property SIOSocket *socket;
@@ -142,7 +142,7 @@ static SpotifyPlayer *singletonInstance;
             self.socket.onConnect = ^()
             {
                 weakSelf.socketIsConnected = YES;
-                NSLog(@"Connected.");
+                NSLog(@"Player socket connected.");
                 [weakSelf.socket emit: @"auth" args: [[NSArray alloc] initWithObjects:weakapi.idAndToken, nil]];
             };
             
@@ -187,6 +187,9 @@ static SpotifyPlayer *singletonInstance;
                         NSLog(@"New song (player).");
                         currentURI = trackURI;
                         curTrack = track;
+                        [self.player setIsPlaying:1 callback:nil];
+                        playing = 1;
+                        
                         
                     }
                 }
@@ -197,8 +200,10 @@ static SpotifyPlayer *singletonInstance;
                 //update play state, does the client view show this?
                 if (dictionaryStateData[@"play"] != nil) {
                     BOOL playState = [dictionaryStateData[@"play"] boolValue];
-                    [self.player setIsPlaying:playState callback:nil];
-                    playing = playState;
+                    if (playing != playState) {
+                        [self.player setIsPlaying:playState callback:nil];
+                        playing = playState;
+                    }
                 }
                 
                 
@@ -276,7 +281,6 @@ static SpotifyPlayer *singletonInstance;
 }
 
 - (void) audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeToTrack:(NSDictionary *)trackMetadata {
-    NSLog(@"qu size %d", self.player.currentTrackIndex);
 }
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
@@ -285,7 +289,7 @@ static SpotifyPlayer *singletonInstance;
 
 -(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSURL *)trackUri {
     NSLog(@"stopped playing strack");
-    [self.socket emit: @"track_finished" args:nil];
+    //[self.socket emit: @"track_finished" args:nil];
 }
 
 

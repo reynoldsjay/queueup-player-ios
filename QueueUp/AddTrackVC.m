@@ -134,6 +134,14 @@
     
 }
 
+-(IBAction)backButtonClicked:(id)sender {
+    if (api.hosting) {
+        [self performSegueWithIdentifier:@"backToHost" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"backToClient" sender:self];
+    }
+}
+
 
 
 @end
