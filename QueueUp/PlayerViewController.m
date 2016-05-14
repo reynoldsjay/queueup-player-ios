@@ -285,7 +285,7 @@
     
     NSString *postVoteURL = [NSString stringWithFormat:@"/api/v2/playlists/%@/vote", (api.currentPlaylist)[@"_id"]];
     
-    NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
+    //NSLog(@"post: %@ to %@", jsonVote, postVoteURL);
     
     
     
@@ -299,7 +299,7 @@
     }
     
     
-    NSLog(@"Pressed: %ld", (long)pathToCell.row);
+    //NSLog(@"Pressed: %ld", (long)pathToCell.row);
     
 }
 

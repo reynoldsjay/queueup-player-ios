@@ -289,7 +289,7 @@ static SpotifyPlayer *singletonInstance;
 
 -(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSURL *)trackUri {
     NSLog(@"stopped playing strack");
-    //[self.socket emit: @"track_finished" args:nil];
+    [self.socket emit: @"track_finished" args:nil];
 }
 
 

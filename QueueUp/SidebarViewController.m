@@ -159,7 +159,7 @@
     [FBSDKAccessToken setCurrentAccessToken:nil];
     [FBSDKProfile setCurrentProfile:nil];
     [self viewDidLoad];
-    [self performSegueWithIdentifier:@"toTrending" sender:self];
+    [self performSegueWithIdentifier:@"toNearby" sender:self];
     
 }
 
